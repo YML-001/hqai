@@ -1,0 +1,2046 @@
+[
+  {
+    "path": "student/pc/knowledge-source.html",
+    "title": "知识来源原文",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/contacts.html",
+    "title": "联系后勤",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/privacy.html",
+    "title": "隐私与数据使用说明",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/feedback.html",
+    "title": "回答问题反馈",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/feedback-success.html",
+    "title": "反馈已提交",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/knowledge-source.html",
+    "title": "知识来源原文",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/contacts.html",
+    "title": "联系后勤",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/privacy.html",
+    "title": "隐私与数据使用说明",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/feedback.html",
+    "title": "回答问题反馈",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/feedback-success.html",
+    "title": "反馈已提交",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/pc/login.html",
+    "title": "统一身份认证",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/login.html",
+    "title": "统一身份认证",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/dashboard.html",
+    "title": "管理工作台",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/knowledge-published.html",
+    "title": "知识已上线",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/knowledge-offline.html",
+    "title": "确认下线知识",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/knowledge-archived.html",
+    "title": "知识已下线",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/categories.html",
+    "title": "问答分类管理",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/category-edit.html",
+    "title": "编辑问答分类",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/recipients.html",
+    "title": "会议提醒对象",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/recipient-edit.html",
+    "title": "维护提醒人员",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/recipient-saved.html",
+    "title": "提醒人员已保存",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/feedback.html",
+    "title": "问答反馈管理",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/feedback-detail.html",
+    "title": "反馈处理详情",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/feedback-resolved.html",
+    "title": "反馈处理已记录",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/analytics.html",
+    "title": "服务分析",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/roles.html",
+    "title": "角色与权限",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/role-detail.html",
+    "title": "管理员授权详情",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/settings.html",
+    "title": "平台配置",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/settings-saved.html",
+    "title": "配置已保存",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/logs.html",
+    "title": "操作日志",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/knowledge-source-repair.html",
+    "title": "知识来源 · 四、住宿服务 · 宿舍配置与维修",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/knowledge-source-shuttle.html",
+    "title": "知识来源 · 七、交通出行服务 · 班车查询",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/knowledge-source-repair.html",
+    "title": "知识来源 · 四、住宿服务 · 宿舍配置与维修",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/knowledge-source-shuttle.html",
+    "title": "知识来源 · 七、交通出行服务 · 班车查询",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/meeting-import.html",
+    "title": "导入会议日程",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/meeting-import-error.html",
+    "title": "日程导入校验失败",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/knowledge.html",
+    "title": "知识库管理",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/knowledge-edit.html",
+    "title": "编辑知识",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/knowledge-preview.html",
+    "title": "知识发布预览",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/knowledge-detail.html",
+    "title": "知识详情",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/knowledge-upload.html",
+    "title": "上传知识文件",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/knowledge-upload-preview.html",
+    "title": "知识文件解析预览",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/knowledge-upload-success.html",
+    "title": "知识文件入库完成",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/knowledge-files.html",
+    "title": "知识来源文件管理",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/knowledge-file-detail.html",
+    "title": "知识来源文件详情",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/knowledge-upload-error.html",
+    "title": "知识文件上传失败",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/voice.html",
+    "title": "语音输入",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/voice-recording.html",
+    "title": "语音录入中",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/voice-review.html",
+    "title": "语音识别确认",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/voice-error.html",
+    "title": "语音识别失败",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/voice.html",
+    "title": "语音输入",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/voice-recording.html",
+    "title": "语音录入中",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/voice-review.html",
+    "title": "语音识别确认",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/voice-error.html",
+    "title": "语音识别失败",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/voice.html",
+    "title": "语音输入",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/voice-recording.html",
+    "title": "语音录入中",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/voice-review.html",
+    "title": "语音识别确认",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/voice-error.html",
+    "title": "语音识别失败",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/voice.html",
+    "title": "语音输入",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/voice-recording.html",
+    "title": "语音录入中",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/voice-review.html",
+    "title": "语音识别确认",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/voice-error.html",
+    "title": "语音识别失败",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/meeting-detail.html",
+    "title": "会议详情",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/contacts.html",
+    "title": "联系后勤",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/meeting-detail.html",
+    "title": "会议详情",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/contacts.html",
+    "title": "联系后勤",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/knowledge-source.html",
+    "title": "知识来源原文",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/privacy.html",
+    "title": "隐私与数据使用说明",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/feedback.html",
+    "title": "回答问题反馈",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/feedback-success.html",
+    "title": "反馈已提交",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/knowledge-source-repair.html",
+    "title": "知识来源 · 四、住宿服务 · 宿舍配置与维修",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/knowledge-source-shuttle.html",
+    "title": "知识来源 · 七、交通出行服务 · 班车查询",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/knowledge-source.html",
+    "title": "知识来源原文",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/privacy.html",
+    "title": "隐私与数据使用说明",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/feedback.html",
+    "title": "回答问题反馈",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/feedback-success.html",
+    "title": "反馈已提交",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/knowledge-source-repair.html",
+    "title": "知识来源 · 四、住宿服务 · 宿舍配置与维修",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/knowledge-source-shuttle.html",
+    "title": "知识来源 · 七、交通出行服务 · 班车查询",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/voice.html",
+    "title": "语音输入",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/voice-recording.html",
+    "title": "语音录入中",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/voice-review.html",
+    "title": "语音识别确认",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/voice-error.html",
+    "title": "语音识别失败",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/voice.html",
+    "title": "语音输入",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/voice-recording.html",
+    "title": "语音录入中",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/voice-review.html",
+    "title": "语音识别确认",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/voice-error.html",
+    "title": "语音识别失败",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/meetings.html",
+    "title": "我的会议",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/meeting-reminded.html",
+    "title": "已提醒会议详情",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/meeting-changed.html",
+    "title": "变更后会议详情",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/meeting-cancelled.html",
+    "title": "已取消的会议",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/meetings.html",
+    "title": "我的会议",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/meeting-reminded.html",
+    "title": "已提醒会议详情",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/meeting-changed.html",
+    "title": "变更后会议详情",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/meeting-cancelled.html",
+    "title": "已取消的会议",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/meeting-create.html",
+    "title": "新建会议",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/meetings.html",
+    "title": "会议日程管理",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/meeting-preview.html",
+    "title": "会议保存确认",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/meeting-detail.html",
+    "title": "会议管理详情",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/meeting-cancel.html",
+    "title": "确认取消会议",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/meeting-cancelled.html",
+    "title": "会议已取消",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/meeting-import-preview.html",
+    "title": "日程导入预览",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/meeting-import-success.html",
+    "title": "日程导入已确认",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/delivery.html",
+    "title": "会议提醒记录",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/delivery-detail.html",
+    "title": "提醒投递详情",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/delivery-retry.html",
+    "title": "失败提醒重试确认",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/delivery-retried.html",
+    "title": "重试结果",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/meeting-notifications.html",
+    "title": "会议变更与取消通知记录",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/services.html",
+    "title": "服务大厅",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/repair.html",
+    "title": "网上报修",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/supervision.html",
+    "title": "服务监督",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/pool.html",
+    "title": "游泳馆预定",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/utility-info.html",
+    "title": "水电费服务",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/shuttle.html",
+    "title": "班车查询",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/hotel.html",
+    "title": "校园宾馆服务",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/newspaper.html",
+    "title": "报刊订阅",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/lost.html",
+    "title": "失物招领",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/utility-pay.html",
+    "title": "水电缴费",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/announcement.html",
+    "title": "校园公告",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/service-guide.html",
+    "title": "服务办理指引",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/service-handoff.html",
+    "title": "官方服务跳转",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/service-mobile.html",
+    "title": "手机扫码办理",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/service-unavailable.html",
+    "title": "服务替代办理方式",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/handoff-repair.html",
+    "title": "打开网上报修",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/handoff-supervision.html",
+    "title": "打开服务监督",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/handoff-pool.html",
+    "title": "打开游泳馆预定",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/handoff-shuttle.html",
+    "title": "打开班车查询",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/handoff-hotel.html",
+    "title": "打开校园宾馆服务",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/handoff-newspaper.html",
+    "title": "打开报刊订阅",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/handoff-lost.html",
+    "title": "打开失物招领",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/services.html",
+    "title": "服务大厅",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/repair.html",
+    "title": "网上报修",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/supervision.html",
+    "title": "服务监督",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/pool.html",
+    "title": "游泳馆预定",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/utility-info.html",
+    "title": "水电费服务",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/shuttle.html",
+    "title": "班车查询",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/hotel.html",
+    "title": "校园宾馆服务",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/newspaper.html",
+    "title": "报刊订阅",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/lost.html",
+    "title": "失物招领",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/utility-pay.html",
+    "title": "水电缴费",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/announcement.html",
+    "title": "校园公告",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/service-guide.html",
+    "title": "服务办理指引",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/service-handoff.html",
+    "title": "官方服务跳转",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/service-mobile.html",
+    "title": "手机扫码办理",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/service-unavailable.html",
+    "title": "服务替代办理方式",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/handoff-repair.html",
+    "title": "打开网上报修",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/handoff-supervision.html",
+    "title": "打开服务监督",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/handoff-pool.html",
+    "title": "打开游泳馆预定",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/handoff-utility-pay.html",
+    "title": "打开水电缴费",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/services.html",
+    "title": "服务大厅",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/repair.html",
+    "title": "网上报修",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/supervision.html",
+    "title": "服务监督",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/pool.html",
+    "title": "游泳馆预定",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/utility-info.html",
+    "title": "水电费服务",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/shuttle.html",
+    "title": "班车查询",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/hotel.html",
+    "title": "校园宾馆服务",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/newspaper.html",
+    "title": "报刊订阅",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/lost.html",
+    "title": "失物招领",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/utility-pay.html",
+    "title": "水电缴费",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/announcement.html",
+    "title": "校园公告",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/service-guide.html",
+    "title": "服务办理指引",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/service-handoff.html",
+    "title": "官方服务跳转",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/service-mobile.html",
+    "title": "手机扫码办理",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/service-unavailable.html",
+    "title": "服务替代办理方式",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/handoff-repair.html",
+    "title": "打开网上报修",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/handoff-supervision.html",
+    "title": "打开服务监督",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/handoff-pool.html",
+    "title": "打开游泳馆预定",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/handoff-shuttle.html",
+    "title": "打开班车查询",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/handoff-hotel.html",
+    "title": "打开校园宾馆服务",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/handoff-newspaper.html",
+    "title": "打开报刊订阅",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/handoff-lost.html",
+    "title": "打开失物招领",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/services.html",
+    "title": "服务大厅",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/repair.html",
+    "title": "网上报修",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/supervision.html",
+    "title": "服务监督",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/pool.html",
+    "title": "游泳馆预定",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/utility-info.html",
+    "title": "水电费服务",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/shuttle.html",
+    "title": "班车查询",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/hotel.html",
+    "title": "校园宾馆服务",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/newspaper.html",
+    "title": "报刊订阅",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/lost.html",
+    "title": "失物招领",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/utility-pay.html",
+    "title": "水电缴费",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/announcement.html",
+    "title": "校园公告",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/service-guide.html",
+    "title": "服务办理指引",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/service-handoff.html",
+    "title": "官方服务跳转",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/service-mobile.html",
+    "title": "手机扫码办理",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/service-unavailable.html",
+    "title": "服务替代办理方式",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/handoff-repair.html",
+    "title": "打开网上报修",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/handoff-supervision.html",
+    "title": "打开服务监督",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/handoff-pool.html",
+    "title": "打开游泳馆预定",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/handoff-utility-pay.html",
+    "title": "打开水电缴费",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/services.html",
+    "title": "服务内容管理",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/service-edit.html",
+    "title": "配置服务内容",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/service-preview.html",
+    "title": "服务内容发布预览",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/service-saved.html",
+    "title": "服务内容发布完成",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/service-display.html",
+    "title": "服务通用展示配置",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/service-display-preview.html",
+    "title": "通用展示发布预览",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "admin/pc/service-display-saved.html",
+    "title": "通用展示发布完成",
+    "role": "admin",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/home.html",
+    "title": "游客智能问答",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/chat.html",
+    "title": "问答结果 · 宿舍水电费，可以在手机上办理。",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/chat-repair.html",
+    "title": "问答结果 · 你可以通过网上报修提交故障。",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/chat-shuttle.html",
+    "title": "问答结果 · 请查看学校班车系统的当日时刻。",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/chat-fallback.html",
+    "title": "这个问题暂未收录",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/chat-error.html",
+    "title": "暂时无法连接问答服务",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/knowledge-source.html",
+    "title": "知识来源原文",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/contacts.html",
+    "title": "联系后勤",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/privacy.html",
+    "title": "隐私与数据使用说明",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/knowledge-source-repair.html",
+    "title": "知识来源 · 四、住宿服务 · 宿舍配置与维修",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/knowledge-source-shuttle.html",
+    "title": "知识来源 · 七、交通出行服务 · 班车查询",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/chat-pool.html",
+    "title": "公开问答 · 游泳馆怎么预约？",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/chat-supervision.html",
+    "title": "公开问答 · 后勤服务问题可以向谁反馈？",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/services.html",
+    "title": "游客服务大厅",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/login-required.html",
+    "title": "登录提示",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/login.html",
+    "title": "统一身份认证",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/home.html",
+    "title": "游客智能问答",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/chat.html",
+    "title": "问答结果 · 宿舍水电费，可以在手机上办理。",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/chat-repair.html",
+    "title": "问答结果 · 你可以通过网上报修提交故障。",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/chat-shuttle.html",
+    "title": "问答结果 · 请查看学校班车系统的当日时刻。",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/chat-fallback.html",
+    "title": "这个问题暂未收录",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/chat-error.html",
+    "title": "暂时无法连接问答服务",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/knowledge-source.html",
+    "title": "知识来源原文",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/contacts.html",
+    "title": "联系后勤",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/privacy.html",
+    "title": "隐私与数据使用说明",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/knowledge-source-repair.html",
+    "title": "知识来源 · 四、住宿服务 · 宿舍配置与维修",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/knowledge-source-shuttle.html",
+    "title": "知识来源 · 七、交通出行服务 · 班车查询",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/chat-pool.html",
+    "title": "公开问答 · 游泳馆怎么预约？",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/chat-supervision.html",
+    "title": "公开问答 · 后勤服务问题可以向谁反馈？",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/services.html",
+    "title": "游客服务大厅",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/login-required.html",
+    "title": "登录提示",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "visitor/mobile/login.html",
+    "title": "统一身份认证",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/pc/home.html",
+    "title": "智能问答",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/chat.html",
+    "title": "问答结果 · 宿舍水电费，可以在手机上办理。",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/chat-repair.html",
+    "title": "问答结果 · 你可以通过网上报修提交故障。",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/chat-shuttle.html",
+    "title": "问答结果 · 请查看学校班车系统的当日时刻。",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/chat-fallback.html",
+    "title": "这个问题暂未收录",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/chat-error.html",
+    "title": "暂时无法连接问答服务",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/history.html",
+    "title": "对话记录",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/profile.html",
+    "title": "个人中心",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/home.html",
+    "title": "智能问答",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/chat.html",
+    "title": "问答结果 · 宿舍水电费，可以在手机上办理。",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/chat-repair.html",
+    "title": "问答结果 · 你可以通过网上报修提交故障。",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/chat-shuttle.html",
+    "title": "问答结果 · 请查看学校班车系统的当日时刻。",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/chat-fallback.html",
+    "title": "这个问题暂未收录",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/chat-error.html",
+    "title": "暂时无法连接问答服务",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/history.html",
+    "title": "对话记录",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/profile.html",
+    "title": "个人中心",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/profile.html",
+    "title": "教职工个人中心",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/profile.html",
+    "title": "教职工个人中心",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/chat.html",
+    "title": "问答结果 · 宿舍水电费，可以在手机上办理。",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/chat-repair.html",
+    "title": "问答结果 · 你可以通过网上报修提交故障。",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/chat-shuttle.html",
+    "title": "问答结果 · 请查看学校班车系统的当日时刻。",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/chat-fallback.html",
+    "title": "这个问题暂未收录",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/chat-error.html",
+    "title": "暂时无法连接问答服务",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/history.html",
+    "title": "对话记录",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/chat.html",
+    "title": "问答结果 · 宿舍水电费，可以在手机上办理。",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/chat-repair.html",
+    "title": "问答结果 · 你可以通过网上报修提交故障。",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/chat-shuttle.html",
+    "title": "问答结果 · 请查看学校班车系统的当日时刻。",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/chat-fallback.html",
+    "title": "这个问题暂未收录",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/chat-error.html",
+    "title": "暂时无法连接问答服务",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/history.html",
+    "title": "对话记录",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/home.html",
+    "title": "教职工智能问答首页",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/home.html",
+    "title": "教职工智能问答首页",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/assistant.html",
+    "title": "教职工智能问答",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/assistant.html",
+    "title": "教职工智能问答",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/notifications.html",
+    "title": "站内通知",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/notifications-unread.html",
+    "title": "未读站内通知",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/notifications-empty.html",
+    "title": "站内通知空状态",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/notification-cancelled.html",
+    "title": "会议取消详情",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/notification-change.html",
+    "title": "会议变更详情",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/notification-detail.html",
+    "title": "会前提醒详情",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/notifications.html",
+    "title": "站内通知",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/notifications-unread.html",
+    "title": "未读站内通知",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/notifications-empty.html",
+    "title": "站内通知空状态",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/notification-cancelled.html",
+    "title": "会议取消详情",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/notification-change.html",
+    "title": "会议变更详情",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/notification-detail.html",
+    "title": "会前提醒详情",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/pc/chat-personal.html",
+    "title": "本人信息查询",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/chat-personal.html",
+    "title": "本人信息查询",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/chat-personal.html",
+    "title": "本人信息查询",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/chat-personal.html",
+    "title": "本人信息查询",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/pc/notifications.html",
+    "title": "消息通知",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/notifications-unread.html",
+    "title": "未读消息",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/notifications-empty.html",
+    "title": "消息通知空状态",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/notification-detail.html",
+    "title": "学生消息详情 · 服务通知",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/notification-service.html",
+    "title": "学生消息详情 · 平台通知",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/notifications.html",
+    "title": "消息通知",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/notifications-unread.html",
+    "title": "未读消息",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/notifications-empty.html",
+    "title": "消息通知空状态",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/notification-detail.html",
+    "title": "学生消息详情 · 服务通知",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/notification-service.html",
+    "title": "学生消息详情 · 平台通知",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "guide/roles.html",
+    "title": "角色权限矩阵",
+    "role": "guide",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "guide/workflows.html",
+    "title": "业务与审核流程",
+    "role": "guide",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "guide/specification.html",
+    "title": "功能与开发说明",
+    "role": "guide",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "index.html",
+    "title": "原型导航",
+    "role": "guide",
+    "port": "pc",
+    "section": ""
+  }
+]

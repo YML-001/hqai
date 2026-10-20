@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="300" viewBox="0 0 280 300" fill="none" role="img" aria-labelledby="dh-title dh-description">
+  <title id="dh-title">后勤数字服务助手小助</title>
+  <desc id="dh-description">一位身穿校园蓝制服、表情亲切的男性数字服务助手半身像，眼睛、头部和嘴型可分别控制，支持眨眼、点头与模拟说话。</desc>
+  <defs>
+    <radialGradient id="dh-halo" cx="0" cy="0" r="1" gradientTransform="translate(141 145) rotate(90) scale(140 137)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E7F1FF"/>
+      <stop offset="1" stop-color="#F3F8FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="dh-skin" x1="102" y1="69" x2="184" y2="169" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE9D8"/>
+      <stop offset=".56" stop-color="#F6CFB4"/>
+      <stop offset="1" stop-color="#E9B797"/>
+    </linearGradient>
+    <linearGradient id="dh-neck" x1="126" y1="158" x2="150" y2="209" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DCA88B"/>
+      <stop offset="1" stop-color="#F4CCB0"/>
+    </linearGradient>
+    <linearGradient id="dh-hair" x1="102" y1="39" x2="174" y2="107" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34445A"/>
+      <stop offset="1" stop-color="#172A42"/>
+    </linearGradient>
+    <linearGradient id="dh-uniform" x1="65" y1="203" x2="209" y2="301" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#337CE0"/>
+      <stop offset=".58" stop-color="#2263BA"/>
+      <stop offset="1" stop-color="#194D95"/>
+    </linearGradient>
+    <linearGradient id="dh-sleeve" x1="42" y1="242" x2="100" y2="283" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3175CE"/>
+      <stop offset="1" stop-color="#2159A4"/>
+    </linearGradient>
+    <radialGradient id="dh-cheek" cx="0" cy="0" r="1" gradientTransform="translate(0 0) scale(16 8)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DE9E89" stop-opacity=".31"/>
+      <stop offset="1" stop-color="#DE9E89" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="dh-soft-shadow" x="16" y="193" width="248" height="107" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+  <ellipse cx="140" cy="148" rx="137" ry="140" fill="url(#dh-halo)"/>
+  <circle cx="140" cy="146" r="105" stroke="#DDEBFC" stroke-width="1.5"/>
+  <circle cx="231" cy="93" r="4" fill="#B7D2F5"/>
+  <circle cx="48" cy="178" r="3" fill="#B7D2F5"/>
+  <path d="M43 93H51M47 89V97M222 188H232M227 183V193" stroke="#B8D4F7" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="140" cy="282" rx="97" ry="8" fill="#9BBBE5" opacity=".28" filter="url(#dh-soft-shadow)"/>
+
+  <g class="human-body">
+    <path d="M114 163H166L168 198L143 218L112 198L114 163Z" fill="url(#dh-neck)"/>
+    <path d="M108 188L126 203H154L172 188L191 197L186 257H93L87 199L108 188Z" fill="#F8FBFF"/>
+    <path d="M127 204L140 217L153 204L157 290H122L127 204Z" fill="#E7F0FA"/>
+    <path d="M106 187C91 193 78 195 63 204C47 215 42 237 37 263L32 289C67 297 101 300 140 300C179 300 214 297 248 289L243 263C238 237 233 215 217 204C202 195 189 193 174 187L154 210L140 227L126 210L106 187Z" fill="url(#dh-uniform)"/>
+    <path d="M64 208C51 218 45 243 40 267L36 285L71 291L83 235" fill="url(#dh-sleeve)"/>
+    <path d="M216 208C229 218 235 243 240 267L244 285L209 291L197 235" fill="url(#dh-sleeve)"/>
+    <path d="M106 186L126 204L140 227L112 215L98 196L106 186Z" fill="#528EE0"/>
+    <path d="M174 186L154 204L140 227L168 215L182 196L174 186Z" fill="#163F7D"/>
+    <path d="M107 189L124 205M172 189L157 204" stroke="#83ADEF" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>
+    <path d="M140 227V299" stroke="#163F7D" stroke-width="2" opacity=".55"/>
+    <path d="M144 229V299" stroke="#78A4E3" stroke-width="1" opacity=".4"/>
+    <circle cx="145" cy="239" r="2" fill="#D9E9FC"/>
+    <circle cx="145" cy="261" r="2" fill="#D9E9FC"/>
+    <circle cx="145" cy="283" r="2" fill="#D9E9FC"/>
+    <path d="M81 237L78 274M199 237L202 274" stroke="#154580" stroke-width="1.5" stroke-linecap="round" opacity=".4"/>
+    <rect x="165" y="231" width="33" height="20" rx="4" fill="#F8FBFF"/>
+    <rect x="168" y="234" width="9" height="14" rx="2" fill="#D6E7FC"/>
+    <path d="M181 236H192M181 240H194M181 245H188" stroke="#7297C4" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M169 252H196" stroke="#78A4E3" stroke-linecap="round"/>
+    <path d="M89 233H117" stroke="#82AEEC" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="102" cy="226" r="5.5" fill="#D9E9FC"/>
+    <path d="M100 226L102 228L105 224" stroke="#2C68B7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g class="human-head">
+    <path d="M91 107C79 101 77 113 81 127C83 136 90 140 96 133L99 115L91 107Z" fill="#EAB997"/>
+    <path d="M189 107C201 101 203 113 199 127C197 136 190 140 184 133L181 115L189 107Z" fill="#EAB997"/>
+    <path d="M87 114C83 113 84 123 89 127M193 114C197 113 196 123 191 127" stroke="#CC947C" stroke-width="2" stroke-linecap="round"/>
+    <path d="M92 77C95 57 116 49 140 49C164 49 185 58 188 78L188 123C187 146 177 162 158 175C147 182 133 182 122 175C103 162 93 146 92 123V77Z" fill="url(#dh-skin)"/>
+    <path d="M99 91C97 111 100 140 109 153C113 159 118 165 125 170" stroke="#FFECDD" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+    <path d="M92 111C88 104 85 96 84 82C82 60 95 45 116 43C132 28 161 32 176 45C190 49 199 62 197 82C196 94 192 105 188 111L183 86C177 83 171 75 170 68C152 82 130 87 108 82C104 91 99 94 97 95L96 111H92Z" fill="url(#dh-hair)"/>
+    <path d="M99 69C114 70 137 64 153 51M101 57C118 53 128 44 145 43M169 50C176 53 182 58 185 65" stroke="#627187" stroke-width="3" stroke-linecap="round" opacity=".36"/>
+    <path d="M106 103C112 99 120 98 127 101M153 101C160 98 168 99 174 103" stroke="#354054" stroke-width="3.5" stroke-linecap="round"/>
+    <g class="human-eye">
+      <path d="M107 114C112 109 121 109 126 114C121 119 112 119 107 114Z" fill="#FFF9F4"/>
+      <ellipse cx="117" cy="114" rx="4.3" ry="4.8" fill="#324057"/>
+      <ellipse cx="118" cy="114" rx="2.3" ry="3" fill="#172C43"/>
+      <circle cx="118.7" cy="112.4" r="1.2" fill="white"/>
+      <path d="M107 114C112 109 121 109 126 114" stroke="#48505B" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+    <g class="human-eye">
+      <path d="M154 114C159 109 168 109 173 114C168 119 159 119 154 114Z" fill="#FFF9F4"/>
+      <ellipse cx="163" cy="114" rx="4.3" ry="4.8" fill="#324057"/>
+      <ellipse cx="164" cy="114" rx="2.3" ry="3" fill="#172C43"/>
+      <circle cx="164.7" cy="112.4" r="1.2" fill="white"/>
+      <path d="M154 114C159 109 168 109 173 114" stroke="#48505B" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+    <path d="M137 116L134 132C137 135 143 135 147 132" stroke="#C99278" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M139 119L139 128" stroke="#FFEBDD" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+    <ellipse rx="16" ry="8" fill="url(#dh-cheek)" transform="translate(110 133)"/>
+    <ellipse rx="16" ry="8" fill="url(#dh-cheek)" transform="translate(170 133)"/>
+    <g class="human-mouth">
+      <g class="mouth-smile">
+        <path d="M126 145C133 152 147 152 154 145" stroke="#995C51" stroke-width="2.3" stroke-linecap="round"/>
+        <path d="M130 146C136 149 144 149 150 146" stroke="#FFF6EF" stroke-width="2.2" stroke-linecap="round"/>
+      </g>
+      <g class="mouth-open" opacity="0">
+        <path d="M127 143C134 140 146 140 153 143C152 151 147 156 140 156C133 156 128 151 127 143Z" fill="#894D4B"/>
+        <path d="M129 143C135 142 145 142 151 143L149 147H131L129 143Z" fill="#FFF8F1"/>
+        <path d="M133 153C137 149 143 149 147 153C143 156 137 156 133 153Z" fill="#D88D85"/>
+      </g>
+    </g>
+    <path d="M128 161C135 164 145 164 152 161" stroke="#D8A68D" stroke-width="1.6" stroke-linecap="round" opacity=".65"/>
+  </g>
+</svg>

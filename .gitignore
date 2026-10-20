@@ -1,0 +1,21 @@
+# 本地系统文件与缓存。
+.DS_Store
+__pycache__/
+*.pyc
+node_modules/
+.venv/
+.idea/
+.vscode/
+
+# 本地环境与凭据不作为原型内容发布。
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# 原始需求资料、参考截图与本地交付压缩包。
+/*.docx
+/*.png
+/*.zip
+/previews/
