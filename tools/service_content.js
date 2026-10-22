@@ -7,7 +7,7 @@
   const carryPrefix = '后勤服务展示配置：';
   const copy = x => JSON.parse(JSON.stringify(x));
   const query = new URLSearchParams(location.search);
-  const icons = ['fa-screwdriver-wrench','fa-comments','fa-person-swimming','fa-file-lines','fa-bus','fa-hotel','fa-newspaper','fa-magnifying-glass','fa-bolt','fa-bullhorn'];
+  const icons = ['fa-screwdriver-wrench','fa-comments','fa-person-swimming','fa-file-lines','fa-bus','fa-hotel','fa-newspaper','fa-magnifying-glass','fa-bolt','fa-bullhorn','fa-utensils'];
   let state = copy(defaults);
   function load() {
     let saved;
@@ -19,6 +19,7 @@
       }
     } catch (_) {}
     state = { ...copy(defaults), ...saved, display: { ...defaults.display, ...(saved?.display || {}) }, services: { ...copy(defaults.services), ...(saved?.services || {}) } };
+    Object.keys(state.services).forEach(id=>{state.services[id]={entryType:'web',miniProgramShare:'',...(defaults.services[id]||{}),...state.services[id]};});
   }
   function save() {
     state.updated = Date.now();
@@ -41,10 +42,11 @@
   function validURL(value) { try { const u=new URL(value);return ['http:','https:'].includes(u.protocol)?u.href:''; } catch(_){return '';} }
   function endpoint(s, port) { if(s.terminal==='无地址，仅文字说明')return '';if(port==='pc'&&s.terminal==='仅手机')return '';if(port==='mobile'&&s.terminal==='仅电脑')return '';return validURL(s[port]||''); }
   function allowed(s, role=context.role) { if(role==='visitor'||role==='admin'||s.who==='全部用户（说明）'||s.who==='学生、教职工')return true;return role==='student'?s.who==='学生':role==='staff'?s.who==='教职工':false; }
-  function label(s) { return ({'电脑与手机分别配置':'电脑、手机','仅电脑':'仅电脑','仅手机':'仅手机','无地址，仅文字说明':'办事说明'})[s.terminal]||s.terminal; }
+  function label(s) { if(s.entryType==='miniprogram')return '手机微信';return ({'电脑与手机分别配置':'电脑、手机','仅电脑':'仅电脑','仅手机':'仅手机','无地址，仅文字说明':'办事说明'})[s.terminal]||s.terminal; }
   function guideURL(s) { if(context.role==='visitor')return 'login-required.html?intent=service&service='+encodeURIComponent(s.id);return defaults.services[s.id]?s.id+'.html':'service-guide.html?service='+encodeURIComponent(s.id); }
   function current(fallback='repair') { return state.services[query.get('service')||fallback]; }
   function actionFor(s, port) {
+    if(s.entryType==='miniprogram')return [s.buttonText||'查看小程序打开指引','mini-program.html?service='+encodeURIComponent(s.id)];
     if(endpoint(s,port)) return [s.buttonText,'service-handoff.html?service='+encodeURIComponent(s.id)];
     if(port==='pc'&&endpoint(s,'mobile'))return [s.qrButtonText,'service-mobile.html?service='+encodeURIComponent(s.id)];
     return ['查看替代渠道','service-unavailable.html?service='+encodeURIComponent(s.id)];
@@ -66,7 +68,7 @@
     const info=card('办理信息');info.append(details([['适用对象',s.who],['办理渠道',s.channel],['终端支持',label(s)]]));
     const [text,href]=actionFor(s,port),actions=el('div',null,'actions');actions.style.marginTop='22px';
     if(preview){const b=el('button',text,'btn primary');b.type='button';b.disabled=true;actions.append(b);}else actions.append(anchor(text,href,'btn primary'));
-    info.append(actions);right.append(info,note(s.notice));split.append(left,right);root.append(split);return root;
+    info.append(actions);if(preview&&s.entryType==='miniprogram'){const detail=el('div',null,'mini-config-preview');detail.append(el('strong','微信小程序分享口令'),el('p',s.miniProgramShare||'尚未填写口令'));info.append(detail);}right.append(info,note(s.notice));split.append(left,right);root.append(split);return root;
   }
   function renderCatalog() {
     const host=document.querySelector('[data-service-catalog]');if(!host)return;
@@ -79,7 +81,45 @@
       found++;const a=anchor('',guideURL(s),'service-card'),si=el('div',null,'service-icon');si.append(icon(s.icon));a.append(si,el('h3',s.name),el('p',s.summary),badge(s.tag));grid.append(a);
     });empty.hidden=found>0;};input.addEventListener('input',draw);host.append(filters,grid,empty);draw();
   }
+  function miniProgramPanel(s, {preview=false, port=context.port}={}) {
+    const root=el('div',null,'mini-program-grid');
+    const main=card(),hero=el('div',null,'mini-program-hero'),mark=el('div',null,'service-icon'),intro=el('div');
+    mark.append(icon(s.icon));intro.append(el('h2',s.name),el('p',s.channel+' · 手机微信打开'));hero.append(mark,intro);main.append(hero);
+    main.append(el('h2','复制口令，在微信中继续'),el('p','当前使用小程序分享口令打开。复制后，在微信聊天中粘贴发送，再点击识别的小程序卡片。'));
+    const label=el('label','小程序分享口令'),field=el('textarea',null,'mini-share-field');
+    field.id='mini-program-share-'+port;label.htmlFor=field.id;field.value=s.miniProgramShare||'';field.readOnly=true;field.rows=3;field.setAttribute('aria-label','小程序分享口令');main.append(label,field);
+    const actions=el('div',null,'actions'),button=el('button','复制小程序口令','btn primary'),status=el('p','复制后，请切换到微信继续操作。','mini-copy-status');
+    button.type='button';button.disabled=preview||!s.miniProgramShare;status.setAttribute('role','status');status.setAttribute('aria-live','polite');
+    if(!preview)button.addEventListener('click',async()=>{
+      try {
+        if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(field.value);
+        else {field.focus();field.select();if(!document.execCommand('copy'))throw new Error('复制未完成');}
+        button.textContent='已复制小程序口令';status.textContent='已复制。请打开微信，将口令粘贴到聊天中并发送。';
+      }catch(_){field.focus();field.select();status.textContent='暂时无法自动复制，已选中口令，请长按或使用复制快捷键手动复制。';}
+    });
+    actions.append(button);if(port==='mobile'&&!preview){actions.append(anchor('打开微信','weixin://'));}
+    main.append(actions,status);
+    const stepTitle=el('h2','在微信中打开'),steps=el('ol',null,'mini-program-steps');
+    ['点击上方按钮，复制完整的小程序口令。','打开微信，进入任意聊天（如文件传输助手）。','粘贴口令并发送，点击微信识别的小程序卡片。','选择校内收货地址，核对可配送范围后再下单。'].forEach(text=>steps.append(el('li',text)));
+    main.append(el('hr',null,'divider'),stepTitle,steps,el('p','如果口令未被识别，可在微信搜索“美团外卖”进入小程序。','muted'));root.append(main);
+    if(port==='pc'){
+      const aside=card('手机查看打开指引');aside.classList.add('mini-qr-card');
+      if(preview)aside.append(el('p','正式页面提供本站手机指引二维码，扫码后仍需复制口令并在微信中打开。'));
+      else if(['http:','https:'].includes(location.protocol)){
+        const role=context.role==='staff'?'staff':'student';const url=new URL('../../'+role+'/mobile/mini-program.html?service='+encodeURIComponent(s.id),location.href).href;
+        const box=el('div',null,'service-qr');
+        try{const qr=qrcode(0,'M');qr.addData(url);qr.make();box.innerHTML=qr.createSvgTag({cellSize:5,margin:12,scalable:true});box.querySelector('svg')?.setAttribute('aria-label','本站手机打开指引二维码');}catch(_){box.append(el('p','二维码暂时不可用，请在手机浏览器打开下方指引地址。'));}
+        const address=el('input');address.value=url;address.readOnly=true;address.setAttribute('aria-label','手机打开指引地址');
+        aside.append(box,el('p','此二维码用于查看本站打开指引。打开后复制口令，再到微信中继续。'),address);
+        if(['localhost','127.0.0.1','::1'].includes(location.hostname))aside.append(el('p','当前为电脑本地预览，手机需使用已发布的公开预览地址访问。','muted'));
+      }else aside.append(el('p','请通过公开预览网址查看手机指引，或直接复制左侧口令到微信。'));
+      root.append(aside);
+    }
+    return root;
+  }
   function renderRoutes() {
+    const miniHost=document.querySelector('[data-service-miniprogram]');
+    if(miniHost){const s=current('food-delivery');if(!s||!s.enabled||!allowed(s)){blocked(miniHost,s);}else if(s.entryType!=='miniprogram'){miniHost.replaceChildren(heading('服务打开方式已更新',s.name),anchor('查看最新服务指引',guideURL(s),'btn primary'));}else{miniHost.replaceChildren(heading(s.name,'从后勤助手出发，在微信中继续',anchor('返回服务指引',guideURL(s),'btn sm')),miniProgramPanel(s),note(s.notice));}}
     document.querySelectorAll('[data-service-guide]').forEach(host=>{const id=host.dataset.serviceGuide;const s=state.services[id==='query'?(query.get('service')||'repair'):id];host.replaceChildren(guide(s,context.port));});
     const handoff=document.querySelector('[data-service-handoff]');
     if(handoff){const s=current(handoff.dataset.serviceHandoff||'repair');if(!s||!s.enabled||!allowed(s)){blocked(handoff,s);return;}
@@ -112,7 +152,7 @@
       if(context.role==='visitor')a.href=guideURL(s);
       if(a.matches('a.quick,.mini-apps a'))a.replaceChildren(icon(s.icon),document.createTextNode(s.name));
     });
-    document.querySelectorAll('.quick-grid').forEach(grid=>{const count=[...grid.children].filter(a=>!a.hidden).length;grid.hidden=count===0;if(count)grid.style.gridTemplateColumns='repeat('+Math.min(4,count)+', minmax(0, 1fr))';});
+    document.querySelectorAll('.quick-grid').forEach(grid=>{const count=[...grid.children].filter(a=>!a.hidden).length;grid.hidden=count===0;if(count)grid.style.gridTemplateColumns='repeat('+Math.min(5,count)+', minmax(0, 1fr))';});
   }
   function renderAdminList() {
     const host=document.querySelector('#admin-service-content-list');if(!host)return;
@@ -140,23 +180,26 @@
     else if(newMode)s={...copy(defaults.services.repair),id:'service-'+Date.now(),name:'',summary:'',detail:'',pc:'',mobile:'',triggers:'',sort:Object.keys(state.services).length+1,terminal:'无地址，仅文字说明',steps:[{title:'了解办事说明',text:''}],isNew:true};
     else s=copy(state.services[id]||defaults.services.repair);
     form.querySelectorAll('[name]').forEach(n=>{if(s[n.name]!==undefined)n.value=['enabled','showInHall'].includes(n.name)?(s[n.name]?'是':'否'):String(s[n.name]);});drawSteps(s.steps);
+    const typeField=form.querySelector('[name=entryType]'),shareField=form.querySelector('[name=miniProgramShare]');
+    const toggleType=()=>{const mini=typeField.value==='miniprogram';form.querySelector('[data-web-service-fields]').hidden=mini;form.querySelector('[data-web-service-fields]').querySelectorAll('input').forEach(n=>n.disabled=mini);form.querySelector('[data-miniprogram-fields]').hidden=!mini;shareField.disabled=!mini;shareField.required=mini;const terminal=form.querySelector('[name=terminal]');terminal.closest('.field').hidden=mini;terminal.disabled=mini;};typeField.addEventListener('change',toggleType);toggleType();
     document.querySelector('#add-service-step').addEventListener('click',()=>{const data=collectSteps();if(data.length>=12){if(typeof toast==='function')toast('每项服务最多设置12个办理步骤');return;}data.push({title:'',text:''});drawSteps(data);});
     form.addEventListener('submit',e=>{e.preventDefault();const d=Object.fromEntries(new FormData(form));const data={...s,...d,enabled:d.enabled==='是',showInHall:d.showInHall==='是',sort:Number(d.sort),steps:collectSteps()};let error='';
       if(!data.name.trim()||!data.summary.trim()||!data.detail.trim())error='请完整填写服务名称、卡片简介和详细说明。';
       else if(!icons.includes(data.icon))error='请选择支持的服务图标。';
       else if(!Number.isInteger(data.sort)||data.sort<0||data.sort>999)error='排序请输入0至999的整数。';
       else if(!data.steps.length||data.steps.some(x=>!x.title||!x.text))error='请完整填写每个办理步骤的标题和说明。';
-      else if(data.terminal==='电脑与手机分别配置'&&(!validURL(data.pc)||!validURL(data.mobile)))error='两端均可办理时，请分别填写有效的电脑和手机地址。';
-      else if(data.terminal==='仅电脑'&&!validURL(data.pc))error='请填写有效的电脑正式地址。';
-      else if(data.terminal==='仅手机'&&!validURL(data.mobile))error='请填写有效的手机正式地址。';
+      else if(data.entryType==='miniprogram'&&!/^#小程序:\/\/[^\r\n]+\/[^\s/]+$/.test((data.miniProgramShare||'').trim()))error='请填写完整的微信小程序分享口令，以“#小程序://”开头。';
+      else if(data.entryType!=='miniprogram'&&data.terminal==='电脑与手机分别配置'&&(!validURL(data.pc)||!validURL(data.mobile)))error='两端均可办理时，请分别填写有效的电脑和手机地址。';
+      else if(data.entryType!=='miniprogram'&&data.terminal==='仅电脑'&&!validURL(data.pc))error='请填写有效的电脑正式地址。';
+      else if(data.entryType!=='miniprogram'&&data.terminal==='仅手机'&&!validURL(data.mobile))error='请填写有效的手机正式地址。';
       document.querySelector('#service-form-error').textContent=error;if(error)return;
-      state.draft=data;save();location.href='service-preview.html?service='+encodeURIComponent(data.id);
+      if(data.entryType==='miniprogram'){data.miniProgramShare=data.miniProgramShare.trim();data.terminal='仅手机';}state.draft=data;save();location.href='service-preview.html?service='+encodeURIComponent(data.id);
     });
   }
   function previews() {
     const pc=document.querySelector('#service-content-preview-pc'),mobile=document.querySelector('#service-content-preview-mobile');
     if(pc&&mobile){const id=query.get('service')||'repair';const s=(state.draft?.id===id?state.draft:null)||current()||defaults.services.repair;
-      const previewFor=port=>{const root=el('div');root.append(el('h3','服务大厅卡片'));const tile=el('div',null,'service-card'),si=el('div',null,'service-icon');si.append(icon(s.icon));tile.append(si,el('h3',s.name),el('p',s.summary),badge(s.tag));root.append(tile,el('p',`${s.enabled?'已启用':'已停用'} · ${s.showInHall?'在大厅展示':'不在大厅展示'} · ${s.who} · 排序 ${s.sort}`,'service-publish-summary'),guide(s,port,{preview:true}));return root;};
+      const previewFor=port=>{const root=el('div');root.append(el('h3','服务大厅卡片'));const tile=el('div',null,'service-card'),si=el('div',null,'service-icon');si.append(icon(s.icon));tile.append(si,el('h3',s.name),el('p',s.summary),badge(s.tag));root.append(tile,el('p',`${s.enabled?'已启用':'已停用'} · ${s.showInHall?'在大厅展示':'不在大厅展示'} · ${s.who} · 排序 ${s.sort}`,'service-publish-summary'),guide(s,port,{preview:true}));if(s.entryType==='miniprogram')root.append(el('h3','小程序打开页'),miniProgramPanel(s,{preview:true,port}));return root;};
       pc.replaceChildren(previewFor('pc'));const phone=el('div',null,'service-preview-phone');phone.append(previewFor('mobile'));mobile.replaceChildren(phone);document.querySelector('#service-back-edit').href='service-edit.html?service='+encodeURIComponent(s.id);
       document.querySelector('#service-content-confirm').addEventListener('submit',e=>{e.preventDefault();state.services[s.id]=copy(s);delete state.services[s.id].isNew;delete state.draft;save();location.href='service-saved.html?service='+encodeURIComponent(s.id);});
     }

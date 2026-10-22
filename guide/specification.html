@@ -1850,6 +1850,43 @@
           历史列表、通知列表、未读与详情状态继续使用独立HTML页面，方便设计师逐页设计；左侧导航和手机底部导航均不增加这两个一级菜单，进入从属页时继续高亮智能问答。
         </p>
       </section>
+      <section class="card">
+        <h2>校内送餐入口配置</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>前台展示</th>
+                <th>后台配置</th>
+                <th>打开方式</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>常用入口与服务大厅</td>
+                <td>名称、图标、简介、排序及适用对象</td>
+                <td>游客点击后登录，师生直接查看指引</td>
+              </tr>
+              <tr>
+                <td>小程序打开页</td>
+                <td>入口类型、完整分享口令、渠道与办理提示</td>
+                <td>复制口令到微信聊天中打开</td>
+              </tr>
+              <tr>
+                <td>电脑端二维码</td>
+                <td>根据当前站点及角色生成本站手机指引地址</td>
+                <td>扫码查看指引，继续复制口令到微信</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+          <div>
+            目前使用用户提供的美团外卖分享口令；微信识别、配送范围与订单服务以美团实际页面为准。
+          </div>
+        </div>
+      </section>
     </main>
     <script>
       function toast(text) {
@@ -1950,19 +1987,21 @@
             ? guest
               ? "login-required.html?intent=personal"
               : "chat-personal.html"
-            : /报修|坏|空调|门锁|漏/.test(q)
-              ? "chat-repair.html"
-              : /水|电|充值|余额/.test(q)
-                ? "chat.html"
-                : /班车|公交|校车/.test(q)
-                  ? "chat-shuttle.html"
-                  : guest && /游泳|场馆|预约/.test(q)
-                    ? "chat-pool.html"
-                    : guest && /投诉|建议|监督/.test(q)
-                      ? "chat-supervision.html"
-                      : /故障演示|连接失败/.test(q)
-                        ? "chat-error.html"
-                        : "chat-fallback.html";
+            : /校内送餐|外卖|点餐|送餐|奶茶|咖啡|水果/.test(q)
+              ? "chat-food.html"
+              : /报修|坏|空调|门锁|漏/.test(q)
+                ? "chat-repair.html"
+                : /水|电|充值|余额/.test(q)
+                  ? "chat.html"
+                  : /班车|公交|校车/.test(q)
+                    ? "chat-shuttle.html"
+                    : guest && /游泳|场馆|预约/.test(q)
+                      ? "chat-pool.html"
+                      : guest && /投诉|建议|监督/.test(q)
+                        ? "chat-supervision.html"
+                        : /故障演示|连接失败/.test(q)
+                          ? "chat-error.html"
+                          : "chat-fallback.html";
           location.href = target;
         }),
       );

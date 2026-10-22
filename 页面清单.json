@@ -826,8 +826,22 @@
     "section": ""
   },
   {
+    "path": "student/pc/food-delivery.html",
+    "title": "校内送餐",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
     "path": "student/pc/service-guide.html",
     "title": "服务办理指引",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "student/pc/mini-program.html",
+    "title": "小程序打开指引",
     "role": "student",
     "port": "pc",
     "section": ""
@@ -980,8 +994,22 @@
     "section": ""
   },
   {
+    "path": "student/mobile/food-delivery.html",
+    "title": "校内送餐",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
     "path": "student/mobile/service-guide.html",
     "title": "服务办理指引",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/mini-program.html",
+    "title": "小程序打开指引",
     "role": "student",
     "port": "mobile",
     "section": ""
@@ -1113,8 +1141,22 @@
     "section": ""
   },
   {
+    "path": "staff/pc/food-delivery.html",
+    "title": "校内送餐",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
     "path": "staff/pc/service-guide.html",
     "title": "服务办理指引",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/mini-program.html",
+    "title": "小程序打开指引",
     "role": "staff",
     "port": "pc",
     "section": ""
@@ -1267,8 +1309,22 @@
     "section": ""
   },
   {
+    "path": "staff/mobile/food-delivery.html",
+    "title": "校内送餐",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
     "path": "staff/mobile/service-guide.html",
     "title": "服务办理指引",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/mini-program.html",
+    "title": "小程序打开指引",
     "role": "staff",
     "port": "mobile",
     "section": ""
@@ -1374,6 +1430,13 @@
   {
     "path": "visitor/pc/home.html",
     "title": "游客智能问答",
+    "role": "visitor",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "visitor/pc/chat-food.html",
+    "title": "问答结果 · 校内送餐",
     "role": "visitor",
     "port": "pc",
     "section": ""
@@ -1491,6 +1554,13 @@
     "section": ""
   },
   {
+    "path": "visitor/mobile/chat-food.html",
+    "title": "问答结果 · 校内送餐",
+    "role": "visitor",
+    "port": "mobile",
+    "section": ""
+  },
+  {
     "path": "visitor/mobile/chat.html",
     "title": "问答结果 · 宿舍水电费，可以在手机上办理。",
     "role": "visitor",
@@ -1603,6 +1673,13 @@
     "section": ""
   },
   {
+    "path": "student/pc/chat-food.html",
+    "title": "问答结果 · 校内送餐",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
     "path": "student/pc/chat.html",
     "title": "问答结果 · 宿舍水电费，可以在手机上办理。",
     "role": "student",
@@ -1654,6 +1731,13 @@
   {
     "path": "student/mobile/home.html",
     "title": "智能问答",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "student/mobile/chat-food.html",
+    "title": "问答结果 · 校内送餐",
     "role": "student",
     "port": "mobile",
     "section": ""
@@ -1722,6 +1806,13 @@
     "section": ""
   },
   {
+    "path": "staff/pc/chat-food.html",
+    "title": "问答结果 · 校内送餐",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
     "path": "staff/pc/chat.html",
     "title": "问答结果 · 宿舍水电费，可以在手机上办理。",
     "role": "staff",
@@ -1761,6 +1852,13 @@
     "title": "对话记录",
     "role": "staff",
     "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/chat-food.html",
+    "title": "问答结果 · 校内送餐",
+    "role": "staff",
+    "port": "mobile",
     "section": ""
   },
   {

@@ -7,6 +7,8 @@ def make_service_defaults():
             how=[('准备报修信息','确认校区、楼栋、房间，描述故障现象，可在原平台上传现场图片。'),('进入网上报修平台','在原平台创建报修单，并核对联系人及联系方式。'),('查看受理和维修进度','返回原平台查看处理记录；紧急故障请拨打后勤服务热线。')]
         elif sid=='utility-pay':
             how=[('打开官方服务入口','进入“中南大学后勤保障部”微信公众号，选择服务中心、服务平台、水电缴费。'),('完成身份认证并绑定房间','按原平台指引注册、认证，核对校区、楼栋及房间信息。'),('在水电平台完成充值','选择账户与充值金额并付款；交易状态、余额和记录均以原平台为准。')]
+        elif sid=='food-delivery':
+            how=[('复制小程序口令','进入打开指引页，点击“复制小程序口令”。'),('在微信中打开','打开微信，将口令粘贴到聊天中（如文件传输助手）并发送，点击微信识别的小程序卡片。'),('核对配送信息','在美团外卖小程序中选择收货地址，确认可配送范围后再下单。')]
         elif sid=='pool':
             how=[('查看开放场次','周一闭馆检修，其他日期及场次以现场公示和预约系统为准。'),('在原平台选择场次','可预约范围与剩余名额以预约系统实际显示为准。'),('按预约要求到场','携带有效证件，依预约说明缴费进场。咨询电话0731-88877959。')]
         else:
@@ -14,6 +16,7 @@ def make_service_defaults():
         terminal='电脑与手机分别配置' if s['pc'] and s['mobile'] else '仅电脑' if s['pc'] else '仅手机' if s['mobile'] else '无地址，仅文字说明'
         category='报修' if sid=='repair' else '水电缴纳' if sid.startswith('utility') else '班车' if sid=='shuttle' else '其他办事'
         items[sid]={
+            'entryType':s.get('entryType','web'),'miniProgramShare':s.get('miniProgramShare',''),
             'id':sid,'name':s['name'],'icon':s['icon'],'summary':s['summary'],'detail':s['detail'],
             'category':category,'who':'全部用户（说明）' if s['who']=='所有人' else s['who'],
             'channel':'原业务系统','terminal':terminal,'pc':s['pc'],'mobile':s['mobile'],
@@ -23,6 +26,8 @@ def make_service_defaults():
             'notice':'服务由原业务系统提供，助手不受理报修单、不处理支付、不保存交易记录。',
             'steps':[{'title':t,'text':d} for t,d in how]
         }
+        if s.get('entryType')=='miniprogram':
+            items[sid].update(category='餐饮服务',channel='美团外卖小程序',terminal='仅手机',tag='微信小程序',buttonText='查看小程序打开指引',qrButtonText='手机查看打开指引',notice='餐饮服务由美团外卖提供。请先核对校内收货地址的配送范围，商品、配送、付款与售后均在美团完成。',fallbackText='请复制小程序口令，在微信中打开。')
     return {'version':1,'updated':0,'display':{
         'hallTitle':'服务大厅','hallSubtitle':'找到办事入口，让校园生活少一点等待',
         'searchPlaceholder':'搜索服务，如报修、水电、班车','guideTitle':'服务指引','guideSubtitle':'办事之前，先把流程看清楚'
@@ -32,6 +37,7 @@ SERVICE_CONTENT_DEFAULTS=make_service_defaults()
 SERVICE_CONTENT_STYLE='''<style>
 [hidden]{display:none!important}.service-config-guide h1,.service-config-guide h3,.service-card h3,.service-card p{overflow-wrap:anywhere}.service-config-guide .detail-banner .service-icon{flex-shrink:0}.service-preview-panel .split-detail{display:block}.service-preview-panel .service-card{margin-bottom:14px}
 .service-config-result h1{overflow-wrap:anywhere}.service-content-step{display:grid;grid-template-columns:30px minmax(0,1fr);gap:14px;margin-bottom:0}.service-content-step>span{width:28px;height:28px;border-radius:50%;background:#edf4ff;color:var(--blue);display:grid;place-items:center}.service-content-step p{font-size:13px;margin:5px 0 0;white-space:pre-wrap}.service-content-body{white-space:pre-wrap;color:#66758a}.service-draft-chip{font-size:11px;color:#998355;background:#fff8ea;border-radius:6px;padding:4px 8px}.service-content-notice{white-space:pre-wrap}.service-qr{max-width:210px;margin:15px auto}.service-qr svg{width:100%;height:auto}.service-admin-empty{text-align:center;color:#8a9db7;padding:24px}.service-preview-phone{max-width:420px;margin:auto;background:#f5f8fd;border:1px solid var(--line);border-radius:19px;padding:18px}.service-preview-phone .split-detail{display:block}.service-preview-phone h1{font-size:23px}.service-preview-phone .card{padding:18px}.service-preview-phone .page-heading{display:block}.service-content-disabled{padding:30px;text-align:center}.service-content-disabled i{font-size:34px;color:#a5b9d6;margin-bottom:20px}.service-content-link{overflow-wrap:anywhere;font-size:12px;color:#6d84a5}.service-step-edit{border:1px solid var(--line);border-radius:11px;padding:17px;margin-bottom:13px;background:#fbfcff}.service-step-edit .field{margin-bottom:12px}.service-step-edit textarea{min-height:75px}.service-step-order{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px}.service-step-order strong{font-size:13px;color:#7186a5}.service-step-order .actions{gap:5px}.service-step-order button{font-size:11px;padding:5px 8px}.service-preview-title{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:15px}.service-preview-title h2{margin:0}.service-publish-summary{margin:0 0 23px;font-size:12px;color:#7b8da7}.service-config-form-error{color:var(--red);font-size:13px;margin:14px 0;white-space:pre-wrap}.service-content-meta{font-size:12px;color:#8697ad}.mobile .service-content-step{gap:11px}.mobile .service-content-body{font-size:13px}.mobile .service-config-guide .detail-banner h1{font-size:23px}.mobile .service-config-guide .split-detail{display:block}.mobile .service-config-guide .page-heading{align-items:flex-start}.service-preview-phone .service-card{padding:18px}.service-preview-phone .grid3{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.service-preview-panel .mini-program-grid{display:block}.service-preview-phone .mini-program-hero{padding:16px;gap:12px}.service-preview-phone .mini-program-grid .actions .btn{width:100%;white-space:normal}.mini-program-grid{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:22px;align-items:start}.mini-program-hero{background:linear-gradient(120deg,#fff7de,#fffdf7);border:1px solid #f1e3b7;border-radius:18px;padding:24px;margin-bottom:22px;display:flex;gap:18px;align-items:center}.mini-program-hero .service-icon{margin:0;background:#ffdc69;color:#755214;flex-shrink:0;width:55px;height:55px;font-size:23px}.mini-program-hero h2{margin:0 0 4px}.mini-program-hero p{margin:0;font-size:13px}.mini-share-field{margin:20px 0 12px;background:#f8fafc;min-height:100px;font-size:14px;line-height:1.8;overflow-wrap:anywhere}.mini-copy-status{min-height:24px;margin:12px 0 0;color:var(--green);font-size:13px}.mini-program-steps{margin-top:25px}.mini-program-steps li{margin-bottom:13px;color:#66758a;line-height:1.8}.mini-qr-card{text-align:center}.mini-qr-card h2{margin-bottom:8px}.mini-qr-card p{font-size:12px}.mini-config-preview{margin-top:18px;border:1px dashed #c5d7f1;border-radius:10px;padding:14px;background:#f8fbff}.mini-config-preview p{font-size:12px;overflow-wrap:anywhere;white-space:pre-wrap;margin:6px 0 0}.mobile .mini-program-grid{display:block}.mobile .mini-program-hero{padding:18px;gap:13px}.mobile .mini-program-hero h2{font-size:19px}.mobile .mini-program-grid .actions .btn{width:100%;white-space:normal}.mobile .mini-program-steps{padding-left:20px}.mobile .quick-grid{gap:6px}.mobile .quick{font-size:10px;padding:12px 1px}@media(max-width:1050px){.mini-program-grid{grid-template-columns:minmax(0,1fr)}}
 </style>'''
 
 def service_content_assets(role,port):
@@ -62,6 +68,7 @@ def build_service_content_pages():
                 replace(base+sid+'.html',s['name'],service_default_guide(s,role,port),role,port)
             replace(base+'service-guide.html','服务办理指引','<div class="service-config-guide" data-service-guide="query">'+note('正在读取服务内容，请稍候。')+'</div>',role,port)
             handoff='<div data-service-handoff>'+heading('前往官方服务','请在原业务系统内完成后续操作')+'</div>'
+            replace(base+'mini-program.html','小程序打开指引','<div data-service-miniprogram>'+heading('校内送餐','复制口令，在微信中继续')+'</div>',role,port)
             replace(base+'service-handoff.html','官方服务跳转',handoff,role,port)
             replace(base+'service-mobile.html','手机扫码办理','<div data-service-qr>'+heading('手机扫码办理','使用手机打开对应的官方服务')+'</div>',role,port)
             replace(base+'service-unavailable.html','服务替代办理方式','<div data-service-unavailable>'+heading('换一种方式，继续办理')+'</div>',role,port)

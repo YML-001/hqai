@@ -4,7 +4,7 @@ import sys, json, html, os, re
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from prototype_data import SERVICES
 ROOT=Path(__file__).resolve().parents[1]
-NAVIGATION_VERSION='20261020-05'
+NAVIGATION_VERSION='20261022-01'
 PAGES=[]
 CONTENTS={}
 def esc(v): return html.escape(str(v),quote=True)
@@ -36,7 +36,7 @@ document.querySelectorAll('form[data-save]').forEach(f=>{let d=read(f.dataset.sa
 document.querySelectorAll('form[data-save]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const data=Object.fromEntries(new FormData(f));store(f.dataset.save,data);location.href=f.getAttribute('action')}));
 document.querySelectorAll('[data-bind]').forEach(n=>{let [key,field]=n.dataset.bind.split('.');let d=read(key);if(d&&d[field])n.textContent=String(d[field]).replace(/(\d{4}-\d{2}-\d{2})T/,'$1 ')});
 document.querySelectorAll('[data-value]').forEach(n=>{let [key,field]=n.dataset.value.split('.');let d=read(key);if(d&&d[field])n.value=d[field]});
-document.querySelectorAll('[data-submit-chat]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();let q=new FormData(f).get('question').trim();if(!q)return;store('question',{text:q});const guest=document.body.dataset.role==='visitor';let target=needsPersonalInfo(q)?(guest?'login-required.html?intent=personal':'chat-personal.html'):/报修|坏|空调|门锁|漏/.test(q)?'chat-repair.html':/水|电|充值|余额/.test(q)?'chat.html':/班车|公交|校车/.test(q)?'chat-shuttle.html':guest&&/游泳|场馆|预约/.test(q)?'chat-pool.html':guest&&/投诉|建议|监督/.test(q)?'chat-supervision.html':/故障演示|连接失败/.test(q)?'chat-error.html':'chat-fallback.html';location.href=target}));
+document.querySelectorAll('[data-submit-chat]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();let q=new FormData(f).get('question').trim();if(!q)return;store('question',{text:q});const guest=document.body.dataset.role==='visitor';let target=needsPersonalInfo(q)?(guest?'login-required.html?intent=personal':'chat-personal.html'):/校内送餐|外卖|点餐|送餐|奶茶|咖啡|水果/.test(q)?'chat-food.html':/报修|坏|空调|门锁|漏/.test(q)?'chat-repair.html':/水|电|充值|余额/.test(q)?'chat.html':/班车|公交|校车/.test(q)?'chat-shuttle.html':guest&&/游泳|场馆|预约/.test(q)?'chat-pool.html':guest&&/投诉|建议|监督/.test(q)?'chat-supervision.html':/故障演示|连接失败/.test(q)?'chat-error.html':'chat-fallback.html';location.href=target}));
 document.querySelectorAll('a.question,a.list-row[href^=chat],a.btn.sm[href^=chat]').forEach(a=>a.addEventListener('click',()=>{let q=a.querySelector('h3')?.textContent||a.textContent.trim().replace(/^\d+\s*/, '');store('question',{text:q})}));
 document.querySelectorAll('[data-question]').forEach(n=>{let d=read('question');if(d&&(!needsPersonalInfo(d.text)||location.pathname.endsWith('/chat-personal.html')))n.textContent=d.text});
 if(document.body.dataset.role==='visitor'&&location.pathname.endsWith('/home.html')){const input=document.querySelector('.composer [name=question]');const previous=read('question');if(input&&previous?.text)input.value=previous.text}
@@ -78,7 +78,7 @@ def output(path,title,content,role='student',port='pc',active='',section=''):
 def details(items): return '<dl class="summary-list">'+''.join(f'<div><dt>{k}</dt><dd>{v}</dd></div>' for k,v in items)+'</dl>'
 def steps(items): return '<div class="steps">'+''.join(f'<div class="step"><span>{i+1}</span><div><h3>{t}</h3><p>{d}</p></div></div>' for i,(t,d) in enumerate(items))+'</div>'
 def rail():
- return '<aside class="chat-rail"><div class="companion"><img class="portrait" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&auto=format&fit=crop&q=85" alt="后勤服务人员形象示意"><h3>你好，我是后勤小助手</h3><p>校园生活的事，随时问我</p><button class="btn sm" data-speak>'+icon('fa-volume-high')+' 听听欢迎语</button><div style="margin-top:10px" class="muted">形象示意 · 正式形象待确认</div></div><div class="contact-box"><h2>'+icon('fa-headset')+' 需要人工帮助？</h2><span class="phone">0731-88836000</span><p>全天候受理后勤咨询、报修与建议</p>'+link('contacts.html','查看各服务中心联系方式 →','textlink')+'</div><div class="contact-box"><h2>常用服务</h2><div class="mini-apps">'+''.join(link(s['id']+'.html',icon(s['icon'])+s['name'],'') for s in [SERVICES[0],SERVICES[8],SERVICES[4],SERVICES[2],SERVICES[1],SERVICES[5]])+'</div></div></aside>'
+ return '<aside class="chat-rail"><div class="companion"><img class="portrait" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&auto=format&fit=crop&q=85" alt="后勤服务人员形象示意"><h3>你好，我是后勤小助手</h3><p>校园生活的事，随时问我</p><button class="btn sm" data-speak>'+icon('fa-volume-high')+' 听听欢迎语</button><div style="margin-top:10px" class="muted">形象示意 · 正式形象待确认</div></div><div class="contact-box"><h2>'+icon('fa-headset')+' 需要人工帮助？</h2><span class="phone">0731-88836000</span><p>全天候受理后勤咨询、报修与建议</p>'+link('contacts.html','查看各服务中心联系方式 →','textlink')+'</div><div class="contact-box"><h2>常用服务</h2><div class="mini-apps">'+''.join(link(s['id']+'.html',icon(s['icon'])+s['name'],'') for s in [SERVICES[0],SERVICES[8],SERVICES[4],SERVICES[2],SERVICES[1],SERVICES[5],SERVICES[-1]])+'</div></div></aside>'
 def composer():return '<form class="composer" data-submit-chat><label class="sr-only" for="question">咨询问题</label><textarea id="question" name="question" placeholder="输入你想了解的后勤问题，例如：宿舍电费怎么交？" required maxlength="500"></textarea><div class="composer-bottom"><div class="composer-tools"><a class="btn voice-entry" href="voice.html" data-voice-link aria-label="语音输入">'+icon('fa-microphone')+'<span>语音输入</span></a>'+badge('基于后勤服务知识库','green')+'</div><button class="btn primary" type="submit">发送 '+icon('fa-arrow-up')+'</button></div></form><div class="safe-footer">回答由智能助手生成，请以来源原文与最新公示为准</div>'
 QUESTIONS=[('宿舍水电费怎么缴纳？','chat.html'),('宿舍空调坏了，在哪里报修？','chat-repair.html'),('校区之间的班车时刻在哪里查？','chat-shuttle.html'),('游泳馆怎么预约？','pool.html'),('后勤服务问题可以向谁反馈？','supervision.html')]
 ANSWER_TEXT={
@@ -88,9 +88,11 @@ ANSWER_TEXT={
 def student_pages(port):
  base=f'student/{port}/'
  def out(k,t,b,active='home'):output(base+k+'.html',t,b,port=port,active=active)
- quick='<div class="quick-grid">'+''.join(link(s['id']+'.html',icon(s['icon'])+s['name'],'quick') for s in [SERVICES[0],SERVICES[8],SERVICES[4],SERVICES[1]])+'</div>'
+ quick='<div class="quick-grid">'+''.join(link(s['id']+'.html',icon(s['icon'])+s['name'],'quick') for s in [SERVICES[0],SERVICES[8],SERVICES[4],SERVICES[1],SERVICES[-1]])+'</div>'
  home='<div class="chat-layout"><div class="chat-main"><div class="welcome"><div class="eyebrow" style="color:#d5e8ff">让校园生活，更从容一点</div><h1>同学你好，今天有什么可以帮你？</h1><p>报修、水电缴纳、班车和生活服务，<br>从一个问题开始，找到你的办事入口。</p><div class="watermark">'+icon('fa-comments')+'</div></div>'+quick+card('<div class="small-heading"><span>'+icon('fa-fire-flame-curved')+' 大家都在问</span>'+link('services.html','全部服务 →','textlink')+'</div>','<div class="question-list">'+''.join(link(h,f'<span class="number">{i+1}</span>{t}'+icon('fa-arrow-up'),'question') for i,(t,h) in enumerate(QUESTIONS))+'</div>')+composer()+'</div>'+rail()+'</div>'
  out('home','智能问答',home)
+ food_answer='<div class="bubble-user" data-question>校内送餐怎么使用？</div>'+card('后勤小助手','<div data-answer><h2>在微信中打开美团外卖小程序</h2><p>可以通过“校内送餐”入口复制小程序口令，在微信聊天中粘贴发送，再点击识别的小程序卡片。</p><p>请在美团中核对校内收货地址是否可配送，餐品、配送时段、费用和售后以美团实际页面为准。</p></div><p class="source">来源：用户提供的美团外卖小程序分享入口。</p>'+link('food-delivery.html','查看校内送餐入口','btn primary','fa-utensils'))
+ out('chat-food','问答结果 · 校内送餐','<div class="chat-layout"><div>'+food_answer+composer()+'</div>'+rail()+'</div>')
  for k,(question,title,body,target,cta,chapter) in ANSWER_TEXT.items():
   answer=f'<div class="bubble-user" data-question>{question}</div><div class="answer"><div class="answer-label">{icon("fa-wand-magic-sparkles")} 后勤小助手 {badge("已找到知识来源","green")}</div><div data-answer><h2>{title}</h2><p>{body}</p><p class="muted">'+('本助手提供缴费入口与说明；本人用量、余额、欠费及缴费记录请在原水电平台查询。' if k=='chat' else '办理过程与办理记录在原业务系统中查看。')+f'</p></div>{link("knowledge-source.html" if k=="chat" else "knowledge-source-"+k.replace("chat-", "")+".html",icon("fa-book-open")+f" 来源：《后勤服务知识库》· {chapter}<br><small>资料截止 2026年9月17日 · 查看原文 →</small>","source")}{link(target,cta,"btn primary","fa-arrow-right")}<div class="answer-actions"><button class="btn" data-speak>{icon("fa-volume-high")} 播放</button><button class="btn" data-rate="有帮助">{icon("fa-thumbs-up")} 有帮助</button>{link("feedback.html",icon("fa-flag")+" 反馈问题","btn")}</div></div><div class="actions" style="margin-top:18px">{link("chat-repair.html","宿舍设施报修","btn sm")}{link("chat-shuttle.html","看看班车查询","btn sm")}</div>'
   out(k,'问答结果 · '+title,'<div class="chat-layout"><div>'+link('home.html','开启新对话','textlink')+'<div style="height:20px"></div>'+answer+composer()+'</div>'+rail()+'</div>')
@@ -270,11 +272,13 @@ flows_body=heading('业务流程与管理确认流程','严格遵循本期范围
 flows_body+=card('服务内容与展示配置流程',flow([('维护服务内容','卡片名称、图标、简介、详细说明、步骤、对象、终端与地址'),('双端预览核对','查看电脑和手机指引，核对办理按钮与无地址提示'),('授权管理员确认发布','服务大厅、服务指引与关联入口使用已发布配置'),('按需修改或停用','修改后再次预览发布；停用后停止前台开放')])+note('服务大厅及服务指引的共用标题、说明与搜索提示，在通用展示配置中维护。授权管理员直接确认发布，不增加多级审批。'))
 flows_body+=card('智能问答内的记录与消息入口',flow([('进入智能问答','学生与教职工从主导航进入问答'),('查看本人记录','点击问答页内“对话记录”按钮，打开独立历史页'),('查看本人通知','学生点击铃铛查看本人服务消息；指定教职工查看会议提醒、变更与取消'),('返回继续咨询','历史与通知页面通过“返回智能问答”继续咨询')])+note('游客可以提问和浏览功能；使用具体服务、请求个人信息时再登录，不显示个人历史和消息。通知阅读状态与ITS回执分别记录，页内铃铛同步未读数。'))
 flows_body+=card('游客按需登录与学生消息',flow([('先咨询和浏览','无需登录，可输入问题、查看来源和功能列表'),('识别需要身份的操作','点击具体服务，或请求本人余额、报修进度等信息'),('提示登录并保留上下文','可暂不登录；演示认证后回到原服务或问题'),('登录后按本人权限继续','个人数据以原平台为准，学生从问答铃铛查看本人服务消息')])+note('普通流程咨询不强制登录，游客不读取个人数据；学生消息与教职工会议消息分别保存。'))
+flows_body+=card('校内送餐小程序',flow([('选择校内送餐','学生、教职工从常用入口或服务大厅进入；游客点击后按需登录'),('查看打开指引','手机可复制口令，电脑可扫码查看本站手机指引'),('在微信继续','将完整口令粘贴到微信聊天并发送，打开识别的小程序卡片'),('在美团办理','核对校内收货地址的配送范围；下单、支付与售后在美团完成')])+note('后台可配置入口类型、分享口令和服务说明，经双端预览确认后发布。当前采用分享口令，不提供网页一键直达小程序。'))
 output('guide/workflows.html','业务与审核流程',flows_body,role='guide')
 spec_body=heading('功能清单与开发说明','让原型能够直接支撑设计拆页、接口对接和验收讨论')+card('资料依据',table(['资料','用途','采用原则'],[['建设实施方案 · 2026-10-13','确定本期范围、角色、登录、提醒规则','作为范围优先依据'],['后勤服务知识库 · 2026版','答复、服务电话与办事流程','资料截止2026-09-17，需复核时效'],['服务链接','确定电脑与移动服务地址','以该书面清单为地址依据'],['设计参考截图','浅蓝灰背景、问答主体、右侧服务栏','借鉴布局，重新设计后勤内容']]))+card('本期与后续范围',table(['模块','本期原型范围','后续与边界'],[['智能问答','公开与登录问答、来源、反馈、语音样式、数字人；登录用户从页内按钮查看本人对话，学生和指定教职工从铃铛查看本人消息','原型为规则演示，正式接学校大模型与知识检索'],['服务大厅与办事指引','报修、水电、班车、场馆等服务；后台维护卡片、完整指引、办理步骤、对象、两端地址与通用展示文案','业务办理在原系统完成，本人账单接口确认后单独立项'],['会议提醒','日程、工号名单、站内通知、ITS双通道、已读、变更与取消','不含会议审批、签到、短信默认推送'],['知识运营','文件上传、解析预览、来源文件、分类、标准问答、版本、上线与下线','发布与下线同步影响检索结果'],['平台管理','角色权限、日志、学校接口与共享数据说明','真实接口、服务端鉴权、任务调度需后续开发']]))+card('问答能力约定',details([('输入','文字与语音录入样式；确认识别文字后再发送，正式语音接学校接口'),('回答依据','仅有效且可见的后勤知识；关键电话、时间、价格不可编造'),('输出','答复正文、来源章节、资料日期、相关正式入口'),('失败兜底','未收录或接口失败时提供静态服务与人工联系方式'),('人工确认','AI不自动审批、付款、发布知识或扩大权限')]))+card('正式开发验证建议','<p>建立至少30条真实代表性问题的验证集，覆盖公开知识、未收录、身份受限、过期知识与终端差异。</p>'+table(['验证项','建议验收目标'],[['来源覆盖','有据回答全部可定位有效原文'],['关键信息','电话、时间、价格不凭空生成'],['权限隔离','游客不泄露受限知识，用户不读取他人会议'],['知识下线','下线条目不再进入新回答'],['提醒幂等','同会议、工号、计划时点不得重复成功投递'],['日程取消','取消后未发送任务不再执行'],['失败恢复','仅失败对象可重试，成功对象不重复发送']]))+card('原型演示说明','<p>所有数据为演示。表单数据保存在当前浏览器。服务内容与通用展示配置可在同源打开的前台页面联动演示；知识列表与统计页仍展示固定样例。其他独立状态页不模拟真实数据库联动。登录、问答、ITS、共享数据均未连接真实学校服务。</p><p>语音录入提供录音与识别确认样式演示，不启用麦克风；数字人采用可动的原创矢量演示形象，播报通过浏览器语音合成演示。校园氛围图片来自Unsplash。正式名称和形象仍需后勤确认。</p><p>每页包含内联CSS及必要脚本，采用HTML5、Tailwind CSS、Font Awesome。部分资源通过网络加载；核心布局有内联样式保障。</p>')
 spec_body+=card('本轮新增的体验与通知范围','<p>依据本次需求，补充语音录入样式、可模拟说话的数字人，以及会议站内通知。站内通知与ITS分别记录投递和阅读情况；仅指定接收人可见本人会议消息。</p><p>会前提醒按配置时点生成；会议变更与取消分别生成通知，按会议版本、接收人与通道去重。会议仍不设置审批。</p>')
 spec_body+=card('前台内容与后台配置映射',table(['前台展示位置','可配置内容','后台入口'],[['服务大厅页头','标题、说明与搜索提示','服务内容管理 → 通用展示配置'],['服务大厅卡片','名称、图标、分类、简介、角标、适用对象、排序及是否展示','服务内容管理 → 配置服务内容'],['服务指引页头','通用标题与说明','服务内容管理 → 通用展示配置'],['服务指引正文','服务名称、简介、详细说明、步骤名称与操作说明','服务内容管理 → 配置服务内容'],['办理信息与提示','办理渠道、适用对象、终端支持、电脑和手机地址、按钮文案、无地址提示及办理提示','服务内容管理 → 配置服务内容'],['智能问答正文与引用','标准答复、常见问法、知识来源、文件关联及可见范围','知识库管理 → 编辑知识']])+note('修改服务内容需预览并确认发布后生效。原型通过当前浏览器的同源本地存储演示前台同步；跨设备共享、持久化、版本审计和服务端权限控制由正式系统实现。'))
 spec_body+=card('菜单与从属页面约定','<p>“智能问答”是对话记录与消息通知的统一入口。学生与教职工通过页内按钮打开本人历史；学生通过同页铃铛查看本人服务消息，指定会议接收人查看会议通知与未读数。</p><p>历史列表、通知列表、未读与详情状态继续使用独立HTML页面，方便设计师逐页设计；左侧导航和手机底部导航均不增加这两个一级菜单，进入从属页时继续高亮智能问答。</p>')
+spec_body+=card('校内送餐入口配置',table(['前台展示','后台配置','打开方式'],[['常用入口与服务大厅','名称、图标、简介、排序及适用对象','游客点击后登录，师生直接查看指引'],['小程序打开页','入口类型、完整分享口令、渠道与办理提示','复制口令到微信聊天中打开'],['电脑端二维码','根据当前站点及角色生成本站手机指引地址','扫码查看指引，继续复制口令到微信']])+note('目前使用用户提供的美团外卖分享口令；微信识别、配送范围与订单服务以美团实际页面为准。'))
 output('guide/specification.html','功能与开发说明',spec_body,role='guide')
 # 导航页每行两个功能模块，每个页面均有独立入口。
 def visual():return '<div class="entry-visual"><div class="mock-side"><b></b><b></b><b></b><b></b></div><div class="mock-main"><div class="mock-top"></div><div class="mock-cards"><b></b><b></b><b></b></div></div></div>'
@@ -333,7 +337,7 @@ lines=[
  '- 服务内容经双端预览、确认发布后，在当前浏览器同源前台页面同步演示；标准问答及引用仍在知识库管理中维护。','',
  '## 演示边界','',
  '本项目为可点击的设计原型。统一身份认证、大模型、学校语音、ITS及共享数据均未连接真实服务。服务配置和表单保存在当前浏览器；服务内容与通用展示支持同源页面联动，其他静态状态页和统计仍使用样例。正式系统需补充后端鉴权、持久化、版本审计、检索、任务调度、回执及幂等处理。','',
- '语音录入为无麦克风演示；数字人嘴型配合浏览器播报模拟。站内会议通知与ITS独立记录，未接真实消息服务。校园氛围图片来自Unsplash，二维码编码的是已配置的学校服务地址。','',
+ '语音录入为无麦克风演示；数字人嘴型配合浏览器播报模拟。站内会议通知与ITS独立记录，未接真实消息服务。校园氛围图片来自Unsplash；业务二维码编码正式服务地址，校内送餐二维码仅用于手机查看本站打开指引。','',
  '## 推荐演示路径','',
  '1. 后台 → 服务内容管理 → 配置服务 → 修改卡片与办理步骤 → 双端预览 → 确认发布 → 前台服务大厅与指引查看更新。',
  '2. 后台 → 服务内容管理 → 通用展示配置 → 修改页头和搜索提示 → 预览确认 → 两端查看更新。',
@@ -345,6 +349,7 @@ lines=[
  '8. 后台 → 知识库 → 编辑 → 预览确认 → 上线 → 下线确认。',
  '9. 后台 → 新建会议 → 预览确认 → 详情 → 取消。',
  '10. 后台 → 提醒记录 → 部分失败 → 仅失败对象重试。','',
+ '11. 智能问答 → 校内送餐 → 打开指引 → 复制口令 → 在微信聊天中粘贴并发送 → 打开识别的小程序卡片。电脑端可扫码查看本站手机指引。','',
  '## 独立页面清单',''
 ]
 lines += [f'- {p["path"]}：{p["title"]}' for p in PAGES]

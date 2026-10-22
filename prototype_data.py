@@ -134,6 +134,21 @@ SERVICES = [
         "detail": "通知以后勤保障部官网的通知公告和微信公众号「中南大学后勤保障部」信息中心为准。官网地址是 https://hqbzb.csu.edu.cn 。",
         "triggers": "公告、通知、放假安排",
     },
+    {
+        "id": "food-delivery",
+        "name": "校内送餐",
+        "icon": "fa-utensils",
+        "who": "学生、教职工",
+        "pc": "",
+        "mobile": "",
+        "pc_review": False,
+        "student_only": False,
+        "entryType": "miniprogram",
+        "miniProgramShare": "#小程序://美团外卖丨外卖美食奶茶咖啡水果/ioEYbhk6ryw2kcn",
+        "summary": "复制口令，在微信打开美团外卖小程序。",
+        "detail": "通过美团外卖小程序查看餐饮、奶茶、咖啡和水果等服务。请在美团中确认校内收货地址是否可配送；配送范围、时段、费用、支付与售后均以美团实际页面为准。",
+        "triggers": "校内送餐、外卖、点餐、送餐、奶茶、咖啡、水果",
+    },
 ]
 
 

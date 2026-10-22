@@ -1884,19 +1884,21 @@
             ? guest
               ? "login-required.html?intent=personal"
               : "chat-personal.html"
-            : /报修|坏|空调|门锁|漏/.test(q)
-              ? "chat-repair.html"
-              : /水|电|充值|余额/.test(q)
-                ? "chat.html"
-                : /班车|公交|校车/.test(q)
-                  ? "chat-shuttle.html"
-                  : guest && /游泳|场馆|预约/.test(q)
-                    ? "chat-pool.html"
-                    : guest && /投诉|建议|监督/.test(q)
-                      ? "chat-supervision.html"
-                      : /故障演示|连接失败/.test(q)
-                        ? "chat-error.html"
-                        : "chat-fallback.html";
+            : /校内送餐|外卖|点餐|送餐|奶茶|咖啡|水果/.test(q)
+              ? "chat-food.html"
+              : /报修|坏|空调|门锁|漏/.test(q)
+                ? "chat-repair.html"
+                : /水|电|充值|余额/.test(q)
+                  ? "chat.html"
+                  : /班车|公交|校车/.test(q)
+                    ? "chat-shuttle.html"
+                    : guest && /游泳|场馆|预约/.test(q)
+                      ? "chat-pool.html"
+                      : guest && /投诉|建议|监督/.test(q)
+                        ? "chat-supervision.html"
+                        : /故障演示|连接失败/.test(q)
+                          ? "chat-error.html"
+                          : "chat-fallback.html";
           location.href = target;
         }),
       );
