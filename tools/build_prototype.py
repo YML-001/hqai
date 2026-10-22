@@ -6,7 +6,7 @@ from prototype_data import SERVICES
 ROOT=Path(__file__).resolve().parents[1]
 DOCUMENTS=ROOT/'文档/02-交付与验收'
 DOCUMENTS.mkdir(parents=True,exist_ok=True)
-NAVIGATION_VERSION='20261022-03'
+NAVIGATION_VERSION='20261022-04'
 PAGES=[]
 CONTENTS={}
 exec(compile((ROOT/'tools/figma_theme.py').read_text(), 'figma_theme.py', 'exec'),globals())

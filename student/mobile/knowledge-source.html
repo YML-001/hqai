@@ -1590,7 +1590,7 @@
     </style>
   </head>
   <body data-role="student" data-port="mobile" data-page="knowledge-source">
-    <div class="mobile">
+    <div class="mobile deep-secondary">
       <div class="demo-bar">交互原型 · 学生移动端 · 数据为演示</div>
       <div class="figma-mobile-status" aria-hidden="true">
         <span>9:41</span>
@@ -1599,33 +1599,30 @@
             src="../../assets/figma/mobile-header/53521.svg"
             alt=""
             class=""
-            loading="lazy"
+            decoding="async"
           /><img
             src="../../assets/figma/mobile-header/612fa.svg"
             alt=""
             class=""
-            loading="lazy"
+            decoding="async"
           /><img
             src="../../assets/figma/mobile-header/a13c3.svg"
             alt=""
             class=""
-            loading="lazy"
+            decoding="async"
           />
         </div>
       </div>
       <header class="topbar">
-        <div class="brand figma-mobile-brand">
-          <strong>智慧后勤AI助手</strong>
-        </div>
+        <div class="brand figma-mobile-brand"><strong>知识来源</strong></div>
         <div class="toplinks">
           <a class="textlink desktop-link" href="../../index.html">原型导航</a
           ><span class="avatar">陈</span><span>学生</span>
         </div>
       </header>
       <main class="main">
-        <a class="mobile-back" href="../../index.html"
-          ><i class="fa-solid fa-arrow-left" aria-hidden="true"></i
-          >返回原型导航</a
+        <a class="mobile-back" href="chat.html"
+          ><i class="fa-solid fa-arrow-left" aria-hidden="true"></i>返回</a
         >
         <div data-figma-body data-screen="knowledge-source">
           <div class="page-heading">
@@ -1683,9 +1680,10 @@
         ><a class="" href="contacts.html"
           ><i class="fa-solid fa-headset" aria-hidden="true"></i>联系后勤</a
         ><a class="" href="profile.html"
-          ><i class="fa-solid fa-user" aria-hidden="true"></i>个人中心</a
+          ><i class="fa-solid fa-user" aria-hidden="true"></i>我的</a
         >
       </nav>
+      <div class="deep-home-indicator" aria-hidden="true"></div>
     </div>
     <script>
       function toast(text) {
@@ -7752,6 +7750,2624 @@
         position: relative;
         z-index: 1;
       }
+
+      /* 深入页面按独立设计稿还原。 */
+      html:has(body[data-port="mobile"]) {
+        scrollbar-width: none;
+      }
+      html:has(body[data-port="mobile"])::-webkit-scrollbar {
+        display: none;
+      }
+      body[data-port="mobile"] {
+        --deep-text: #3c444f;
+        --deep-muted: #8595a4;
+      }
+      .mobile {
+        background-color: #e6f5ff;
+        background-image:
+          url("../../assets/figma/deep-profile/8d5c4.svg"),
+          url("../../assets/figma/deep-profile/accd7.svg"),
+          url("../../assets/figma/deep-profile/7580d.svg"),
+          url("../../assets/figma/deep-profile/9361a.svg"),
+          linear-gradient(#d2e3ff, #e6f5ff);
+        background-position:
+          right -60px top -60px,
+          -222px -56px,
+          193px -214px,
+          -142px -246px,
+          0 0;
+        background-size:
+          201px 201px,
+          443px 656px,
+          292px 536px,
+          506px 656px,
+          100% 100%;
+        background-repeat: no-repeat;
+        overflow-x: clip;
+      }
+      body[data-role="staff"] .mobile:not(:has(.deep-campus-surface)) {
+        background-image:
+          url("../../assets/figma/deep-profile/8d5c4.svg"),
+          url("../../assets/figma/deep-profile/accd7.svg"),
+          url("../../assets/figma/deep-profile/7580d.svg"),
+          url("../../assets/figma/deep-profile/9361a.svg"),
+          linear-gradient(#d2e3ff, #e6f5ff);
+      }
+      .mobile .demo-bar {
+        display: none;
+      }
+      .mobile .topbar {
+        height: 54px;
+        padding: 0 16px;
+        z-index: 3;
+      }
+      .mobile .topbar .figma-mobile-brand strong {
+        font-family:
+          -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 16px;
+      }
+      .mobile .figma-mobile-status {
+        font-size: 14px;
+        padding-right: 14px;
+      }
+      .mobile .main {
+        position: relative;
+        z-index: 1;
+      }
+      .mobile:has(
+          :is(
+            [data-screen="profile"],
+            [data-screen="contacts"],
+            [data-screen="home"],
+            [data-screen="assistant"],
+            [data-screen="services"],
+            [data-screen="meetings"]
+          )
+        )
+        .mobile-back {
+        display: none;
+      }
+      .mobile .main > .mobile-back {
+        top: -42px;
+        left: 12px;
+        z-index: 5;
+      }
+      .deep-mobile-watermark {
+        position: absolute;
+        top: 85px;
+        left: 20px;
+        font-weight: 900;
+        font-size: 43.7px;
+        line-height: 45px;
+        letter-spacing: -1px;
+        color: #7daef616;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        height: 45px;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .deep-mobile-watermark img {
+        width: 40px;
+        height: 36px;
+        opacity: 0.2;
+      }
+      .mobile .bottom-nav {
+        height: 118px;
+        padding: 12px 8px 34px;
+        align-items: flex-start;
+      }
+      .mobile .bottom-nav a {
+        font-size: 14px;
+        font-weight: 500;
+        height: 60px;
+        line-height: 24px;
+      }
+      .mobile .bottom-nav i {
+        height: 32px;
+        width: 32px;
+        line-height: 32px;
+        margin: 0 auto 2px;
+      }
+      .mobile .bottom-nav a[href="profile.html"].active i {
+        background-image: url("../../assets/figma/deep-profile/13aef.svg");
+        background-size: 24px 26px;
+      }
+      .mobile .bottom-nav a[href="contacts.html"].active i {
+        background-image: url("../../assets/figma/mobile-bottom-nav/ff619.svg");
+        background-size: 24px 26px;
+      }
+      .mobile .bottom-nav a[href="meetings.html"] i {
+        font-size: 0;
+        background: url("../../assets/figma/deep-meeting-nav/8432f.svg")
+          center/24px 24px no-repeat;
+      }
+      .deep-home-indicator {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(100%, 430px);
+        height: 34px;
+        z-index: 20;
+        pointer-events: none;
+        backdrop-filter: blur(12px);
+      }
+      .deep-home-indicator:before {
+        content: "";
+        position: absolute;
+        width: 134px;
+        height: 5px;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 10px;
+        background: #000;
+      }
+      .mobile:has(
+        :is(
+          [data-screen^="notification"],
+          [data-screen^="chat"],
+          .deep-service-guide
+        )
+      ) {
+        padding-bottom: 34px;
+      }
+      .mobile:has(
+          :is(
+            [data-screen^="notification"],
+            [data-screen^="chat"],
+            .deep-service-guide
+          )
+        )
+        .bottom-nav {
+        display: none;
+      }
+      .mobile:has(
+          :is(
+            [data-screen^="notification"],
+            [data-screen^="chat"],
+            .deep-service-guide
+          )
+        )
+        .deep-home-indicator {
+        display: block;
+      }
+      .mobile:has(:is([data-screen^="notification"], [data-screen^="chat"]))
+        .qa-tools {
+        display: none !important;
+      }
+      .deep-underlined {
+        position: relative;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        color: #111;
+        margin: 0;
+      }
+      .deep-underlined:after {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 13px;
+        width: 30px;
+        height: 13px;
+        background: url("../../assets/figma/deep-profile/99f73.svg")
+          center/contain no-repeat;
+        pointer-events: none;
+      }
+      /* 学生个人中心。 */
+      .mobile:has(.deep-student-profile) .main {
+        padding: 0 20px 24px;
+      }
+      .deep-student-profile {
+        padding-top: 7px;
+      }
+      .deep-profile-identity {
+        margin: 0;
+      }
+      .deep-profile-identity > summary {
+        min-height: 80px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        list-style: none;
+        cursor: pointer;
+      }
+      .deep-profile-identity > summary::-webkit-details-marker {
+        display: none;
+      }
+      .deep-avatar {
+        position: relative;
+        flex: 0 0 66px;
+        width: 66px;
+        height: 80px;
+      }
+      .deep-avatar-circle {
+        position: absolute;
+        left: 3px;
+        top: 9px;
+        width: 60px;
+        height: 60px;
+        border: 4px solid white;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      .deep-avatar-background {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 52px;
+        height: 52px;
+      }
+      .deep-avatar-person {
+        position: absolute;
+        left: 8.3px;
+        top: 10px;
+        max-width: none;
+      }
+      .deep-avatar-ribbon {
+        position: absolute;
+        left: 0;
+        top: 60px;
+        width: 66px;
+        height: 20px;
+      }
+      .deep-avatar-ribbon > img {
+        position: absolute;
+        top: 0;
+      }
+      .deep-ribbon-left {
+        left: 0;
+        transform: scaleX(-1);
+      }
+      .deep-ribbon-right {
+        right: 0;
+      }
+      .deep-avatar-ribbon > span {
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        top: 0;
+        height: 18px;
+        background: linear-gradient(90deg, #419bfe, #89a6ff, #419bfe);
+        font-size: 11px;
+        line-height: 18px;
+        font-weight: 800;
+        color: #fff;
+        text-align: center;
+      }
+      .deep-profile-name h1 {
+        margin: 0 0 5px;
+        font-size: 16px;
+        line-height: 22px;
+        color: #24344d;
+        font-weight: 700;
+      }
+      .deep-profile-name p {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+        margin: 0 0 6px;
+        font-size: 12px;
+        line-height: 18px;
+        color: #6e6e6e;
+      }
+      .deep-profile-name p img {
+        width: 12px;
+        height: 12px;
+      }
+      .deep-profile-name > span {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 600;
+        line-height: 16px;
+        padding: 2px 12px;
+        border-radius: 14px;
+        color: #fff;
+        background: #0cce6575;
+      }
+      .deep-profile-expanded {
+        margin: 12px 0;
+        background: #ffffffaa;
+        padding: 12px;
+        border-radius: 14px;
+      }
+      .deep-profile-shortcuts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 28px;
+      }
+      .deep-profile-shortcut {
+        min-width: 0;
+        height: 69px;
+        background: linear-gradient(#d8eaff, white);
+        border-radius: 12px;
+        padding: 14px 10px;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .deep-profile-symbol {
+        position: relative;
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        flex: 0 0 40px;
+        background: #fffbe5;
+        border-radius: 10px;
+      }
+      .deep-profile-symbol > img {
+        width: 32px;
+        height: 32px;
+        object-fit: cover;
+      }
+      .deep-profile-shortcut:nth-child(2) .deep-profile-symbol {
+        background: #cbe4ff;
+      }
+      .deep-profile-shortcut b {
+        font-size: 14px;
+        line-height: 21px;
+        color: #24344d;
+        display: block;
+        white-space: nowrap;
+      }
+      .deep-profile-shortcut small {
+        font-size: 11.5px;
+        line-height: 18px;
+        color: #718099;
+        white-space: nowrap;
+      }
+      .deep-profile-functions {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-top: 24px;
+      }
+      .deep-profile-functions h2 {
+        margin-bottom: 0;
+      }
+      .deep-function-row {
+        height: 65px;
+        border: 1.5px solid white;
+        background: #ffffff80;
+        backdrop-filter: blur(2px);
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 14px 12px;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--deep-text);
+      }
+      .deep-function-icon {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        flex: 0 0 34px;
+      }
+      .deep-function-icon > img {
+        max-width: 34px;
+        max-height: 34px;
+      }
+      .deep-function-arrow {
+        margin-left: auto;
+        width: 22px;
+        height: 22px;
+      }
+      .deep-profile-logout {
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #cce5ff;
+        border: 1px solid #acd5ff;
+        border-radius: 30px;
+        color: #2486ff;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      /* 联系后勤。 */
+      .mobile:has(.deep-contacts) .main {
+        padding: 32px 16px 24px;
+      }
+      .deep-contact-hero {
+        position: relative;
+        padding: 16px 17px;
+        background: linear-gradient(110deg, #0058ff, #469fff);
+        border-radius: 12px;
+        color: white;
+        margin: 0 0 20px;
+      }
+      .deep-contact-title {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+      }
+      .deep-contact-title > span {
+        display: inline-block;
+        vertical-align: 2px;
+        background: #d1e8ff;
+        color: #0064e0;
+        border-radius: 3px;
+        font-size: 10px;
+        padding: 0 5px;
+        line-height: 16px;
+        margin-left: 5px;
+        font-weight: 500;
+      }
+      .deep-contact-hero > strong {
+        display: block;
+        font-size: 26px;
+        line-height: 36px;
+        font-weight: 750;
+        margin-top: 5px;
+      }
+      .deep-contact-hero > p {
+        font-size: 12px;
+        line-height: 20px;
+        color: #d8ebff;
+        margin: 5px 0 12px;
+      }
+      .deep-hotline-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        height: 38px;
+        background: #dceeff;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #2587ff;
+      }
+      .deep-hotline-button > img {
+        width: 16px;
+        height: 16px;
+      }
+      .deep-contact-robot {
+        position: absolute;
+        right: 20px;
+        top: -26px;
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        z-index: -1;
+      }
+      .deep-contact-centers {
+        border: 1.5px solid white;
+        border-radius: 24px;
+        background: #ffffff80;
+        padding: 16px 12px;
+      }
+      .deep-contact-centers h2 {
+        margin: 0 1px 16px;
+      }
+      .deep-contact-row {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        padding: 12px 12px;
+        background: linear-gradient(#cde3ff, #ffffffc9);
+        border: 1px solid white;
+        border-radius: 14px;
+        margin-top: 10px;
+        min-height: 69px;
+      }
+      .deep-contact-icon {
+        width: 38px;
+        height: 38px;
+        flex: 0 0 38px;
+        display: grid;
+        place-items: center;
+        background: #c9e4ff;
+        border-radius: 10px;
+      }
+      .deep-contact-icon > img {
+        width: 28px;
+        height: 28px;
+      }
+      .deep-contact-row > div {
+        min-width: 0;
+        flex: 1;
+      }
+      .deep-contact-row h3 {
+        font-size: 14px;
+        line-height: 21px;
+        margin: 0 0 2px;
+        color: #24344d;
+        font-weight: 650;
+      }
+      .deep-contact-row p {
+        margin: 0;
+        font-size: 12px;
+        line-height: 18px;
+        color: #718099;
+      }
+      .deep-contact-phone {
+        font-size: 14px;
+        color: #1683ff;
+        white-space: nowrap;
+      }
+      .deep-contact-phone:before {
+        content: "";
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        vertical-align: -2px;
+        background: url("../../assets/figma/deep-contacts/40b64.svg")
+          center/14px no-repeat;
+      }
+      /* 本人消息列表和详情。 */
+      .mobile:has([data-screen^="notifications"]) .main {
+        padding: 7px 20px 34px;
+      }
+      .mobile:has([data-screen^="notifications"]) .page-heading,
+      .mobile:has([data-screen^="notifications"]) .notification-summary {
+        display: none;
+      }
+      .mobile:has([data-screen^="notifications"]) [data-screen] > .card {
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+      }
+      .mobile .notification-tabs {
+        display: flex;
+        justify-content: center;
+        border: 0;
+        margin: 0 0 19px;
+        height: 44px;
+      }
+      .mobile .notification-tabs .tabs {
+        display: flex;
+        gap: 3px;
+        align-items: center;
+        border: 0;
+        border-radius: 100px;
+        background: #ffffff66;
+        padding: 4px;
+        margin: 0;
+        height: 44px;
+      }
+      .mobile .notification-tabs .tabs a {
+        min-width: 116px;
+        text-align: center;
+        border: 0;
+        border-radius: 100px;
+        background: #ffffff66;
+        padding: 8px 12px;
+        font-size: 14px;
+        line-height: 18px;
+        color: #111;
+        margin: 0;
+      }
+      .mobile .notification-tabs .tabs a.active {
+        background: linear-gradient(100deg, #0064ff, #469fff);
+        color: white;
+        font-weight: 600;
+      }
+      .mobile .notification-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .mobile .notification-item {
+        position: relative;
+        display: block;
+        margin: 0;
+        border: 1.5px solid white;
+        border-radius: 14px;
+        background: #ffffff80;
+        padding: 14px 12px;
+      }
+      .mobile .notification-item .notification-icon {
+        display: none;
+      }
+      .mobile .notification-item .notification-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 16px;
+        gap: 8px;
+        min-height: 24px;
+        margin: 0 0 12px;
+      }
+      .mobile
+        .notification-meta
+        > span:first-child:not([data-notification-status]) {
+        color: #0064e0;
+        background: #cde6ff;
+        border-radius: 30px;
+        padding: 3px 8px;
+        font-size: 12px;
+        line-height: 18px;
+      }
+      .mobile .notification-item h3 {
+        font-size: 12px;
+        font-weight: 650;
+        line-height: 18px;
+        margin: 0 0 12px;
+        color: #1c1e21;
+      }
+      .mobile .notification-item p {
+        font-size: 12px;
+        line-height: 18px;
+        margin: 0 0 12px;
+        color: #5d6c7b;
+      }
+      .mobile .notification-time {
+        display: block;
+        font-size: 12px;
+        line-height: 18px;
+        color: #8595a4;
+      }
+      .mobile .notification-item .row-chevron {
+        position: absolute;
+        right: 12px;
+        top: 21px;
+        font-size: 12px;
+        color: #8595a4;
+      }
+      .mobile .notification-unread-tag {
+        font-size: 12px;
+        line-height: 18px;
+        border-radius: 5px;
+        padding: 2px 7px;
+        background: #eaf3ff;
+        color: #0064e0;
+      }
+      .mobile .notification-unread-tag:before {
+        content: "·";
+        margin-right: 4px;
+      }
+      .mobile .notification-is-read [data-notification-status] {
+        visibility: hidden;
+      }
+      .mobile:has([data-screen^="notifications"]) [data-screen] > .note {
+        margin: 12px -8px;
+        background: #fff3d7;
+        border: 0;
+        border-radius: 8px;
+        padding: 10px 16px;
+        line-height: 20px;
+        color: #9096a2;
+        font-size: 12px;
+        gap: 4px;
+      }
+      .deep-notification-read {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px;
+      }
+      .deep-notification-read .btn {
+        border: 0;
+        border-radius: 30px;
+        background: #ffffff66;
+        color: #2c85fb;
+        padding: 8px 20px;
+        font-size: 14px;
+        font-weight: 400;
+      }
+      .mobile [data-notification-detail] .card {
+        border: 1.5px solid white;
+        border-radius: 14px;
+        background: #ffffff80;
+      }
+      .mobile [data-notification-detail] .summary-list div {
+        padding: 10px 0;
+      }
+      /* 服务说明、步骤、办理信息及办理按钮。 */
+      .mobile:has(.deep-service-guide) .main {
+        padding: 0 20px 40px;
+      }
+      .mobile .deep-guide-context {
+        display: none;
+      }
+      .mobile .deep-service-sections {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+      .mobile .deep-service-hero {
+        margin: 24px 10px 0;
+        min-height: 107px;
+      }
+      .mobile .deep-service-hero .detail-banner {
+        min-height: 107px;
+        padding: 0 100px 0 0;
+        margin: 0;
+        border: 0;
+        align-items: flex-start;
+      }
+      .mobile .deep-service-hero .detail-banner .service-icon {
+        width: 106px;
+        height: 106px;
+        right: -10px;
+        top: 2px;
+      }
+      .deep-service-school {
+        font-size: 12px;
+        line-height: 18px;
+        color: #0064e0;
+        margin-bottom: 7px;
+      }
+      .mobile .deep-service-hero .detail-banner h1 {
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 40px;
+        margin: 0 0 4px;
+        color: #3c444f;
+      }
+      .mobile .deep-service-hero .detail-banner p {
+        font-size: 14px;
+        line-height: 22px;
+        color: #5d6c7b;
+        margin: 0;
+      }
+      .mobile .deep-service-sections > .note {
+        margin: 0 -8px 0 0;
+        background: #fff3d7;
+        border: 0;
+        padding: 10px 16px;
+        font-size: 12px;
+        line-height: 20px;
+        color: #5d6c7b;
+        border-radius: 8px;
+        gap: 4px;
+      }
+      .deep-service-overview {
+        border: 1.5px solid white;
+        border-radius: 14px;
+        background: #ffffff80;
+        padding: 16px 12px;
+      }
+      .deep-service-overview h2 {
+        margin-bottom: 12px;
+      }
+      .deep-service-overview p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 22px;
+        color: #5d6c7b;
+      }
+      .deep-service-timeline h2 {
+        margin-bottom: 20px;
+      }
+      .mobile .deep-service-timeline .steps {
+        gap: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .mobile .deep-service-timeline .service-content-step {
+        position: relative;
+        display: flex;
+        gap: 12px;
+        border: 0;
+        padding: 0 0 20px;
+        margin: 0;
+      }
+      .mobile .deep-service-timeline .service-content-step:before {
+        content: "";
+        position: absolute;
+        left: 19px;
+        top: 41px;
+        bottom: 0;
+        width: 2px;
+        background: #b4d9ff;
+      }
+      .mobile .deep-service-timeline .service-content-step:last-child:before {
+        display: none;
+      }
+      .mobile .deep-service-timeline .service-content-step > span {
+        width: 40px;
+        height: 40px;
+        flex: 0 0 40px;
+        border-radius: 50%;
+        font-size: 0;
+        background:
+          url("../../assets/figma/deep-utility/e3fe0.svg") center/26px no-repeat,
+          linear-gradient(100deg, #0064ff, #469fff);
+      }
+      .mobile .deep-service-timeline .service-content-step:nth-child(2) > span {
+        background-image:
+          url("../../assets/figma/deep-utility/dc13e.svg"),
+          linear-gradient(100deg, #0064ff, #469fff);
+      }
+      .mobile .deep-service-timeline .service-content-step:nth-child(3) > span {
+        background-image:
+          url("../../assets/figma/deep-utility/a4770.svg"),
+          linear-gradient(100deg, #0064ff, #469fff);
+      }
+      .mobile .deep-service-timeline .service-content-step > div {
+        flex: 1;
+        min-width: 0;
+      }
+      .deep-step-code {
+        display: block;
+        font-size: 12px;
+        line-height: 18px;
+        color: #0064e099;
+      }
+      .mobile .deep-service-timeline .service-content-step h3 {
+        font-size: 14px;
+        line-height: 18px;
+        margin: 1px 0 8px;
+        color: #1c1e21;
+      }
+      .mobile .deep-service-timeline .service-content-step p {
+        font-size: 14px;
+        line-height: 22px;
+        margin: 0;
+        border: 1px solid white;
+        background: #ffffff99;
+        border-radius: 10px;
+        padding: 14px 12px;
+        color: #5d6c7b;
+      }
+      .deep-service-information h2 {
+        margin: 0 0 14px;
+      }
+      .deep-service-information .summary-list {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .mobile .deep-service-information .summary-list div {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 1px;
+        position: relative;
+        text-align: center;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 102px;
+        border: 0;
+        border-radius: 12px;
+        background: #f3f9ff;
+        padding: 52px 4px 10px;
+      }
+      .deep-service-information .summary-list div:before {
+        content: "";
+        position: absolute;
+        top: 17px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 32px;
+        height: 32px;
+        background: url("../../assets/figma/deep-utility/7ad97.png")
+          center/contain no-repeat;
+      }
+      .deep-service-information .summary-list div:nth-child(2):before {
+        background-image: url("../../assets/figma/deep-utility/7636c.png");
+      }
+      .deep-service-information .summary-list div:nth-child(3):before {
+        background-image: url("../../assets/figma/deep-utility/a88c1.png");
+      }
+      .deep-service-information dt {
+        color: #b4b4b4;
+        font-size: 12px;
+        line-height: 18px;
+      }
+      .deep-service-information dd {
+        color: #1c1e21;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 18px;
+      }
+      .mobile .deep-service-action {
+        width: 100%;
+        margin: 0;
+      }
+      .mobile .deep-service-action .btn {
+        width: 100%;
+        height: 46px;
+        border-radius: 30px;
+        font-size: 14px;
+        border: 0;
+      }
+      /* 移动问答结果使用独立头像、气泡及来源卡。 */
+      .mobile:has([data-screen^="chat"]) .main {
+        padding: 28px 20px 180px;
+      }
+      .mobile [data-screen^="chat"] .chat-main > .actions:first-child {
+        display: none;
+      }
+      .mobile [data-screen^="chat"] .bubble-user {
+        width: fit-content;
+        max-width: 85%;
+        margin: 0 0 35px auto;
+        min-height: 55px;
+        border-radius: 30px 0 30px 30px;
+        background: linear-gradient(100deg, #0064ff, #469fff);
+        padding: 16px 24px;
+        color: white;
+        font-size: 16px;
+        line-height: 23px;
+      }
+      .mobile [data-screen^="chat"] .answer {
+        position: relative;
+        margin-left: 46px;
+        padding: 14px;
+        border: 0;
+        background: #ffffff80;
+        border-radius: 0 20px 20px 20px;
+      }
+      .mobile [data-screen^="chat"] .answer:before {
+        content: "";
+        position: absolute;
+        left: -46px;
+        top: -10px;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #0064e0;
+        border-radius: 50%;
+        background: #b5e4ff
+          url("../../assets/figma/mobile-bottom-nav/49408.png") 50% 11%/64px
+          auto no-repeat;
+      }
+      .mobile [data-screen^="chat"] .answer h2 {
+        font-size: 16px;
+        line-height: 22px;
+        margin: 14px 0;
+        color: #3c444f;
+      }
+      .mobile [data-screen^="chat"] .answer p {
+        font-size: 14px;
+        line-height: 22px;
+        margin: 0 0 14px;
+        color: #5d6c7b;
+      }
+      .mobile [data-screen^="chat"] .answer-label {
+        font-size: 14px;
+        line-height: 20px;
+        margin: 0;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+      .mobile [data-screen^="chat"] .answer-label > i {
+        display: none;
+      }
+      .mobile [data-screen^="chat"] .answer-label .badge {
+        padding: 2px 6px;
+        font-size: 10px;
+        line-height: 18px;
+        border-radius: 5px;
+        background: #e3ffda;
+        color: #00a630;
+      }
+      .mobile [data-screen^="chat"] .source {
+        display: block;
+        font-size: 10px;
+        line-height: 16px;
+        background: #cce5ff;
+        border: 0;
+        border-radius: 4px;
+        padding: 6px 8px;
+      }
+      .mobile [data-screen^="chat"] .source .muted {
+        font-size: 10px;
+        line-height: 16px;
+      }
+      .mobile [data-screen^="chat"] .answer .btn.primary {
+        padding: 8px 16px;
+        border-radius: 30px;
+        font-size: 14px;
+        height: 34px;
+      }
+      .mobile [data-screen^="chat"] .answer-actions {
+        display: flex;
+        gap: 5px;
+        justify-content: space-between;
+        border-top: 2px dotted #b5dafa;
+        margin-top: 12px;
+        padding-top: 12px;
+      }
+      .mobile [data-screen^="chat"] .answer-actions .btn {
+        border: 0;
+        background: #ffffffb3;
+        border-radius: 10px;
+        min-width: 0;
+        font-size: 11px;
+        padding: 7px 10px;
+      }
+      .mobile:has([data-screen^="chat"]) .composer {
+        bottom: 48px;
+        width: calc(100% - 48px);
+        max-width: 382px;
+      }
+      .mobile [data-screen^="chat"] .chat-main > .actions:not(:first-child) {
+        position: fixed;
+        bottom: 114px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        max-width: 390px;
+        z-index: 12;
+        gap: 6px;
+      }
+      .mobile [data-screen^="chat"] .chat-main > .actions .btn {
+        background: #ffffff99;
+        border: 0;
+        border-radius: 10px;
+        color: #0064e0;
+        font-size: 12px;
+        padding: 8px 18px;
+      }
+      .mobile [data-screen^="chat"] .safe-footer {
+        margin-top: 14px;
+      }
+      /* 教职工服务、会议和账户的独立校园页头。 */
+      .mobile:has(.deep-campus-surface) {
+        background: #e6f5ff !important;
+      }
+      .deep-campus-surface {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 293px;
+        background-image:
+          linear-gradient(180deg, transparent 64.5%, #e6f5ff),
+          url("../../assets/figma/staff-mobile-banner/02f03.png"),
+          url("../../assets/figma/staff-mobile-banner/d55ea.png");
+        background-position:
+          0 0,
+          50% top,
+          28.69% top;
+        background-size:
+          100% 100%,
+          178.06% 126.72%,
+          444.21% 100.3%;
+        background-blend-mode: normal, soft-light, normal;
+        pointer-events: none;
+      }
+      .deep-campus-hero {
+        position: relative;
+        width: calc(100% + 40px);
+        margin: 0 -20px;
+        height: 149px;
+        padding-top: 16px;
+        overflow: hidden;
+        text-align: center;
+      }
+      .deep-campus-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        height: 40px;
+        position: relative;
+        z-index: 2;
+      }
+      .deep-campus-title img {
+        max-width: none;
+      }
+      .deep-campus-mark {
+        object-fit: contain;
+      }
+      .deep-campus-word {
+        transform: scaleY(-1);
+      }
+      .deep-campus-hero > p {
+        margin: 4px 0 0;
+        font-size: 10px;
+        line-height: 13px;
+        color: #9096a2;
+        position: relative;
+        z-index: 2;
+      }
+      .deep-campus-watermark {
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 72px;
+        white-space: nowrap;
+        font-size: 69px;
+        line-height: 72px;
+        font-weight: 900;
+        letter-spacing: -3px;
+        color: #146af910;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .deep-campus-watermark img {
+        width: 64px;
+        height: 57px;
+        opacity: 0.2;
+      }
+      .deep-skyline {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 343px;
+        height: 50px;
+        opacity: 1;
+      }
+      .deep-building {
+        position: absolute;
+        bottom: 0;
+      }
+      .deep-building img {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        max-width: none;
+      }
+      .deep-building-1 {
+        left: 145.9px;
+        width: 54px;
+        height: 50px;
+      }
+      .deep-building-2 {
+        left: 74.8px;
+        width: 55.4px;
+        height: 32.6px;
+      }
+      .deep-building-3 {
+        left: 0;
+        width: 70.7px;
+        height: 28.3px;
+      }
+      .deep-building-4 {
+        left: 202.1px;
+        width: 43.2px;
+        height: 31px;
+      }
+      .deep-building-5 {
+        left: 248.4px;
+        width: 94.3px;
+        height: 24px;
+      }
+      .deep-building-6 {
+        left: 125.6px;
+        width: 21px;
+        height: 32px;
+      }
+      .mobile:has(.deep-meetings) .main,
+      .mobile:has(.deep-staff-profile) .main {
+        padding: 0 20px 40px;
+      }
+      .deep-meetings > .card {
+        margin: 0 -20px;
+        padding: 14px;
+        border: 1.5px solid white;
+        border-radius: 14px;
+        background: #ffffff66;
+      }
+      .deep-meetings > .card + .card {
+        margin-top: 0;
+        border-top: 0;
+        border-radius: 0 0 14px 14px;
+      }
+      .deep-meetings > .card h2 {
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0 0 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .deep-meetings > .card > h2:before {
+        content: "";
+        display: inline-block;
+        flex: 0 0 24px;
+        width: 24px;
+        height: 24px;
+        background: url("../../assets/figma/deep-meeting-list/af1ba.svg")
+          center/24px no-repeat;
+      }
+      .deep-meetings > .card + .card > h2:before {
+        background-image: url("../../assets/figma/deep-meeting-list/57b8c.svg");
+      }
+      .mobile .deep-meetings .deep-meeting-card {
+        position: relative;
+        min-height: 98px;
+        padding: 12px 16px;
+        border: 1px solid white;
+        border-radius: 10px;
+        background: #ffffffb3;
+        margin-top: 6px;
+        display: block;
+      }
+      .mobile .deep-meetings .deep-meeting-card h2,
+      .mobile .deep-meetings .deep-meeting-card h3 {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 21px;
+        margin: 6px 0 !important;
+        display: block;
+        color: #3c444f;
+      }
+      .mobile .deep-meetings .deep-meeting-card p {
+        margin: 0;
+        font-size: 12px;
+        line-height: 16px;
+        color: #99a3b8;
+        padding-right: 12px;
+      }
+      .deep-meetings .deep-meeting-card .badge {
+        font-size: 10px;
+        line-height: 13px;
+        padding: 4px 8px;
+        border-radius: 20px;
+      }
+      .deep-meeting-open {
+        position: absolute;
+        inset: 0;
+        font-size: 0;
+        z-index: 1;
+      }
+      .deep-meeting-open:after,
+      .deep-meetings a.deep-meeting-card > i {
+        content: "";
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        width: 14px;
+        height: 14px;
+        background: url("../../assets/figma/mobile-shortcuts/702d6.svg")
+          center/14px no-repeat;
+        font-size: 0;
+      }
+      .deep-meeting-bell {
+        position: absolute;
+        right: 4px;
+        top: 12px;
+        width: 40px;
+        height: 28px;
+        background: #ffffff80;
+        border-radius: 6px;
+        color: #0064e0;
+        text-align: center;
+        line-height: 28px;
+        font-size: 14px;
+        z-index: 3;
+      }
+      .deep-meeting-bell > span {
+        position: absolute;
+        right: -4px;
+        top: -7px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        font-size: 10px;
+        line-height: 16px;
+        color: #fff;
+        background: #ec3535;
+      }
+      .deep-meetings > .note {
+        margin: 16px 0 0;
+        font-size: 11px;
+      }
+      .deep-staff-profile {
+        margin: 0 -20px;
+        padding: 14px 12px;
+        background: #ffffff66;
+        border: 1.5px solid white;
+        border-radius: 14px;
+      }
+      .deep-staff-profile section + section {
+        margin-top: 24px;
+      }
+      .deep-staff-profile h2 {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0 0 12px;
+        color: #3c444f;
+      }
+      .deep-staff-profile h2 img {
+        width: 24px;
+        height: 24px;
+      }
+      .deep-staff-identity {
+        position: relative;
+        padding: 16px;
+        background: #ffffffb3;
+        border: 1px solid white;
+        border-radius: 10px;
+      }
+      .deep-staff-identity > .deep-avatar {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        transform: scale(0.67);
+        transform-origin: top left;
+        height: 60px;
+      }
+      .deep-staff-identity .deep-avatar-ribbon {
+        display: none;
+      }
+      .mobile:has(.deep-staff-profile) .deep-staff-identity .summary-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        background: transparent;
+        border-radius: 0;
+        padding: 0;
+      }
+      .mobile:has(.deep-staff-profile)
+        .deep-staff-identity
+        .summary-list
+        > div {
+        display: flex;
+        flex-direction: column;
+        border: 0;
+        padding: 0;
+        gap: 4px;
+        font-size: 14px;
+        line-height: 18px;
+      }
+      .mobile:has(.deep-staff-profile)
+        .deep-staff-identity
+        .summary-list
+        > div:first-child {
+        grid-column: 1/-1;
+        min-height: 43px;
+        padding-left: 48px;
+        margin-bottom: 12px;
+      }
+      .mobile:has(.deep-staff-profile)
+        .deep-staff-identity
+        .summary-list
+        > div:nth-child(2),
+      .mobile:has(.deep-staff-profile)
+        .deep-staff-identity
+        .summary-list
+        > div:nth-child(3) {
+        min-height: 67px;
+        text-align: center;
+        padding: 12px 4px;
+        background: linear-gradient(100deg, #0064ff, #469fff);
+        color: white;
+      }
+      .mobile:has(.deep-staff-profile)
+        .deep-staff-identity
+        .summary-list
+        > div:nth-child(2) {
+        border-radius: 40px 0 0 40px;
+      }
+      .mobile:has(.deep-staff-profile)
+        .deep-staff-identity
+        .summary-list
+        > div:nth-child(3) {
+        border-radius: 0 40px 40px 0;
+      }
+      .deep-staff-identity .summary-list > div:nth-child(2) dt,
+      .deep-staff-identity .summary-list > div:nth-child(3) dt {
+        color: #ffffff99;
+      }
+      .deep-staff-identity .summary-list > div:nth-child(2) dd,
+      .deep-staff-identity .summary-list > div:nth-child(3) dd {
+        font-size: 16px;
+        line-height: 21px;
+      }
+      .mobile:has(.deep-staff-profile)
+        .deep-staff-identity
+        .summary-list
+        > div:last-child {
+        grid-column: 1/-1;
+        margin-top: 12px;
+      }
+      .deep-staff-account-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 50px;
+        padding: 12px 16px;
+        background: #ffffffb3;
+        border: 1px solid white;
+        border-radius: 10px;
+        margin-top: 6px;
+        font-size: 16px;
+        line-height: 24px;
+        color: #3c444f;
+      }
+      .deep-staff-account-row > img {
+        width: 24px;
+        height: 24px;
+      }
+      /* 教职工大厅保留独立单列结构。 */
+      body[data-role="staff"] .mobile:has([data-service-catalog]) {
+        background: #e6f5ff !important;
+      }
+      body[data-role="staff"] .mobile:has([data-service-catalog]) .main {
+        padding: 0 16px 32px;
+      }
+      body[data-role="staff"] .mobile [data-service-catalog] > .page-heading {
+        display: none;
+      }
+      body[data-role="staff"]
+        .mobile:has([data-service-catalog])
+        .figma-mobile-brand {
+        visibility: visible;
+      }
+      body[data-role="staff"] .mobile [data-service-catalog] > .filters {
+        margin: 2px 0 0;
+        height: 46px;
+      }
+      body[data-role="staff"]
+        .mobile
+        [data-service-catalog]
+        > .deep-campus-hero {
+        width: calc(100% + 32px);
+        margin: 0 -16px;
+        height: 137px;
+        padding-top: 14px;
+      }
+      body[data-role="staff"] .mobile [data-service-catalog] > .grid3 {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: none;
+        border: 0;
+        border-radius: 0;
+        padding: 0;
+      }
+      body[data-role="staff"] .mobile [data-service-catalog] .service-card {
+        padding: 16px 36px 16px 70px;
+        background: #ffffffcc;
+        min-height: 77px;
+        border: 1px solid white;
+        border-radius: 12px;
+      }
+      body[data-role="staff"] .mobile [data-service-catalog] .service-icon {
+        left: 16px;
+        right: auto;
+        top: 17px;
+        width: 42px;
+        height: 42px;
+      }
+      body[data-role="staff"] .mobile [data-service-catalog] .service-card h3 {
+        padding: 0;
+        font-size: 16px;
+        line-height: 22px;
+        margin: 0 0 6px;
+        font-weight: 650;
+      }
+      body[data-role="staff"] .mobile [data-service-catalog] .service-card p {
+        padding: 0;
+        font-size: 12px;
+        line-height: 18px;
+        color: #9096a2;
+        white-space: normal;
+        overflow: visible;
+      }
+      body[data-role="staff"]
+        .mobile
+        [data-service-catalog]
+        .service-card:after {
+        content: "";
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 14px;
+        height: 14px;
+        background: url("../../assets/figma/mobile-shortcuts/702d6.svg")
+          center/14px no-repeat;
+      }
+      body[data-port="pc"]
+        [data-screen^="chat"]
+        .chat-rail
+        .contact-box:has(.mini-apps) {
+        display: none;
+      }
+      @media (max-width: 360px) {
+        .deep-profile-shortcut {
+          padding-left: 8px;
+          padding-right: 6px;
+          gap: 6px;
+        }
+        .deep-profile-shortcut small {
+          font-size: 10.5px;
+        }
+        .deep-contact-row {
+          padding-left: 8px;
+          padding-right: 8px;
+          gap: 6px;
+        }
+        .deep-contact-phone {
+          font-size: 12px;
+        }
+        .deep-contact-row h3 {
+          font-size: 13px;
+        }
+      }
+
+      .mobile .bottom-nav a:is([href="home.html"], [href="assistant.html"]) i {
+        position: relative;
+        overflow: hidden;
+        background: none;
+        font-size: 0;
+      }
+      .mobile
+        .bottom-nav
+        a:is([href="home.html"], [href="assistant.html"])
+        i:after {
+        content: "";
+        position: absolute;
+        top: 3px;
+        left: -14px;
+        width: 58px;
+        height: 25px;
+        background: url("../../assets/figma/mobile-bottom-nav/49408.png") left
+          top/58px 58px no-repeat;
+      }
+      .mobile .bottom-nav a[href="contacts.html"].active i {
+        background-image: url("../../assets/figma/deep-contacts/353ac.svg");
+      }
+      .mobile .bottom-nav a[href="meetings.html"]:not(.active) i {
+        filter: grayscale(1);
+        opacity: 0.65;
+      }
+      .deep-contact-hero {
+        height: 169px;
+        padding: 14px 17px;
+        background: none;
+        isolation: isolate;
+        margin-bottom: 22px;
+      }
+      .deep-contact-hero:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("../../assets/figma/mobile-contacts-banner/dd1b4.svg")
+          center/100% 100% no-repeat;
+        z-index: -1;
+      }
+      .deep-contact-hero:after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        right: 7px;
+        width: 111px;
+        height: 67px;
+        border-radius: 0 12px 0 0;
+        background: linear-gradient(120deg, #68afff, #81bcff);
+        z-index: -3;
+      }
+      .deep-contact-robot {
+        right: 12px;
+        top: -26px;
+        width: 81px;
+        height: 81px;
+        z-index: -2;
+      }
+      .deep-contact-centers {
+        margin-left: 4px;
+        margin-right: 4px;
+      }
+      .mobile .note > i {
+        color: #f5a300;
+      }
+      .mobile [data-screen^="notifications"] > .note > i {
+        width: 16px;
+        height: 16px;
+        flex: 0 0 16px;
+        font-size: 0;
+        background: url("../../assets/figma/deep-messages/42bdc.svg")
+          center/16px no-repeat;
+      }
+      .mobile [data-screen^="chat"] .chat-main > a.textlink:first-of-type,
+      .mobile
+        [data-screen^="chat"]
+        .chat-main
+        > a.textlink:first-of-type
+        + div[style="height:20px"],
+      .mobile [data-screen^="chat"] .safe-footer {
+        display: none;
+      }
+      .mobile [data-screen^="chat"] .answer:before {
+        width: 36px;
+        height: 36px;
+        background-position: 50% 0;
+        background-size: 51px 51px;
+        clip-path: circle(18px at 18px 18px);
+      }
+      .mobile
+        .service-icon
+        > i:is(
+          .fa-bolt,
+          .fa-person-swimming,
+          .fa-hotel,
+          .fa-newspaper,
+          .fa-magnifying-glass,
+          .fa-bullhorn,
+          .fa-utensils
+        ),
+      .mobile
+        .quick
+        > i:is(.fa-bolt, .fa-bus, .fa-person-swimming, .fa-utensils) {
+        background-size: 100% 100%;
+      }
+      .mobile:has(.deep-staff-profile)
+        .deep-staff-identity
+        .summary-list
+        > div:nth-child(2) {
+        background: #0064ff
+          url("../../assets/figma/deep-staff-profile-body/a2d97.png") left/200%
+          100% no-repeat;
+      }
+      .mobile:has(.deep-staff-profile)
+        .deep-staff-identity
+        .summary-list
+        > div:nth-child(3) {
+        background: #469fff
+          url("../../assets/figma/deep-staff-profile-body/a2d97.png") right/200%
+          100% no-repeat;
+      }
+      .deep-staff-account-row[href="privacy.html"]:after {
+        content: "";
+        width: 14px;
+        height: 14px;
+        margin-left: auto;
+        background: url("../../assets/figma/mobile-shortcuts/702d6.svg")
+          center/14px no-repeat;
+      }
+      .deep-latest-arrangement {
+        background: linear-gradient(100deg, #0064ff, #469fff);
+        color: white;
+        margin-left: 8px;
+      }
+      .deep-cancelled {
+        color: #267db5;
+        background: #d6eaff;
+      }
+
+      /* 从属页面延续设计稿的导航、圆角卡片和按钮，正文及办理状态保留原数据。 */
+      body[data-role="staff"] .mobile:not(:has(.deep-campus-surface)) {
+        background-size:
+          201px 201px,
+          443px 656px,
+          292px 536px,
+          506px 656px,
+          100% 100%;
+        background-position:
+          right -60px top -60px,
+          -222px -56px,
+          193px -214px,
+          -142px -246px,
+          0 0;
+        background-repeat: no-repeat;
+      }
+      .mobile.deep-secondary {
+        padding-bottom: 34px;
+      }
+      .mobile.deep-secondary .bottom-nav {
+        display: none;
+      }
+      .mobile.deep-secondary .deep-home-indicator {
+        display: block;
+      }
+      .mobile.deep-secondary .qa-tools {
+        display: none !important;
+      }
+      .mobile.deep-secondary:not(
+          :has([data-screen^="chat"], .deep-service-guide)
+        )
+        .main {
+        padding: 14px 20px 36px;
+      }
+      .mobile.deep-secondary .page-heading h1 {
+        font-size: 20px;
+        line-height: 30px;
+        color: #3c444f;
+      }
+      .mobile.deep-secondary .page-heading p {
+        font-size: 12px;
+        line-height: 20px;
+        color: #8595a4;
+      }
+      .mobile.deep-secondary .card {
+        padding: 18px 14px;
+        border: 1.5px solid white;
+        border-radius: 14px;
+        background: #ffffff80;
+      }
+      .mobile.deep-secondary .card h2 {
+        font-size: 16px;
+        line-height: 24px;
+        color: #3c444f;
+      }
+      .mobile.deep-secondary .card p {
+        font-size: 14px;
+        line-height: 22px;
+        color: #5d6c7b;
+      }
+      .mobile.deep-secondary .summary-list > div {
+        padding: 12px 0;
+        gap: 8px;
+        border-color: #e2edfa80;
+      }
+      .mobile.deep-secondary .summary-list dt {
+        color: #8595a4;
+        font-size: 12px;
+        line-height: 20px;
+      }
+      .mobile.deep-secondary .summary-list dd {
+        color: #3c444f;
+        font-size: 12px;
+        line-height: 20px;
+        overflow-wrap: anywhere;
+      }
+      .mobile.deep-secondary .btn {
+        border-radius: 30px;
+        box-shadow: none;
+        font-size: 12px;
+      }
+      .mobile.deep-secondary .btn.primary {
+        background: linear-gradient(100deg, #0064ff, #469fff);
+        border: 0;
+      }
+      .mobile.deep-secondary .note {
+        border: 0;
+        border-radius: 8px;
+        background: #fff3d7;
+        color: #8595a4;
+        font-size: 12px;
+        line-height: 20px;
+      }
+      .mobile.deep-secondary .note i {
+        flex-shrink: 0;
+      }
+      .mobile.deep-secondary input,
+      .mobile.deep-secondary select,
+      .mobile.deep-secondary textarea {
+        border-radius: 10px;
+        border-color: white;
+        background: #ffffffb3;
+      }
+      .mobile.deep-secondary .voice-layout .voice-actions {
+        position: static;
+        width: auto;
+        transform: none;
+        margin: 18px 0 0;
+        padding: 12px 0 0;
+        border-radius: 0;
+        border: 0;
+        background: transparent;
+      }
+      .mobile.deep-secondary .voice-workspace {
+        padding: 24px 16px;
+        border-radius: 14px;
+      }
+      .mobile.deep-secondary .voice-help {
+        margin-top: 18px;
+      }
+      .mobile.deep-secondary .voice-layout {
+        margin-bottom: 0;
+      }
+      .mobile.deep-secondary [data-screen^="notification"] .card .actions {
+        gap: 8px;
+      }
+      .mobile.deep-secondary [data-screen^="notification"] .card .actions .btn {
+        flex: 1;
+        text-align: center;
+      }
+      /* 头像按设计稿中机器人头部的原始裁切范围呈现。 */
+      .mobile [data-screen^="chat"] .answer:before {
+        display: none;
+      }
+      .deep-chat-avatar {
+        position: absolute;
+        left: -46px;
+        top: -8px;
+        width: 36px;
+        height: 36px;
+        border: 1.44px solid #0045d7;
+        border-radius: 50%;
+        background: #acd2f8;
+        overflow: hidden;
+      }
+      .deep-chat-avatar:after {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: -9px;
+        width: 51px;
+        height: 22px;
+        background: url("../../assets/figma/mobile-bottom-nav/49408.png") left
+          top/51px 51px no-repeat;
+        transform: rotate(-1.54deg);
+      }
+      .mobile [data-screen^="chat"] .answer-actions i {
+        width: 12px;
+        height: 12px;
+        font-size: 0;
+        background-position: center;
+        background-size: 12px;
+        background-repeat: no-repeat;
+      }
+      .mobile [data-screen^="chat"] .answer-actions i:before {
+        display: none;
+      }
+      .mobile [data-screen^="chat"] .answer-actions .fa-volume-high {
+        background-image: url("../../assets/figma/deep-mobile-chat/f4153.svg");
+      }
+      .mobile [data-screen^="chat"] .answer-actions .fa-thumbs-up {
+        background-image: url("../../assets/figma/deep-mobile-chat/bf18a.svg");
+      }
+      .mobile [data-screen^="chat"] .answer-actions .fa-flag {
+        background-image: url("../../assets/figma/deep-mobile-chat/64eac.svg");
+      }
+      .mobile [data-screen^="chat"] .source {
+        margin: 14px 0 13px;
+        color: #2587ff;
+      }
+      .mobile [data-screen^="chat"] .source .muted {
+        color: #7fb0ef;
+      }
+      .mobile [data-screen^="chat"] .answer-label .badge {
+        border-radius: 30px;
+      }
+      .mobile [data-screen^="chat"] .answer .btn.primary {
+        background: linear-gradient(100deg, #0064ff, #469fff);
+      }
+      .mobile:has(.deep-meetings) .main {
+        padding-bottom: 20px;
+      }
+      .deep-meetings > .deep-campus-hero {
+        height: 146px;
+      }
+      .deep-meetings > .card {
+        padding-bottom: 0;
+      }
+      .deep-meetings > .card + .card {
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        padding-top: 24px;
+      }
+      .deep-meeting-help {
+        margin: 12px -6px 0;
+        font-size: 11px;
+        color: #8595a4;
+      }
+      .deep-meeting-help summary {
+        padding: 4px 0;
+        cursor: pointer;
+      }
+      .deep-meeting-help .note {
+        margin: 6px 0;
+        font-size: 11px;
+        line-height: 18px;
+      }
+      .deep-meeting-bell {
+        right: 24px;
+        top: 8px;
+        border-radius: 30px;
+        background: #cce5ff;
+      }
+      /* 后台手机预览复用前台的同一套指引结构，避免预览仍显示旧版布局。 */
+      .mobile.deep-preview {
+        min-height: 0;
+        max-width: 375px;
+        padding: 18px 20px 24px;
+        border-radius: 20px;
+      }
+      .mobile.deep-preview .deep-service-sections {
+        gap: 22px;
+      }
+      .mobile.deep-preview .deep-service-hero {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      .mobile.deep-preview .deep-service-hero .detail-banner {
+        background: transparent;
+        border: 0;
+      }
+      body[data-role="admin"] .mobile.deep-preview h2:before {
+        display: none;
+      }
+      body[data-role="admin"] .mobile.deep-preview h2 {
+        padding-left: 0;
+      }
+      .mobile.deep-preview .deep-service-information {
+        padding: 0;
+        border: 0;
+        background: transparent;
+      }
+      .mobile.deep-preview .mini-config-preview {
+        font-size: 12px;
+        background: #ffffff80;
+      }
+      .mobile.deep-preview .deep-service-information .summary-list {
+        padding: 0;
+        background: none;
+      }
+      .mobile.deep-preview .deep-service-action .btn {
+        color: #fff;
+      }
+      .mobile.deep-preview .deep-service-overview,
+      .mobile.deep-preview .deep-service-timeline .service-content-step p {
+        background: #ffffff80;
+      }
+
+      /* 知识库操作流程与状态页面的独立设计规范。 */
+      body[data-role="admin"][data-page^="knowledge"] {
+        font-family:
+          "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .main {
+        background:
+          linear-gradient(#ffffff40, #ffffff00 330px),
+          url("../../assets/figma/deep-kb-edit/152ac.png") center top/100% 330px
+            no-repeat;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .sidebar {
+        background: #0064e0;
+        padding-top: 52px;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .sidebar .nav-item {
+        height: 48px;
+        font-size: 14px;
+        background: #ffffff0c;
+      }
+      body[data-role="admin"][data-page^="knowledge"]
+        .sidebar
+        .nav-item.active {
+        background: white;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .sidebar .section-label {
+        margin: 16px 0 0;
+        font-size: 12px;
+        letter-spacing: 0;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .sidebar .help > i {
+        width: 62px;
+        height: 62px;
+        left: 12px;
+        top: 14px;
+        font-size: 0;
+        background: url("../../assets/figma/admin-knowledge/9b29b.svg")
+          center/62px no-repeat;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .sidebar .help {
+        padding-left: 76px;
+      }
+      body[data-role="admin"][data-page^="knowledge"] > .demo-bar {
+        display: none;
+      }
+      .deep-kb-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .deep-kb-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 36px;
+        margin-bottom: 20px;
+        color: #8595a4;
+        font-size: 14px;
+      }
+      .deep-kb-toolbar i {
+        margin-right: 8px;
+        font-size: 12px;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .page-heading {
+        min-height: 78px;
+        margin-bottom: 20px;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .page-heading .eyebrow {
+        display: none;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .page-heading h1 {
+        line-height: 40px;
+        margin-bottom: 4px;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .page-heading p {
+        color: #5d6c7b;
+        line-height: 22px;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .btn {
+        border-radius: 100px;
+        min-height: 40px;
+        font-size: 14px;
+        padding: 8px 20px;
+        box-shadow: none;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .btn.primary {
+        background: #0064e0;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .card {
+        padding: 24px;
+        border-radius: 16px;
+        border: 0;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .card h2 {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 18px;
+        line-height: 28px;
+        margin: 0 0 20px;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .card h2:before {
+        display: none;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .card h2 > img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+      }
+      .deep-kb-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1040fr) minmax(0, 564fr);
+        align-items: start;
+        gap: 20px;
+      }
+      .deep-kb-layout > div,
+      .deep-kb-layout > aside {
+        min-width: 0;
+      }
+      .deep-kb-layout .card:last-child {
+        margin-bottom: 0;
+      }
+      .deep-kb-fields {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+      .deep-kb-fields.deep-kb-basic {
+        grid-template-columns: minmax(0, 646fr) minmax(0, 326fr);
+      }
+      body[data-role="admin"][data-page^="knowledge"] .field {
+        margin-bottom: 12px;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .field label {
+        font-size: 14px;
+        line-height: 22px;
+        color: #1c1e21;
+        margin-bottom: 8px;
+      }
+      body[data-role="admin"][data-page^="knowledge"] input,
+      body[data-role="admin"][data-page^="knowledge"] select,
+      body[data-role="admin"][data-page^="knowledge"] textarea {
+        border: 1px solid #dce4ed;
+        border-radius: 8px;
+        padding: 10px 12px;
+        line-height: 22px;
+        font-size: 14px;
+      }
+      .deep-kb-answer-editor {
+        min-height: 474px;
+      }
+      .deep-kb-source-editor {
+        min-height: 304px;
+      }
+      .deep-kb-answer-editor textarea[name="questions"] {
+        height: 44px;
+        min-height: 44px;
+      }
+      .deep-kb-answer-editor textarea[name="answer"] {
+        height: 82px;
+        min-height: 82px;
+      }
+      .deep-kb-source-editor .source-card {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        background: none;
+      }
+      .deep-kb-source-editor .source-card > label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: #1c1e21;
+      }
+      .deep-kb-source-editor .source-card .muted {
+        font-size: 12px;
+        line-height: 18px;
+      }
+      .deep-kb-source-editor .source-card .textlink {
+        font-size: 12px;
+      }
+      .deep-kb-layout .note {
+        border: 0;
+        background: #eaf3ff;
+        color: #0064e0;
+        border-radius: 10px;
+        padding: 12px 16px;
+        line-height: 22px;
+        font-size: 14px;
+      }
+      .deep-kb-checklist {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .deep-kb-checklist li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #5d6c7b;
+        font-size: 14px;
+        line-height: 28px;
+      }
+      .deep-kb-checklist img {
+        width: 20px;
+        height: 20px;
+      }
+      .deep-kb-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 12px;
+        padding: 18px 24px;
+        background: white;
+        border: 0;
+        border-radius: 16px;
+        margin-top: 20px;
+        min-height: 76px;
+      }
+      .deep-kb-bottom > p {
+        margin: 0 auto 0 0;
+        font-size: 14px;
+        line-height: 22px;
+        color: #8595a4;
+      }
+      .deep-kb-answer {
+        min-height: 406px;
+      }
+      .deep-kb-answer header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      body[data-role="admin"] .deep-kb-answer header h2 {
+        margin-bottom: 0;
+      }
+      .deep-kb-code {
+        color: #8595a4;
+        font-size: 12px;
+        line-height: 18px;
+        margin: 16px 0 0;
+        padding: 0 0 12px;
+        border-bottom: 1px solid #dce4ed;
+      }
+      .deep-kb-answer-body {
+        padding: 16px 0 12px;
+        font-size: 14px;
+        line-height: 24px;
+      }
+      .deep-kb-answer-body h3 {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 500;
+        margin: 0 0 12px;
+      }
+      .deep-kb-answer-body p {
+        margin: 0;
+        color: #1c1e21;
+        line-height: 24px;
+      }
+      .deep-kb-question {
+        padding: 10px 16px;
+        border-radius: 8px;
+        background: #f5f8fc;
+      }
+      .deep-kb-question small {
+        color: #8595a4;
+        font-size: 12px;
+        line-height: 18px;
+      }
+      .deep-kb-question p {
+        margin: 4px 0 0;
+        font-size: 14px;
+        line-height: 22px;
+        color: #1c1e21;
+      }
+      .deep-kb-metadata {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .deep-kb-metadata > div {
+        min-width: 0;
+      }
+      .deep-kb-metadata dt {
+        color: #8595a4;
+        font-size: 12px;
+        line-height: 18px;
+        margin-bottom: 4px;
+      }
+      .deep-kb-metadata dd {
+        color: #1c1e21;
+        font-size: 14px;
+        line-height: 22px;
+        margin: 0;
+        overflow-wrap: anywhere;
+      }
+      .deep-kb-reference-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      .deep-kb-reference-grid + .note {
+        margin: 24px 0 0;
+      }
+      .deep-kb-layout .timeline {
+        padding: 0;
+        list-style: none;
+        margin: 0;
+      }
+      .deep-kb-layout .timeline li {
+        border: 0;
+        padding: 0;
+        margin: 0 0 36px;
+      }
+      .deep-kb-layout .timeline li:before {
+        display: none;
+      }
+      .deep-kb-layout .timeline li:first-child b {
+        color: #0064e0;
+      }
+      .deep-kb-layout .timeline b {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 22px;
+      }
+      .deep-kb-layout .timeline p {
+        color: #8595a4;
+        font-size: 12px;
+        line-height: 24px;
+        margin: 8px 0 0;
+      }
+      .deep-kb-confirm {
+        display: block;
+      }
+      .deep-kb-confirm form {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 0 !important;
+      }
+      .deep-kb-confirm .checkline {
+        margin: 0 auto 0 0;
+        color: #1c1e21;
+        align-items: center;
+      }
+      .deep-kb-confirm .form-actions {
+        padding: 0;
+        border: 0;
+        flex-shrink: 0;
+      }
+      body[data-role="admin"][data-page^="knowledge-upload"] .upload-steps {
+        background: white;
+        display: flex;
+        gap: 24px;
+        padding: 20px;
+        border-radius: 16px;
+        margin: 0 0 20px;
+        font-size: 14px;
+      }
+      body[data-role="admin"][data-page^="knowledge-upload"]
+        .upload-steps
+        > span {
+        flex: 1;
+        gap: 12px;
+      }
+      body[data-role="admin"][data-page^="knowledge-upload"]
+        .upload-steps
+        > span
+        + span:before {
+        content: "›";
+        color: #a0b0c0;
+        margin-right: 18px;
+      }
+      body[data-role="admin"][data-page^="knowledge-upload"] .upload-steps b {
+        width: 36px;
+        height: 36px;
+        background: #eaf3ff;
+        border: 0;
+        font-size: 14px;
+      }
+      body[data-role="admin"][data-page^="knowledge-upload"]
+        .upload-steps
+        .current
+        b {
+        background: #0064e0;
+      }
+      .deep-kb-upload-layout .drop-zone {
+        min-height: 254px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .deep-kb-upload-layout .drop-zone > i {
+        width: 20px;
+        height: 20px;
+        font-size: 0;
+        background: url("../../assets/figma/admin-knowledge/f7bdf.svg")
+          center/20px no-repeat;
+        margin-bottom: 12px;
+      }
+      .deep-kb-upload-layout .drop-zone > h3 {
+        font-size: 16px;
+        line-height: 26px;
+        font-weight: 500;
+      }
+      .deep-kb-upload-layout #file-settings {
+        min-height: 540px;
+      }
+      .deep-kb-upload-layout #upload-queue:empty,
+      .deep-kb-upload-layout #upload-status:empty {
+        display: none;
+      }
+      .deep-kb-upload-layout .check-list {
+        padding-left: 20px;
+        line-height: 26px;
+        font-size: 14px;
+      }
+      .deep-kb-upload-layout .upload-info {
+        padding: 16px;
+        font-size: 12px;
+      }
+      .deep-kb-upload-layout .small-heading {
+        margin: 12px 0 !important;
+      }
+      .deep-kb-upload-layout .small-heading h3 {
+        margin: 0;
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 400;
+        color: #8595a4;
+      }
+      .deep-kb-upload-layout .actions:empty {
+        display: none;
+      }
+      body[data-role="admin"][data-page="knowledge-files"] .tabs {
+        margin: 0 0 20px;
+      }
+      body[data-role="admin"][data-page="knowledge-files"]
+        .card:has(#knowledge-file-list) {
+        min-height: 760px;
+      }
+      body[data-role="admin"][data-page="knowledge-files"] #files-empty {
+        padding: 80px 24px;
+      }
+      body[data-role="admin"][data-page="knowledge-files"] #files-empty > i {
+        display: grid;
+        place-items: center;
+        width: 72px;
+        height: 72px;
+        border-radius: 20px;
+        background: #eaf3ff;
+        color: #0064e0;
+        font-size: 24px;
+        margin: 0 auto 20px;
+      }
+      .deep-kb-overlay {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: #263b5260;
+        z-index: 60;
+        overflow: auto;
+      }
+      .deep-kb-modal {
+        width: min(640px, 100%);
+        min-height: 500px;
+        padding: 24px;
+        border-radius: 16px;
+        background: white;
+        box-shadow: 0 20px 80px #17324c22;
+      }
+      .deep-kb-modal > header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .deep-kb-modal > header h2 {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        font-size: 18px;
+        line-height: 28px;
+        margin: 0;
+      }
+      .deep-kb-modal > header img {
+        width: 40px;
+        height: 40px;
+      }
+      .deep-kb-close {
+        font-size: 0;
+        color: #0064e0;
+      }
+      .deep-kb-close:after {
+        content: "×";
+        font-size: 26px;
+        line-height: 30px;
+      }
+      body[data-role="admin"][data-page="knowledge-offline"]
+        .deep-kb-modal
+        .card {
+        padding: 20px 0 0;
+        margin: 0;
+      }
+      body[data-role="admin"][data-page="knowledge-offline"]
+        .deep-kb-modal
+        .card
+        > h2 {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 400;
+        margin-bottom: 16px;
+      }
+      .deep-kb-modal textarea {
+        min-height: 90px;
+      }
+      .deep-kb-modal .form-actions {
+        padding-top: 18px;
+        border: 0;
+      }
+      @media (max-width: 1100px) {
+        .deep-kb-layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .deep-kb-answer-editor,
+        .deep-kb-source-editor,
+        .deep-kb-answer {
+          min-height: 0;
+        }
+        .deep-kb-confirm form {
+          flex-wrap: wrap;
+        }
+        .deep-kb-upload-layout #file-settings {
+          min-height: 0;
+        }
+      }
+      @media (max-width: 600px) {
+        .deep-kb-fields,
+        .deep-kb-fields.deep-kb-basic,
+        .deep-kb-reference-grid {
+          grid-template-columns: 1fr;
+        }
+        .deep-kb-bottom {
+          flex-wrap: wrap;
+        }
+        .deep-kb-bottom > p {
+          width: 100%;
+        }
+      }
+      body[data-role="admin"][data-page^="knowledge"] .main {
+        background-image:
+          linear-gradient(175.32deg, #ffffffcf 0.97%, #ffffff00 24.695%),
+          linear-gradient(180deg, #ffffff5c 0%, #f1f4f7 65%),
+          url("../../assets/figma/deep-kb-edit/152ac.png");
+        background-size: 100% 330px;
+        background-position: top;
+        background-repeat: no-repeat;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .figma-menu-search {
+        margin: 0 0 18px;
+      }
+      body[data-role="admin"][data-page^="knowledge"] .figma-menu-search input {
+        border: 0;
+        border-radius: 100px;
+        background: #ffffff33;
+      }
+      .deep-kb-crumb {
+        font-size: 14px;
+        color: #8595a4;
+      }
+      .deep-kb-upload-layout > div:first-child > .card:first-child > .note {
+        padding: 0;
+        margin: 16px 0 0;
+        background: none;
+        border: 0;
+        font-size: 12px;
+        line-height: 22px;
+        color: #8595a4;
+      }
+      .deep-kb-upload-layout > div:first-child > .card:first-child > .note > i {
+        display: none;
+      }
+      .deep-kb-upload-layout .small-heading:has(+ #upload-queue:empty) {
+        display: none;
+      }
+      .deep-kb-upload-layout #file-settings {
+        min-height: 0;
+      }
+      .deep-kb-upload-layout > div:last-child > .card {
+        min-height: 668px;
+      }
+      .deep-kb-upload-layout .check-list {
+        line-height: 22px;
+        margin-bottom: 0;
+      }
+      .deep-kb-upload-layout .check-list li {
+        margin-bottom: 12px;
+      }
+      .deep-kb-upload-layout .upload-info {
+        background: #eaf3ff;
+        color: #0064e0;
+      }
+      .deep-kb-upload-layout .upload-info p {
+        color: #5d6c7b;
+      }
+      .deep-kb-modal {
+        min-height: 540px;
+      }
+      .deep-kb-modal-symbol {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: #fff6e6;
+        display: grid;
+        place-items: center;
+      }
+      .deep-kb-modal-symbol > img {
+        width: 20px;
+        height: 20px;
+      }
+      .deep-kb-modal-target {
+        padding: 10px 16px;
+        margin: 0 0 16px;
+        border-radius: 8px;
+        background: #f5f8fc;
+      }
+      .deep-kb-modal-target b {
+        display: block;
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 500;
+      }
+      .deep-kb-modal-target small {
+        display: block;
+        font-size: 12px;
+        line-height: 18px;
+        color: #8595a4;
+      }
+      .deep-kb-modal .note {
+        font-size: 12px;
+        padding: 0;
+        margin: 10px 0 16px;
+        border: 0;
+        background: none;
+        color: #8595a4;
+      }
+      body[data-role="admin"][data-page="knowledge-offline"]
+        .deep-kb-modal
+        textarea {
+        height: 94px;
+        min-height: 94px;
+      }
+      @media (max-width: 1100px) {
+        .deep-kb-upload-layout > div:last-child > .card {
+          min-height: 0;
+        }
+      }
     </style>
     <script data-figma-interactions>
       /* 管理菜单的筛选只影响展示，不改变菜单地址和权限。 */
@@ -7791,6 +10407,184 @@
           empty.hidden = menus.some((menu) => !menu.hidden);
         });
       });
+
+      /* 内页只重排展示节点；权限、保存、阅读状态与跳转沿用业务脚本。 */
+      function figmaDeepScreens() {
+        const knowledgeConfirm = document.querySelector(
+          'form[action="knowledge-published.html"]',
+        );
+        if (knowledgeConfirm && !knowledgeConfirm.dataset.deepReady) {
+          knowledgeConfirm.dataset.deepReady = "true";
+          const choice = knowledgeConfirm.querySelector(
+            'input[type="checkbox"]',
+          );
+          const button = knowledgeConfirm.querySelector("button");
+          if (choice && button) {
+            const sync = () => {
+              button.disabled = !choice.checked;
+            };
+            choice.addEventListener("change", sync);
+            sync();
+          }
+        }
+        const offlineForm = document.querySelector('form[data-save="offline"]');
+        if (offlineForm && !offlineForm.dataset.deepReady) {
+          offlineForm.dataset.deepReady = "true";
+          const reason = offlineForm.querySelector("textarea");
+          const button = offlineForm.querySelector("button");
+          if (reason && button) {
+            const sync = () => {
+              button.disabled = !reason.value.trim();
+            };
+            reason.addEventListener("input", sync);
+            sync();
+          }
+        }
+        document
+          .querySelectorAll(".service-preview-phone")
+          .forEach((preview) => {
+            preview.classList.add("mobile", "deep-preview");
+          });
+        const mobile = document.querySelector(".mobile");
+        if (!mobile) return;
+        const role = document.body.dataset.role;
+        const page = document.body.dataset.page;
+        const brand = mobile.querySelector(".figma-mobile-brand strong");
+        mobile
+          .querySelectorAll('[data-screen^="chat"] .answer')
+          .forEach((answer) => {
+            if (answer.querySelector(".deep-chat-avatar")) return;
+            const avatar = document.createElement("span");
+            avatar.className = "deep-chat-avatar";
+            avatar.setAttribute("aria-hidden", "true");
+            answer.prepend(avatar);
+          });
+        const catalog = mobile.querySelector("[data-service-catalog]");
+        if (
+          catalog &&
+          role === "staff" &&
+          !catalog.querySelector(".deep-campus-hero")
+        ) {
+          const template = document.querySelector("#deep-hall-hero");
+          if (template)
+            catalog
+              .querySelector(".filters")
+              ?.after(template.content.cloneNode(true));
+        }
+        mobile.querySelectorAll(".detail-banner").forEach((banner) => {
+          const root = banner.closest(".service-config-guide");
+          if (!root || root.classList.contains("deep-service-guide")) return;
+          root.classList.add("deep-service-guide");
+          const description = root.querySelector(".service-content-body");
+          const steps = root.querySelector(".steps");
+          const information = [...root.querySelectorAll(".card")].find((card) =>
+            card.querySelector(".summary-list"),
+          );
+          const notice = root.querySelector(".note");
+          const action = information?.querySelector(".actions");
+          const oldBody = banner.closest(".card");
+          const hero = document.createElement("div");
+          hero.className = "deep-service-hero";
+          const school = document.createElement("div");
+          school.className = "deep-service-school";
+          school.textContent = "中南大学 · 智慧后勤";
+          banner.querySelector("h1")?.before(school);
+          hero.append(banner);
+          const overview = document.createElement("section");
+          overview.className = "deep-service-overview";
+          const overviewTitle = document.createElement("h2");
+          overviewTitle.className = "deep-underlined";
+          overviewTitle.textContent = "服务说明";
+          overview.append(overviewTitle);
+          if (description) overview.append(description);
+          const timeline = document.createElement("section");
+          timeline.className = "deep-service-timeline";
+          const timelineTitle = document.createElement("h2");
+          timelineTitle.className = "deep-underlined";
+          timelineTitle.textContent = "办理步骤";
+          timeline.append(timelineTitle);
+          if (steps) {
+            steps
+              .querySelectorAll(".service-content-step")
+              .forEach((step, index) => {
+                const code = document.createElement("small");
+                code.className = "deep-step-code";
+                code.textContent = "步骤 " + String(index + 1).padStart(2, "0");
+                step.querySelector("h3")?.before(code);
+              });
+            timeline.append(steps);
+          }
+          const layout = document.createElement("div");
+          layout.className = "deep-service-sections";
+          layout.append(hero);
+          if (notice) layout.append(notice);
+          layout.append(overview, timeline);
+          if (information) {
+            information.className = "deep-service-information";
+            information.querySelector("h2")?.classList.add("deep-underlined");
+            if (action) {
+              action.classList.add("deep-service-action");
+              action.removeAttribute("style");
+            }
+            layout.append(information);
+            if (action) layout.append(action);
+          }
+          root
+            .querySelector(".page-heading")
+            ?.classList.add("deep-guide-context");
+          oldBody?.remove();
+          root.querySelector(".split-detail")?.remove();
+          root.append(layout);
+          if (brand)
+            brand.textContent =
+              banner.querySelector("h1")?.textContent || brand.textContent;
+        });
+        if (page === "meetings") {
+          mobile.querySelectorAll(".deep-meetings .list-row").forEach((row) => {
+            if (row.classList.contains("deep-meeting-card")) return;
+            row.classList.add("deep-meeting-card");
+            const target = row.matches("a")
+              ? row
+              : row.querySelector("a[href]");
+            if (!row.matches("a") && target) {
+              if (target.textContent.includes("最新安排")) {
+                const latest = document.createElement("span");
+                latest.className = "badge deep-latest-arrangement";
+                latest.textContent = "最新安排";
+                row.querySelector(".badge")?.after(latest);
+              }
+              target.className = "deep-meeting-open";
+              target.setAttribute(
+                "aria-label",
+                "查看" + (row.querySelector("h2,h3")?.textContent || "会议"),
+              );
+            }
+            if (row.matches("a")) {
+              const description = row.querySelector("p");
+              const status = description?.textContent.includes("已结束")
+                ? "已结束"
+                : description?.textContent.includes("已取消")
+                  ? "已取消"
+                  : "";
+              if (status) {
+                const badge = document.createElement("span");
+                badge.className =
+                  "badge " + (status === "已取消" ? "deep-cancelled" : "gray");
+                badge.textContent = status;
+                row.querySelector("h3")?.before(badge);
+                description.textContent = description.textContent.replace(
+                  " · " + status,
+                  "",
+                );
+              }
+            }
+          });
+        }
+      }
+      document.addEventListener("DOMContentLoaded", figmaDeepScreens);
+      window.addEventListener("pageshow", figmaDeepScreens);
+      window.addEventListener("storage", figmaDeepScreens);
+      window.addEventListener("csu-prototype-reset", figmaDeepScreens);
     </script>
   </body>
 </html>

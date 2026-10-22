@@ -1,0 +1,15 @@
+{
+  "deep-skyline-1": ["imgGroup1", "imgGroup2"],
+  "deep-skyline-2": [
+    "imgGroup1",
+    "imgGroup2",
+    "imgGroup4",
+    "imgGroup6",
+    "imgGroup8",
+    "imgGroup10"
+  ],
+  "deep-skyline-3": ["imgGroup1", "imgGroup2", "imgGroup4", "imgGroup5"],
+  "deep-skyline-4": ["imgGroup1", "imgGroup2", "imgGroup4", "imgGroup5"],
+  "deep-skyline-5": ["imgGroup1", "imgGroup2"],
+  "deep-skyline-6": ["imgGroup1", "imgGroup2"]
+}

@@ -104,6 +104,7 @@ def figma_theme_content(path,content,role,port):
         if heading_node:
             banner='<div class="figma-admin-welcome"><div class="figma-campus-banner"><h2>中南大学智慧后勤</h2><p>让每一次服务都有回应</p></div>'+pending_html+'</div>'
             content=figma_replace(content,heading_node,content[heading_node['start']:heading_node['end']]+banner)
+    content=figma_deep_content(path,content,role,port)
     return '<div data-figma-body data-screen="'+Path(path).stem+'">'+content+'</div>'
 
 
@@ -128,11 +129,16 @@ def figma_skin(body,path,role,port):
         body=body.replace('</aside><main class="main">',sticker+'</aside><main class="main">',1)
     if role=='admin':
         body=body.replace('<aside class="sidebar">','<aside class="sidebar"><label class="figma-menu-search">'+icon('fa-magnifying-glass')+'<input aria-label="查找管理菜单" placeholder="输入功能关键词" data-figma-menu-search></label>',1)
-    return body
+    return figma_deep_skin(body,path,role,port)
 
 
 def figma_theme_assets(path):
     prefix='../'*(len(Path(path).parts)-1)
-    css=re.sub(r'\{\{([\w-]+)\.([\w]+)\}\}',lambda m:figma_asset(m[1],m[2],prefix),FIGMA_CSS)
+    css=FIGMA_CSS+'\n'+(ROOT/'tools/figma_deep.css').read_text()+'\n'+(ROOT/'tools/figma_kb.css').read_text()
+    css=re.sub(r'\{\{([\w-]+)\.([\w]+)\}\}',lambda m:figma_asset(m[1],m[2],prefix),css)
     script=(ROOT/'tools/figma_theme.js').read_text()
+    script+='\n'+(ROOT/'tools/figma_deep.js').read_text()
     return '<style data-figma-theme>'+css+'</style><script data-figma-interactions>'+script+'</script>'
+
+
+exec(compile((ROOT/'tools/figma_deep.py').read_text(),'figma_deep.py','exec'),globals())

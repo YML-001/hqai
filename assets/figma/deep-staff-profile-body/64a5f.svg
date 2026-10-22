@@ -1,0 +1,26 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="&#229;&#159;&#186;&#230;&#156;&#172;&#228;&#191;&#161;&#230;&#129;&#175; / &#232;&#147;&#157;&#232;&#137;&#178;&#232;&#175;&#129;&#228;&#187;&#182;&#228;&#184;&#142;&#231;&#186;&#162;&#232;&#137;&#178;&#232;&#181;&#132;&#230;&#150;&#153;">
+<path id="Vector" d="M5.3 3.8H18.7C20.3569 3.8 21.7 5.14315 21.7 6.8V17.2C21.7 18.8569 20.3569 20.2 18.7 20.2H5.3C3.64315 20.2 2.3 18.8569 2.3 17.2V6.8C2.3 5.14315 3.64315 3.8 5.3 3.8Z" stroke-width="2.3" stroke="url(#paint0_linear_0_88)"/>
+<path id="Vector_2" d="M10.1 9.3C10.1 10.4598 9.1598 11.4 8 11.4C6.8402 11.4 5.9 10.4598 5.9 9.3C5.9 8.1402 6.8402 7.2 8 7.2C9.1598 7.2 10.1 8.1402 10.1 9.3Z" stroke-width="2.1" stroke="url(#paint1_linear_0_88)"/>
+<path id="Vector_3" d="M4.7998 16.1996C4.9998 14.1996 6.0998 13.0996 7.9998 13.0996C9.8998 13.0996 10.9998 14.1996 11.1998 16.1996" stroke-width="2.1" stroke-linecap="round" stroke="url(#paint2_linear_0_88)"/>
+<path id="Vector_4" d="M14.2 9H18.2M14.2 13H18.2M14.2 17H16.8" stroke-width="2.1" stroke-linecap="round" stroke="url(#paint3_linear_0_88)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_88" x1="2.3" y1="3.8" x2="18.4713" y2="22.9294" gradientUnits="userSpaceOnUse">
+<stop stop-color="#469FFF"/>
+<stop offset="1" stop-color="#065CF8"/>
+</linearGradient>
+<linearGradient id="paint1_linear_0_88" x1="5.9" y1="7.2" x2="10.1" y2="11.4" gradientUnits="userSpaceOnUse">
+<stop stop-color="#469FFF"/>
+<stop offset="1" stop-color="#065CF8"/>
+</linearGradient>
+<linearGradient id="paint2_linear_0_88" x1="4.7998" y1="13.0996" x2="7.23224" y2="18.1214" gradientUnits="userSpaceOnUse">
+<stop stop-color="#469FFF"/>
+<stop offset="1" stop-color="#065CF8"/>
+</linearGradient>
+<linearGradient id="paint3_linear_0_88" x1="14.2" y1="9" x2="14.2" y2="17" gradientUnits="userSpaceOnUse">
+<stop stop-color="#DF2026"/>
+<stop offset="1" stop-color="#E86367"/>
+</linearGradient>
+</defs>
+</svg>

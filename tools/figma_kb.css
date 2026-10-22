@@ -1,0 +1,656 @@
+/* 知识库操作流程与状态页面的独立设计规范。 */
+body[data-role="admin"][data-page^="knowledge"] {
+  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+body[data-role="admin"][data-page^="knowledge"] .main {
+  background:
+    linear-gradient(#ffffff40, #ffffff00 330px),
+    url("{{deep-kb-edit.imgRectangle2}}") center top/100% 330px no-repeat;
+}
+body[data-role="admin"][data-page^="knowledge"] .sidebar {
+  background: #0064e0;
+  padding-top: 52px;
+}
+body[data-role="admin"][data-page^="knowledge"] .sidebar .nav-item {
+  height: 48px;
+  font-size: 14px;
+  background: #ffffff0c;
+}
+body[data-role="admin"][data-page^="knowledge"] .sidebar .nav-item.active {
+  background: white;
+}
+body[data-role="admin"][data-page^="knowledge"] .sidebar .section-label {
+  margin: 16px 0 0;
+  font-size: 12px;
+  letter-spacing: 0;
+}
+body[data-role="admin"][data-page^="knowledge"] .sidebar .help > i {
+  width: 62px;
+  height: 62px;
+  left: 12px;
+  top: 14px;
+  font-size: 0;
+  background: url("{{deep-kb-edit.imgFrame}}") center/62px no-repeat;
+}
+body[data-role="admin"][data-page^="knowledge"] .sidebar .help {
+  padding-left: 76px;
+}
+body[data-role="admin"][data-page^="knowledge"] > .demo-bar {
+  display: none;
+}
+.deep-kb-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.deep-kb-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+  margin-bottom: 20px;
+  color: #8595a4;
+  font-size: 14px;
+}
+.deep-kb-toolbar i {
+  margin-right: 8px;
+  font-size: 12px;
+}
+body[data-role="admin"][data-page^="knowledge"] .page-heading {
+  min-height: 78px;
+  margin-bottom: 20px;
+}
+body[data-role="admin"][data-page^="knowledge"] .page-heading .eyebrow {
+  display: none;
+}
+body[data-role="admin"][data-page^="knowledge"] .page-heading h1 {
+  line-height: 40px;
+  margin-bottom: 4px;
+}
+body[data-role="admin"][data-page^="knowledge"] .page-heading p {
+  color: #5d6c7b;
+  line-height: 22px;
+}
+body[data-role="admin"][data-page^="knowledge"] .btn {
+  border-radius: 100px;
+  min-height: 40px;
+  font-size: 14px;
+  padding: 8px 20px;
+  box-shadow: none;
+}
+body[data-role="admin"][data-page^="knowledge"] .btn.primary {
+  background: #0064e0;
+}
+body[data-role="admin"][data-page^="knowledge"] .card {
+  padding: 24px;
+  border-radius: 16px;
+  border: 0;
+}
+body[data-role="admin"][data-page^="knowledge"] .card h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  line-height: 28px;
+  margin: 0 0 20px;
+}
+body[data-role="admin"][data-page^="knowledge"] .card h2:before {
+  display: none;
+}
+body[data-role="admin"][data-page^="knowledge"] .card h2 > img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+.deep-kb-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1040fr) minmax(0, 564fr);
+  align-items: start;
+  gap: 20px;
+}
+.deep-kb-layout > div,
+.deep-kb-layout > aside {
+  min-width: 0;
+}
+.deep-kb-layout .card:last-child {
+  margin-bottom: 0;
+}
+.deep-kb-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.deep-kb-fields.deep-kb-basic {
+  grid-template-columns: minmax(0, 646fr) minmax(0, 326fr);
+}
+body[data-role="admin"][data-page^="knowledge"] .field {
+  margin-bottom: 12px;
+}
+body[data-role="admin"][data-page^="knowledge"] .field label {
+  font-size: 14px;
+  line-height: 22px;
+  color: #1c1e21;
+  margin-bottom: 8px;
+}
+body[data-role="admin"][data-page^="knowledge"] input,
+body[data-role="admin"][data-page^="knowledge"] select,
+body[data-role="admin"][data-page^="knowledge"] textarea {
+  border: 1px solid #dce4ed;
+  border-radius: 8px;
+  padding: 10px 12px;
+  line-height: 22px;
+  font-size: 14px;
+}
+.deep-kb-answer-editor {
+  min-height: 474px;
+}
+.deep-kb-source-editor {
+  min-height: 304px;
+}
+.deep-kb-answer-editor textarea[name="questions"] {
+  height: 44px;
+  min-height: 44px;
+}
+.deep-kb-answer-editor textarea[name="answer"] {
+  height: 82px;
+  min-height: 82px;
+}
+.deep-kb-source-editor .source-card {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+}
+.deep-kb-source-editor .source-card > label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #1c1e21;
+}
+.deep-kb-source-editor .source-card .muted {
+  font-size: 12px;
+  line-height: 18px;
+}
+.deep-kb-source-editor .source-card .textlink {
+  font-size: 12px;
+}
+.deep-kb-layout .note {
+  border: 0;
+  background: #eaf3ff;
+  color: #0064e0;
+  border-radius: 10px;
+  padding: 12px 16px;
+  line-height: 22px;
+  font-size: 14px;
+}
+.deep-kb-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.deep-kb-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #5d6c7b;
+  font-size: 14px;
+  line-height: 28px;
+}
+.deep-kb-checklist img {
+  width: 20px;
+  height: 20px;
+}
+.deep-kb-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 18px 24px;
+  background: white;
+  border: 0;
+  border-radius: 16px;
+  margin-top: 20px;
+  min-height: 76px;
+}
+.deep-kb-bottom > p {
+  margin: 0 auto 0 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: #8595a4;
+}
+.deep-kb-answer {
+  min-height: 406px;
+}
+.deep-kb-answer header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+body[data-role="admin"] .deep-kb-answer header h2 {
+  margin-bottom: 0;
+}
+.deep-kb-code {
+  color: #8595a4;
+  font-size: 12px;
+  line-height: 18px;
+  margin: 16px 0 0;
+  padding: 0 0 12px;
+  border-bottom: 1px solid #dce4ed;
+}
+.deep-kb-answer-body {
+  padding: 16px 0 12px;
+  font-size: 14px;
+  line-height: 24px;
+}
+.deep-kb-answer-body h3 {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+  margin: 0 0 12px;
+}
+.deep-kb-answer-body p {
+  margin: 0;
+  color: #1c1e21;
+  line-height: 24px;
+}
+.deep-kb-question {
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #f5f8fc;
+}
+.deep-kb-question small {
+  color: #8595a4;
+  font-size: 12px;
+  line-height: 18px;
+}
+.deep-kb-question p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: #1c1e21;
+}
+.deep-kb-metadata {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.deep-kb-metadata > div {
+  min-width: 0;
+}
+.deep-kb-metadata dt {
+  color: #8595a4;
+  font-size: 12px;
+  line-height: 18px;
+  margin-bottom: 4px;
+}
+.deep-kb-metadata dd {
+  color: #1c1e21;
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.deep-kb-reference-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.deep-kb-reference-grid + .note {
+  margin: 24px 0 0;
+}
+.deep-kb-layout .timeline {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+.deep-kb-layout .timeline li {
+  border: 0;
+  padding: 0;
+  margin: 0 0 36px;
+}
+.deep-kb-layout .timeline li:before {
+  display: none;
+}
+.deep-kb-layout .timeline li:first-child b {
+  color: #0064e0;
+}
+.deep-kb-layout .timeline b {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+.deep-kb-layout .timeline p {
+  color: #8595a4;
+  font-size: 12px;
+  line-height: 24px;
+  margin: 8px 0 0;
+}
+.deep-kb-confirm {
+  display: block;
+}
+.deep-kb-confirm form {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 !important;
+}
+.deep-kb-confirm .checkline {
+  margin: 0 auto 0 0;
+  color: #1c1e21;
+  align-items: center;
+}
+.deep-kb-confirm .form-actions {
+  padding: 0;
+  border: 0;
+  flex-shrink: 0;
+}
+body[data-role="admin"][data-page^="knowledge-upload"] .upload-steps {
+  background: white;
+  display: flex;
+  gap: 24px;
+  padding: 20px;
+  border-radius: 16px;
+  margin: 0 0 20px;
+  font-size: 14px;
+}
+body[data-role="admin"][data-page^="knowledge-upload"] .upload-steps > span {
+  flex: 1;
+  gap: 12px;
+}
+body[data-role="admin"][data-page^="knowledge-upload"]
+  .upload-steps
+  > span
+  + span:before {
+  content: "›";
+  color: #a0b0c0;
+  margin-right: 18px;
+}
+body[data-role="admin"][data-page^="knowledge-upload"] .upload-steps b {
+  width: 36px;
+  height: 36px;
+  background: #eaf3ff;
+  border: 0;
+  font-size: 14px;
+}
+body[data-role="admin"][data-page^="knowledge-upload"]
+  .upload-steps
+  .current
+  b {
+  background: #0064e0;
+}
+.deep-kb-upload-layout .drop-zone {
+  min-height: 254px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.deep-kb-upload-layout .drop-zone > i {
+  width: 20px;
+  height: 20px;
+  font-size: 0;
+  background: url("{{deep-kb-upload.imgFrame5}}") center/20px no-repeat;
+  margin-bottom: 12px;
+}
+.deep-kb-upload-layout .drop-zone > h3 {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 500;
+}
+.deep-kb-upload-layout #file-settings {
+  min-height: 540px;
+}
+.deep-kb-upload-layout #upload-queue:empty,
+.deep-kb-upload-layout #upload-status:empty {
+  display: none;
+}
+.deep-kb-upload-layout .check-list {
+  padding-left: 20px;
+  line-height: 26px;
+  font-size: 14px;
+}
+.deep-kb-upload-layout .upload-info {
+  padding: 16px;
+  font-size: 12px;
+}
+.deep-kb-upload-layout .small-heading {
+  margin: 12px 0 !important;
+}
+.deep-kb-upload-layout .small-heading h3 {
+  margin: 0;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #8595a4;
+}
+.deep-kb-upload-layout .actions:empty {
+  display: none;
+}
+body[data-role="admin"][data-page="knowledge-files"] .tabs {
+  margin: 0 0 20px;
+}
+body[data-role="admin"][data-page="knowledge-files"]
+  .card:has(#knowledge-file-list) {
+  min-height: 760px;
+}
+body[data-role="admin"][data-page="knowledge-files"] #files-empty {
+  padding: 80px 24px;
+}
+body[data-role="admin"][data-page="knowledge-files"] #files-empty > i {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: #eaf3ff;
+  color: #0064e0;
+  font-size: 24px;
+  margin: 0 auto 20px;
+}
+.deep-kb-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #263b5260;
+  z-index: 60;
+  overflow: auto;
+}
+.deep-kb-modal {
+  width: min(640px, 100%);
+  min-height: 500px;
+  padding: 24px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 20px 80px #17324c22;
+}
+.deep-kb-modal > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.deep-kb-modal > header h2 {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 18px;
+  line-height: 28px;
+  margin: 0;
+}
+.deep-kb-modal > header img {
+  width: 40px;
+  height: 40px;
+}
+.deep-kb-close {
+  font-size: 0;
+  color: #0064e0;
+}
+.deep-kb-close:after {
+  content: "×";
+  font-size: 26px;
+  line-height: 30px;
+}
+body[data-role="admin"][data-page="knowledge-offline"] .deep-kb-modal .card {
+  padding: 20px 0 0;
+  margin: 0;
+}
+body[data-role="admin"][data-page="knowledge-offline"]
+  .deep-kb-modal
+  .card
+  > h2 {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.deep-kb-modal textarea {
+  min-height: 90px;
+}
+.deep-kb-modal .form-actions {
+  padding-top: 18px;
+  border: 0;
+}
+@media (max-width: 1100px) {
+  .deep-kb-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .deep-kb-answer-editor,
+  .deep-kb-source-editor,
+  .deep-kb-answer {
+    min-height: 0;
+  }
+  .deep-kb-confirm form {
+    flex-wrap: wrap;
+  }
+  .deep-kb-upload-layout #file-settings {
+    min-height: 0;
+  }
+}
+@media (max-width: 600px) {
+  .deep-kb-fields,
+  .deep-kb-fields.deep-kb-basic,
+  .deep-kb-reference-grid {
+    grid-template-columns: 1fr;
+  }
+  .deep-kb-bottom {
+    flex-wrap: wrap;
+  }
+  .deep-kb-bottom > p {
+    width: 100%;
+  }
+}
+body[data-role="admin"][data-page^="knowledge"] .main {
+  background-image:
+    linear-gradient(175.32deg, #ffffffcf 0.97%, #ffffff00 24.695%),
+    linear-gradient(180deg, #ffffff5c 0%, #f1f4f7 65%),
+    url("{{deep-kb-edit.imgRectangle2}}");
+  background-size: 100% 330px;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+body[data-role="admin"][data-page^="knowledge"] .figma-menu-search {
+  margin: 0 0 18px;
+}
+body[data-role="admin"][data-page^="knowledge"] .figma-menu-search input {
+  border: 0;
+  border-radius: 100px;
+  background: #ffffff33;
+}
+.deep-kb-crumb {
+  font-size: 14px;
+  color: #8595a4;
+}
+.deep-kb-upload-layout > div:first-child > .card:first-child > .note {
+  padding: 0;
+  margin: 16px 0 0;
+  background: none;
+  border: 0;
+  font-size: 12px;
+  line-height: 22px;
+  color: #8595a4;
+}
+.deep-kb-upload-layout > div:first-child > .card:first-child > .note > i {
+  display: none;
+}
+.deep-kb-upload-layout .small-heading:has(+ #upload-queue:empty) {
+  display: none;
+}
+.deep-kb-upload-layout #file-settings {
+  min-height: 0;
+}
+.deep-kb-upload-layout > div:last-child > .card {
+  min-height: 668px;
+}
+.deep-kb-upload-layout .check-list {
+  line-height: 22px;
+  margin-bottom: 0;
+}
+.deep-kb-upload-layout .check-list li {
+  margin-bottom: 12px;
+}
+.deep-kb-upload-layout .upload-info {
+  background: #eaf3ff;
+  color: #0064e0;
+}
+.deep-kb-upload-layout .upload-info p {
+  color: #5d6c7b;
+}
+.deep-kb-modal {
+  min-height: 540px;
+}
+.deep-kb-modal-symbol {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #fff6e6;
+  display: grid;
+  place-items: center;
+}
+.deep-kb-modal-symbol > img {
+  width: 20px;
+  height: 20px;
+}
+.deep-kb-modal-target {
+  padding: 10px 16px;
+  margin: 0 0 16px;
+  border-radius: 8px;
+  background: #f5f8fc;
+}
+.deep-kb-modal-target b {
+  display: block;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+}
+.deep-kb-modal-target small {
+  display: block;
+  font-size: 12px;
+  line-height: 18px;
+  color: #8595a4;
+}
+.deep-kb-modal .note {
+  font-size: 12px;
+  padding: 0;
+  margin: 10px 0 16px;
+  border: 0;
+  background: none;
+  color: #8595a4;
+}
+body[data-role="admin"][data-page="knowledge-offline"] .deep-kb-modal textarea {
+  height: 94px;
+  min-height: 94px;
+}
+@media (max-width: 1100px) {
+  .deep-kb-upload-layout > div:last-child > .card {
+    min-height: 0;
+  }
+}

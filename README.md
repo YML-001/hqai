@@ -45,8 +45,11 @@
 - `tools/figma_theme.py`：将原有内容组织为设计稿布局，保留表单及业务交互挂载点。
 - `tools/figma_theme.css`：多端视觉样式，由生成器内联到每个HTML页面。
 - `tools/figma_theme.js`：后台菜单筛选及服务大厅搜索按钮。
+- `tools/figma_deep.py`、`tools/figma_deep.css`、`tools/figma_deep.js`：按移动端各内页设计重排身份、消息、问答、服务指引、会议和账户展示。
+- `tools/figma_kb.py`、`tools/figma_kb.css`：知识编辑、发布预览、详情、上传、空态与下线确认的独立设计适配。
 - `tools/figma_assets.json`：原始设计素材与本地文件映射，素材放在`assets/figma/`。
 - `文档/02-交付与验收/Figma设计映射说明.md`：设计节点与页面对应关系。
+- `文档/02-交付与验收/内页设计复核记录.md`：内页修正、实际操作路径与验证边界。
 
 ## 本地预览
 
