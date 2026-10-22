@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 from pathlib import Path
 import sys, json, html, os, re
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0,str(Path(__file__).resolve().parent))
 from prototype_data import SERVICES
 ROOT=Path(__file__).resolve().parents[1]
+DOCUMENTS=ROOT/'文档/02-交付与验收'
+DOCUMENTS.mkdir(parents=True,exist_ok=True)
 NAVIGATION_VERSION='20261022-02'
 PAGES=[]
 CONTENTS={}
@@ -316,7 +318,7 @@ p=ROOT/'index.html';s=p.read_text().replace('href="index.html">返回原型导�
 # 导航链接携带当前版本，重新点击时读取最新页面。
 s=re.sub(r'href="([^"?#]+\.html)"',lambda m:'href="'+m.group(1)+'?v='+NAVIGATION_VERSION+'"',s)
 p.write_text(s)
-(ROOT/'页面清单.json').write_text(json.dumps(PAGES,ensure_ascii=False,indent=2))
+(DOCUMENTS/'页面清单.json').write_text(json.dumps(PAGES,ensure_ascii=False,indent=2))
 lines=[
  '# 后勤智能助手原型交付说明','',
  '打开根目录 index.html 即可进入演示。服务配置联动请使用同一浏览器内的本地预览地址。','',
@@ -353,5 +355,5 @@ lines=[
  '## 独立页面清单',''
 ]
 lines += [f'- {p["path"]}：{p["title"]}' for p in PAGES]
-(ROOT/'交付说明.md').write_text('\n'.join(lines))
+(DOCUMENTS/'交付说明.md').write_text('\n'.join(lines))
 print('已生成',len(PAGES),'个独立HTML页面')
