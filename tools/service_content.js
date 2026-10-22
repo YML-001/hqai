@@ -170,7 +170,7 @@
       if(a.closest('.sidebar,.bottom-nav,.topbar'))return;
       a.hidden=!s.enabled||!allowed(s);if(a.hidden)return;
       if(context.role==='visitor')a.href=guideURL(s);
-      if(a.matches('a.quick,.mini-apps a'))a.replaceChildren(icon(s.icon),document.createTextNode(s.name));
+      if(a.matches('a.quick,.mini-apps a')){a.replaceChildren(icon(s.icon),document.createTextNode(s.name));a.dataset.caption=s.summary;}
     });
     document.querySelectorAll('.quick-grid').forEach(grid=>{const count=[...grid.children].filter(a=>!a.hidden).length;grid.hidden=count===0;if(count)grid.style.gridTemplateColumns='repeat('+Math.min(5,count)+', minmax(0, 1fr))';});
   }

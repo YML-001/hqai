@@ -1,0 +1,267 @@
+{
+  "pc-header": {
+    "imgImage162": "assets/figma/pc-header/6f5cb.png",
+    "imgVector": "assets/figma/pc-header/42418.svg",
+    "imgUnion": "assets/figma/pc-header/61116.svg",
+    "imgEllipse1": "assets/figma/pc-header/d53e3.svg",
+    "imgElements": "assets/figma/pc-header/4b9c6.svg",
+    "imgNotification": "assets/figma/pc-header/2fb1c.svg",
+    "imgEllipse2": "assets/figma/pc-header/9abbf.svg",
+    "imgVuesaxLinearArrowRight": "assets/figma/pc-header/4be07.svg"
+  },
+  "pc-hero": {
+    "imgImage1413634": "assets/figma/pc-hero/596e2.png",
+    "imgChatGpt202610211011032": "assets/figma/pc-hero/a9667.png",
+    "imgChatGpt202610211005051": "assets/figma/pc-hero/e2635.png",
+    "imgChatGpt202610211012471": "assets/figma/pc-hero/1a03a.png",
+    "imgChatGpt202610211009021": "assets/figma/pc-hero/a3bc6.png",
+    "imgImage1413633": "assets/figma/pc-hero/12d2a.svg",
+    "imgChatGpt202610211011033": "assets/figma/pc-hero/cb500.svg"
+  },
+  "pc-questions": {
+    "imgFrame2147226015": "assets/figma/pc-questions/0e106.png",
+    "img2": "assets/figma/pc-questions/6b0ad.png",
+    "imgFrame2147226016": "assets/figma/pc-questions/83edf.png",
+    "imgFrame2147227787": "assets/figma/pc-questions/428c5.png",
+    "imgChatGpt202610211628012": "assets/figma/pc-questions/14749.png",
+    "img00991": "assets/figma/pc-questions/d68a0.png",
+    "img0001": "assets/figma/pc-questions/78047.png",
+    "imgExec15477A5A2A3546C48Fa73A8134D660331": "assets/figma/pc-questions/c4596.png",
+    "img1": "assets/figma/pc-questions/4998d.svg",
+    "img3": "assets/figma/pc-questions/a2219.svg",
+    "imgRectangle34626779": "assets/figma/pc-questions/51a03.svg",
+    "imgRectangle346241505": "assets/figma/pc-questions/321ca.svg",
+    "imgRectangle346241506": "assets/figma/pc-questions/70ae2.svg",
+    "imgRectangle346241507": "assets/figma/pc-questions/7335e.svg",
+    "imgRectangle34626780": "assets/figma/pc-questions/49b07.svg",
+    "imgRectangle346241508": "assets/figma/pc-questions/781c5.svg",
+    "img4": "assets/figma/pc-questions/a25d3.svg",
+    "imgVuesaxBoldArrowCircleRight": "assets/figma/pc-questions/dbfc3.svg",
+    "imgChatGpt202610211628011": "assets/figma/pc-questions/5f201.svg"
+  },
+  "pc-composer": {
+    "imgFrame2147226014": "assets/figma/pc-composer/4ac2d.png",
+    "imgFrame1142815702": "assets/figma/pc-composer/b4a30.png",
+    "imgIconlySharpBoldArrowUp3": "assets/figma/pc-composer/64d75.svg",
+    "imgVuesaxTwotoneMicrophone2": "assets/figma/pc-composer/7deb4.svg"
+  },
+  "pc-assistant": {
+    "imgImage1413646": "assets/figma/pc-assistant/97ccc.png",
+    "imgImage1413642": "assets/figma/pc-assistant/413d1.png",
+    "img": "assets/figma/pc-assistant/b02a7.png",
+    "imgFrame2147227755": "assets/figma/pc-assistant/fc0d0.png",
+    "img1": "assets/figma/pc-assistant/7a5ff.png",
+    "imgHi": "assets/figma/pc-assistant/e97f6.png",
+    "imgRectangle346241507": "assets/figma/pc-assistant/f7626.png",
+    "imgImage1413641": "assets/figma/pc-assistant/16a78.png",
+    "img073188836000": "assets/figma/pc-assistant/3496b.png",
+    "img2": "assets/figma/pc-assistant/e0137.png",
+    "imgImage1413645": "assets/figma/pc-assistant/de174.svg",
+    "imgGroup1142813276": "assets/figma/pc-assistant/c27a3.svg",
+    "imgVuesaxBoldVolumeHigh": "assets/figma/pc-assistant/4014c.svg",
+    "imgRectangle346241504": "assets/figma/pc-assistant/af7d0.svg",
+    "imgRectangle346241517": "assets/figma/pc-assistant/d39b5.svg",
+    "imgEllipse14467": "assets/figma/pc-assistant/23fbe.svg",
+    "imgVuesaxBoldArrowCircleRight": "assets/figma/pc-assistant/3bb32.svg"
+  },
+  "mobile-header": {
+    "imgNetworkSignalLight": "assets/figma/mobile-header/53521.svg",
+    "imgWiFiSignalLight": "assets/figma/mobile-header/612fa.svg",
+    "imgBatteryLight": "assets/figma/mobile-header/a13c3.svg",
+    "imgIndicator": "assets/figma/mobile-header/20cfd.svg",
+    "img941": "assets/figma/mobile-header/aa0dd.svg",
+    "img": "assets/figma/mobile-header/84c07.svg"
+  },
+  "mobile-title": {},
+  "mobile-service-banner": {
+    "img9992": "assets/figma/mobile-service-banner/49a4a.png",
+    "imgImage6": "assets/figma/mobile-service-banner/01aea.png",
+    "img9991": "assets/figma/mobile-service-banner/741bb.svg",
+    "imgVuesaxLinearSearchNormal": "assets/figma/mobile-service-banner/2ac2f.svg"
+  },
+  "mobile-shortcuts": {
+    "imgChatGpt202610211005051": "assets/figma/mobile-shortcuts/3f08d.png",
+    "img": "assets/figma/mobile-shortcuts/e018c.png",
+    "imgRectangle346241497": "assets/figma/mobile-shortcuts/608d8.svg",
+    "imgRectangle346241498": "assets/figma/mobile-shortcuts/0a95c.svg",
+    "imgFrame": "assets/figma/mobile-shortcuts/cac5d.svg",
+    "imgFrame1": "assets/figma/mobile-shortcuts/702d6.svg",
+    "imgFrame2": "assets/figma/mobile-shortcuts/d57fb.svg"
+  },
+  "staff-mobile-banner": {
+    "imgRectangle346241512": "assets/figma/staff-mobile-banner/d55ea.png",
+    "imgRectangle346241513": "assets/figma/staff-mobile-banner/02f03.png",
+    "imgImage5": "assets/figma/staff-mobile-banner/65d2f.png",
+    "img": "assets/figma/staff-mobile-banner/4ed37.png",
+    "img1": "assets/figma/staff-mobile-banner/815e2.png",
+    "imgFrame2085669714": "assets/figma/staff-mobile-banner/8f4fe.svg",
+    "imgEllipse14467": "assets/figma/staff-mobile-banner/23fbe.svg",
+    "imgVector": "assets/figma/staff-mobile-banner/4c42e.svg",
+    "imgElements": "assets/figma/staff-mobile-banner/88333.svg",
+    "imgVector1": "assets/figma/staff-mobile-banner/d9c35.svg"
+  },
+  "staff-mobile-shortcuts": {
+    "img": "assets/figma/staff-mobile-shortcuts/7c19a.png",
+    "imgFrame": "assets/figma/staff-mobile-shortcuts/bb083.svg",
+    "imgFrame2147227742": "assets/figma/staff-mobile-shortcuts/fe561.svg",
+    "imgChevronRight": "assets/figma/staff-mobile-shortcuts/64907.svg",
+    "imgFrame1": "assets/figma/staff-mobile-shortcuts/e47a0.svg",
+    "imgFrame2": "assets/figma/staff-mobile-shortcuts/702d6.svg",
+    "imgFrame3": "assets/figma/staff-mobile-shortcuts/0e1f8.svg"
+  },
+  "admin-stats": {
+    "img": "assets/figma/admin-stats/a2b1c.png",
+    "img1": "assets/figma/admin-stats/16300.png",
+    "imgImage10": "assets/figma/admin-stats/75ae1.png",
+    "imgImage11": "assets/figma/admin-stats/fdc62.png",
+    "imgImage12": "assets/figma/admin-stats/e3843.png",
+    "imgImage13": "assets/figma/admin-stats/63b93.png",
+    "imgImage9": "assets/figma/admin-stats/db17c.svg"
+  },
+  "admin-banner": {
+    "img": "assets/figma/admin-banner/eee59.png",
+    "imgEllipse35": "assets/figma/admin-banner/9a972.png",
+    "imgImage1": "assets/figma/admin-banner/5409d.png",
+    "imgImage7": "assets/figma/admin-banner/b6c9c.png",
+    "imgBj": "assets/figma/admin-banner/0a145.png",
+    "imgImage8": "assets/figma/admin-banner/d2aa3.png",
+    "imgEllipse36": "assets/figma/admin-banner/1ce9c.svg",
+    "imgGroup": "assets/figma/admin-banner/da1f8.svg",
+    "imgImage6": "assets/figma/admin-banner/ac73e.svg",
+    "imgFrame2085669714": "assets/figma/admin-banner/3896e.svg",
+    "imgFrame": "assets/figma/admin-banner/1a241.svg"
+  },
+  "pc-sidebar": {
+    "imgImage1413638": "assets/figma/pc-sidebar/47eae.png",
+    "img11": "assets/figma/pc-sidebar/9b10c.png",
+    "imgImage1413637": "assets/figma/pc-sidebar/d2573.svg",
+    "imgVuesaxTwotoneCall": "assets/figma/pc-sidebar/835d1.svg",
+    "imgVuesaxTwotoneDeviceMessage": "assets/figma/pc-sidebar/2f073.svg",
+    "imgElements": "assets/figma/pc-sidebar/d62a7.svg",
+    "imgElements1": "assets/figma/pc-sidebar/06a75.svg",
+    "imgVuesaxTwotoneUserOctagon": "assets/figma/pc-sidebar/ce453.svg"
+  },
+  "mobile-service-card": {
+    "imgChatGpt202610211011032": "assets/figma/mobile-service-card/a9667.png",
+    "img2026102117253459161": "assets/figma/mobile-service-card/4263d.png"
+  },
+  "admin-knowledge": {
+    "imgRectangle4": "assets/figma/admin-knowledge/b1b8a.png",
+    "img": "assets/figma/admin-knowledge/b654b.png",
+    "img1": "assets/figma/admin-knowledge/9e1b2.png",
+    "imgRectangle3": "assets/figma/admin-knowledge/4eb19.svg",
+    "imgElements": "assets/figma/admin-knowledge/ff33e.svg",
+    "imgElements1": "assets/figma/admin-knowledge/77711.svg",
+    "imgGroup": "assets/figma/admin-knowledge/5e1bd.svg",
+    "imgGroup1": "assets/figma/admin-knowledge/355d4.svg",
+    "imgGroup2": "assets/figma/admin-knowledge/3d4d2.svg",
+    "imgElements2": "assets/figma/admin-knowledge/1276e.svg",
+    "imgElements3": "assets/figma/admin-knowledge/5669f.svg",
+    "imgBookOpen01Icon": "assets/figma/admin-knowledge/70048.svg",
+    "imgFolder01Icon": "assets/figma/admin-knowledge/aff2f.svg",
+    "imgDashboardSquareSettingIcon": "assets/figma/admin-knowledge/7ab0d.svg",
+    "imgCalendar03Icon": "assets/figma/admin-knowledge/df2e8.svg",
+    "imgUserGroupIcon": "assets/figma/admin-knowledge/2bbcc.svg",
+    "imgNotification02Icon": "assets/figma/admin-knowledge/354f8.svg",
+    "imgBubbleChatIcon": "assets/figma/admin-knowledge/69ac8.svg",
+    "imgAnalytics01Icon": "assets/figma/admin-knowledge/172bb.svg",
+    "imgShieldKeyIcon": "assets/figma/admin-knowledge/cb852.svg",
+    "imgSettings01Icon": "assets/figma/admin-knowledge/6da1d.svg",
+    "imgHistoryIcon": "assets/figma/admin-knowledge/8a46e.svg",
+    "imgFrame": "assets/figma/admin-knowledge/9b29b.svg",
+    "imgElements4": "assets/figma/admin-knowledge/bbe07.svg",
+    "imgGroup3": "assets/figma/admin-knowledge/b6458.svg",
+    "imgFrame1": "assets/figma/admin-knowledge/063d2.svg",
+    "imgFrame2": "assets/figma/admin-knowledge/d10c5.svg",
+    "imgFrame3": "assets/figma/admin-knowledge/f7bdf.svg",
+    "imgFrame4": "assets/figma/admin-knowledge/ff584.svg",
+    "imgFrame5": "assets/figma/admin-knowledge/44ae1.svg",
+    "imgFrame6": "assets/figma/admin-knowledge/cfcbe.svg",
+    "imgFrame7": "assets/figma/admin-knowledge/138e8.svg",
+    "imgFrame8": "assets/figma/admin-knowledge/4101e.svg",
+    "imgFrame9": "assets/figma/admin-knowledge/77d71.svg",
+    "imgFrame10": "assets/figma/admin-knowledge/82a90.svg",
+    "imgFrame11": "assets/figma/admin-knowledge/8d548.svg",
+    "imgFrame12": "assets/figma/admin-knowledge/a2dee.svg",
+    "imgFrame13": "assets/figma/admin-knowledge/84181.svg",
+    "imgFrame14": "assets/figma/admin-knowledge/38e30.svg",
+    "imgFrame15": "assets/figma/admin-knowledge/a0b40.svg",
+    "imgFrame16": "assets/figma/admin-knowledge/55659.svg",
+    "imgFrame17": "assets/figma/admin-knowledge/e5e4a.svg",
+    "imgFrame18": "assets/figma/admin-knowledge/45fa1.svg",
+    "imgFrame19": "assets/figma/admin-knowledge/55087.svg"
+  },
+  "mobile-bottom-nav": {
+    "imgImage6": "assets/figma/mobile-bottom-nav/49408.png",
+    "imgLabel": "assets/figma/mobile-bottom-nav/2f49f.png",
+    "img": "assets/figma/mobile-bottom-nav/72456.svg",
+    "img1": "assets/figma/mobile-bottom-nav/5d4ad.svg",
+    "imgElements": "assets/figma/mobile-bottom-nav/ff619.svg"
+  },
+  "mobile-student-title": {
+    "imgVector": "assets/figma/mobile-student-title/a31c5.svg"
+  },
+  "mobile-profile-header": {
+    "img": "assets/figma/mobile-profile-header/d1cfc.svg",
+    "img389833120": "assets/figma/mobile-profile-header/a0a3f.svg",
+    "img389833121": "assets/figma/mobile-profile-header/f8715.svg",
+    "imgGroup1142813273": "assets/figma/mobile-profile-header/4f0c1.svg",
+    "imgGroup1142813274": "assets/figma/mobile-profile-header/a29d7.svg",
+    "imgElements": "assets/figma/mobile-profile-header/02f79.svg"
+  },
+  "mobile-contacts-banner": {
+    "imgImage6": "assets/figma/mobile-contacts-banner/d2aa3.png",
+    "img": "assets/figma/mobile-contacts-banner/d8d21.png",
+    "imgRectangle2": "assets/figma/mobile-contacts-banner/dd1b4.svg",
+    "imgPhone": "assets/figma/mobile-contacts-banner/ddbf6.svg"
+  },
+  "pc-masthead": {
+    "imgImage1413636": "assets/figma/pc-masthead/cb943.png"
+  },
+  "pc-chat": {
+    "imgChatGpt202610211011032": "assets/figma/pc-chat/a9667.png",
+    "imgChatGpt202610211005051": "assets/figma/pc-chat/e2635.png",
+    "imgChatGpt202610211012471": "assets/figma/pc-chat/1a03a.png",
+    "imgChatGpt202610211009021": "assets/figma/pc-chat/a3bc6.png",
+    "imgChatGpt202610211011033": "assets/figma/pc-chat/cb500.svg"
+  },
+  "mobile-home-repair": {
+    "img2026102117253459161": "assets/figma/mobile-home-repair/4263d.png"
+  },
+  "mobile-home-shuttle": {
+    "img2026102117253459162": "assets/figma/mobile-home-shuttle/6858c.png"
+  },
+  "mobile-home-utility": {
+    "img2026102117253459162": "assets/figma/mobile-home-utility/60a9d.png"
+  },
+  "mobile-home-supervision": {
+    "img2026102117253459161": "assets/figma/mobile-home-supervision/112dc.png"
+  },
+  "mobile-home-robot": {
+    "imgImage6": "assets/figma/mobile-home-robot/d2aa3.png"
+  },
+  "mobile-hall-pool": {
+    "img00991": "assets/figma/mobile-hall-pool/d68a0.png",
+    "img2026102117253459161": "assets/figma/mobile-hall-pool/eb747.png"
+  },
+  "mobile-hall-hotel": {
+    "imgChatGpt202610211604091": "assets/figma/mobile-hall-hotel/e958a.png",
+    "img2026102117253459161": "assets/figma/mobile-hall-hotel/a5739.png"
+  },
+  "mobile-hall-press": {
+    "imgChatGpt202610211628011": "assets/figma/mobile-hall-press/14749.png",
+    "img2026102117253459163": "assets/figma/mobile-hall-press/fd6d9.png"
+  },
+  "mobile-hall-lost": {
+    "img0001": "assets/figma/mobile-hall-lost/78047.png",
+    "img2026102117253459163": "assets/figma/mobile-hall-lost/b3196.png"
+  },
+  "mobile-hall-announcement": {
+    "imgExec15477A5A2A3546C48Fa73A8134D660331": "assets/figma/mobile-hall-announcement/c4596.png",
+    "img2026102117253459162": "assets/figma/mobile-hall-announcement/78b79.png"
+  },
+  "mobile-hall-food": {
+    "imgExec15477A5A2A3546C48Fa73A8134D660331": "assets/figma/mobile-hall-food/c4596.png",
+    "img2026102117253459162": "assets/figma/mobile-hall-food/5990e.png"
+  }
+}

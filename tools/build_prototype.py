@@ -6,9 +6,10 @@ from prototype_data import SERVICES
 ROOT=Path(__file__).resolve().parents[1]
 DOCUMENTS=ROOT/'文档/02-交付与验收'
 DOCUMENTS.mkdir(parents=True,exist_ok=True)
-NAVIGATION_VERSION='20261022-02'
+NAVIGATION_VERSION='20261022-03'
 PAGES=[]
 CONTENTS={}
+exec(compile((ROOT/'tools/figma_theme.py').read_text(), 'figma_theme.py', 'exec'),globals())
 def esc(v): return html.escape(str(v),quote=True)
 def icon(n): return f'<i class="fa-solid {n}" aria-hidden="true"></i>'
 def link(h,t,c='btn',ic=''): return f'<a class="{c}" href="{h}">{icon(ic) if ic else ""}{t}</a>'
@@ -52,6 +53,8 @@ ADMIN_NAV=[('dashboard','工作台','fa-grip'),('knowledge','知识库管理','f
 def output(path,title,content,role='student',port='pc',active='',section=''):
  p=ROOT/path;p.parent.mkdir(parents=True,exist_ok=True);depth=len(Path(path).parts)-1;back='../'*depth+'index.html'
  if 'enhance_assistant_content' in globals():content=enhance_assistant_content(path,content,role,port)
+ CONTENTS[path]=content
+ content=figma_theme_content(path,content,role,port)
  role_name={'student':'学生','staff':'教职工 · 提醒接收人','visitor':'游客','admin':'业务管理员','guide':'产品说明'}[role]
  if role=='guide':body=f'<div class="topbar">{BRAND}<div class="toplinks">{link(back,"返回原型导航","textlink")}</div></div><main class="guide-wrap">{content}</main>'
  else:
@@ -71,11 +74,12 @@ def output(path,title,content,role='student',port='pc',active='',section=''):
   else:
    side='<aside class="sidebar"><div class="section-label">'+('管理控制台' if role=='admin' else '我的后勤服务')+'</div>'+''.join(link(menu_target(k),f'{icon(ic)}<span>{t}</span>','nav-item'+(' active' if k==active else '')) for k,t,ic in nav)+'<div class="help">'+icon('fa-shield-heart')+' 有温度的后勤服务<br><small>后勤服务热线</small><br><b>0731-88836000</b></div></aside>'
    body=f'<div class="demo-bar">交互原型 · {role_name}电脑端 · 数据为演示，未连接真实学校接口</div>{top}<div class="shell">{side}<main class="main">{content}</main></div>'
+ body=figma_skin(body,path,role,port)
  extra=notification_assets(role,port) if 'notification_assets' in globals() else ''
  if 'service_content_assets' in globals():extra+=service_content_assets(role,port)
- doc=f'<!DOCTYPE html>\n<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="color-scheme" content="light"><title>{title} · 中南大学后勤智能助手</title><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={{corePlugins:{{preflight:false}}}}</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><style>{CSS}</style></head><body data-role="{role}" data-port="{port}">{body}<script>{JS}</script>{extra}</body></html>'
+ extra+=figma_theme_assets(path)
+ doc=f'<!DOCTYPE html>\n<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="color-scheme" content="light"><title>{title} · 中南大学后勤智能助手</title><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={{corePlugins:{{preflight:false}}}}</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><style>{CSS}</style></head><body data-role="{role}" data-port="{port}" data-page="{Path(path).stem}">{body}<script>{JS}</script>{extra}</body></html>'
  p.write_text(doc)
- CONTENTS[path]=content
  PAGES.append(dict(path=path,title=title,role=role,port=port,section=section))
 def details(items): return '<dl class="summary-list">'+''.join(f'<div><dt>{k}</dt><dd>{v}</dd></div>' for k,v in items)+'</dl>'
 def steps(items): return '<div class="steps">'+''.join(f'<div class="step"><span>{i+1}</span><div><h3>{t}</h3><p>{d}</p></div></div>' for i,(t,d) in enumerate(items))+'</div>'
@@ -276,7 +280,7 @@ flows_body+=card('智能问答内的记录与消息入口',flow([('进入智能�
 flows_body+=card('游客按需登录与学生消息',flow([('先咨询和浏览','无需登录，可输入问题、查看来源和功能列表'),('识别需要身份的操作','点击具体服务，或请求本人余额、报修进度等信息'),('提示登录并保留上下文','可暂不登录；演示认证后回到原服务或问题'),('登录后按本人权限继续','个人数据以原平台为准，学生从问答铃铛查看本人服务消息')])+note('普通流程咨询不强制登录，游客不读取个人数据；学生消息与教职工会议消息分别保存。'))
 flows_body+=card('校内送餐小程序',flow([('选择校内送餐','学生、教职工从常用入口或服务大厅进入；游客点击后按需登录'),('查看打开指引','电脑使用微信扫描小程序码，手机点击按钮前往已配置地址'),('在微信继续','正式地址待提供时先进入跳转演示页，也可使用备用分享口令'),('在美团办理','核对校内收货地址的配送范围；下单、支付与售后在美团完成')])+note('后台可上传电脑端小程序码、配置移动端跳转地址和备用分享口令，经双端预览确认后发布。正式地址可后续补充，未配置时进入跳转演示页。'))
 output('guide/workflows.html','业务与审核流程',flows_body,role='guide')
-spec_body=heading('功能清单与开发说明','让原型能够直接支撑设计拆页、接口对接和验收讨论')+card('资料依据',table(['资料','用途','采用原则'],[['建设实施方案 · 2026-10-13','确定本期范围、角色、登录、提醒规则','作为范围优先依据'],['后勤服务知识库 · 2026版','答复、服务电话与办事流程','资料截止2026-09-17，需复核时效'],['服务链接','确定电脑与移动服务地址','以该书面清单为地址依据'],['设计参考截图','浅蓝灰背景、问答主体、右侧服务栏','借鉴布局，重新设计后勤内容']]))+card('本期与后续范围',table(['模块','本期原型范围','后续与边界'],[['智能问答','公开与登录问答、来源、反馈、语音样式、数字人；登录用户从页内按钮查看本人对话，学生和指定教职工从铃铛查看本人消息','原型为规则演示，正式接学校大模型与知识检索'],['服务大厅与办事指引','报修、水电、班车、场馆等服务；后台维护卡片、完整指引、办理步骤、对象、两端地址与通用展示文案','业务办理在原系统完成，本人账单接口确认后单独立项'],['会议提醒','日程、工号名单、站内通知、ITS双通道、已读、变更与取消','不含会议审批、签到、短信默认推送'],['知识运营','文件上传、解析预览、来源文件、分类、标准问答、版本、上线与下线','发布与下线同步影响检索结果'],['平台管理','角色权限、日志、学校接口与共享数据说明','真实接口、服务端鉴权、任务调度需后续开发']]))+card('问答能力约定',details([('输入','文字与语音录入样式；确认识别文字后再发送，正式语音接学校接口'),('回答依据','仅有效且可见的后勤知识；关键电话、时间、价格不可编造'),('输出','答复正文、来源章节、资料日期、相关正式入口'),('失败兜底','未收录或接口失败时提供静态服务与人工联系方式'),('人工确认','AI不自动审批、付款、发布知识或扩大权限')]))+card('正式开发验证建议','<p>建立至少30条真实代表性问题的验证集，覆盖公开知识、未收录、身份受限、过期知识与终端差异。</p>'+table(['验证项','建议验收目标'],[['来源覆盖','有据回答全部可定位有效原文'],['关键信息','电话、时间、价格不凭空生成'],['权限隔离','游客不泄露受限知识，用户不读取他人会议'],['知识下线','下线条目不再进入新回答'],['提醒幂等','同会议、工号、计划时点不得重复成功投递'],['日程取消','取消后未发送任务不再执行'],['失败恢复','仅失败对象可重试，成功对象不重复发送']]))+card('原型演示说明','<p>所有数据为演示。表单数据保存在当前浏览器。服务内容与通用展示配置可在同源打开的前台页面联动演示；知识列表与统计页仍展示固定样例。其他独立状态页不模拟真实数据库联动。登录、问答、ITS、共享数据均未连接真实学校服务。</p><p>语音录入提供录音与识别确认样式演示，不启用麦克风；数字人采用可动的原创矢量演示形象，播报通过浏览器语音合成演示。校园氛围图片来自Unsplash。正式名称和形象仍需后勤确认。</p><p>每页包含内联CSS及必要脚本，采用HTML5、Tailwind CSS、Font Awesome。部分资源通过网络加载；核心布局有内联样式保障。</p>')
+spec_body=heading('功能清单与开发说明','让原型能够直接支撑设计拆页、接口对接和验收讨论')+card('资料依据',table(['资料','用途','采用原则'],[['建设实施方案 · 2026-10-13','确定本期范围、角色、登录、提醒规则','作为范围优先依据'],['后勤服务知识库 · 2026版','答复、服务电话与办事流程','资料截止2026-09-17，需复核时效'],['服务链接','确定电脑与移动服务地址','以该书面清单为地址依据'],['用户Figma设计稿','蓝色校徽页眉、机器人、渐变卡片与多端界面','按设计稿替换展示层，保留现有业务逻辑']]))+card('本期与后续范围',table(['模块','本期原型范围','后续与边界'],[['智能问答','公开与登录问答、来源、反馈、语音样式、数字人；登录用户从页内按钮查看本人对话，学生和指定教职工从铃铛查看本人消息','原型为规则演示，正式接学校大模型与知识检索'],['服务大厅与办事指引','报修、水电、班车、场馆等服务；后台维护卡片、完整指引、办理步骤、对象、两端地址与通用展示文案','业务办理在原系统完成，本人账单接口确认后单独立项'],['会议提醒','日程、工号名单、站内通知、ITS双通道、已读、变更与取消','不含会议审批、签到、短信默认推送'],['知识运营','文件上传、解析预览、来源文件、分类、标准问答、版本、上线与下线','发布与下线同步影响检索结果'],['平台管理','角色权限、日志、学校接口与共享数据说明','真实接口、服务端鉴权、任务调度需后续开发']]))+card('问答能力约定',details([('输入','文字与语音录入样式；确认识别文字后再发送，正式语音接学校接口'),('回答依据','仅有效且可见的后勤知识；关键电话、时间、价格不可编造'),('输出','答复正文、来源章节、资料日期、相关正式入口'),('失败兜底','未收录或接口失败时提供静态服务与人工联系方式'),('人工确认','AI不自动审批、付款、发布知识或扩大权限')]))+card('正式开发验证建议','<p>建立至少30条真实代表性问题的验证集，覆盖公开知识、未收录、身份受限、过期知识与终端差异。</p>'+table(['验证项','建议验收目标'],[['来源覆盖','有据回答全部可定位有效原文'],['关键信息','电话、时间、价格不凭空生成'],['权限隔离','游客不泄露受限知识，用户不读取他人会议'],['知识下线','下线条目不再进入新回答'],['提醒幂等','同会议、工号、计划时点不得重复成功投递'],['日程取消','取消后未发送任务不再执行'],['失败恢复','仅失败对象可重试，成功对象不重复发送']]))+card('原型演示说明','<p>所有数据为演示。表单数据保存在当前浏览器。服务内容与通用展示配置可在同源打开的前台页面联动演示；知识列表与统计页仍展示固定样例。其他独立状态页不模拟真实数据库联动。登录、问答、ITS、共享数据均未连接真实学校服务。</p><p>语音录入提供录音与识别确认样式演示，不启用麦克风；数字人采用用户Figma设计稿提供的机器人形象，动作与播报通过浏览器进行演示。主要视觉素材来自该设计稿，部分原有校园氛围图片来自Unsplash。</p><p>每页包含内联CSS及必要脚本，采用HTML5、Tailwind CSS、Font Awesome。部分资源通过网络加载；核心布局有内联样式保障。</p>')
 spec_body+=card('本轮新增的体验与通知范围','<p>依据本次需求，补充语音录入样式、可模拟说话的数字人，以及会议站内通知。站内通知与ITS分别记录投递和阅读情况；仅指定接收人可见本人会议消息。</p><p>会前提醒按配置时点生成；会议变更与取消分别生成通知，按会议版本、接收人与通道去重。会议仍不设置审批。</p>')
 spec_body+=card('前台内容与后台配置映射',table(['前台展示位置','可配置内容','后台入口'],[['服务大厅页头','标题、说明与搜索提示','服务内容管理 → 通用展示配置'],['服务大厅卡片','名称、图标、分类、简介、角标、适用对象、排序及是否展示','服务内容管理 → 配置服务内容'],['服务指引页头','通用标题与说明','服务内容管理 → 通用展示配置'],['服务指引正文','服务名称、简介、详细说明、步骤名称与操作说明','服务内容管理 → 配置服务内容'],['办理信息与提示','办理渠道、适用对象、终端支持、电脑和手机地址、按钮文案、无地址提示及办理提示','服务内容管理 → 配置服务内容'],['智能问答正文与引用','标准答复、常见问法、知识来源、文件关联及可见范围','知识库管理 → 编辑知识']])+note('修改服务内容需预览并确认发布后生效。原型通过当前浏览器的同源本地存储演示前台同步；跨设备共享、持久化、版本审计和服务端权限控制由正式系统实现。'))
 spec_body+=card('菜单与从属页面约定','<p>“智能问答”是对话记录与消息通知的统一入口。学生与教职工通过页内按钮打开本人历史；学生通过同页铃铛查看本人服务消息，指定会议接收人查看会议通知与未读数。</p><p>历史列表、通知列表、未读与详情状态继续使用独立HTML页面，方便设计师逐页设计；左侧导航和手机底部导航均不增加这两个一级菜单，进入从属页时继续高亮智能问答。</p>')

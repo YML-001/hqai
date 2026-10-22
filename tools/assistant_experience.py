@@ -4,7 +4,7 @@ ASSISTANT_CSS = '''
 '''
 
 def digital_person(compact=False, mode='idle'):
-    svg=(ROOT/'assets/logistics-assistant.svg').read_text()
+    svg=figma_robot_markup(compact)
     wave='<div class="speech-wave" aria-hidden="true">'+''.join(f'<span style="--i:{i}"></span>' for i in range(7))+'</div>'
     status='正在聆听 · 演示' if mode=='listening' else '在线，随时为你服务'
     return f'<div class="digital-person {"digital-mini" if compact else ""}" data-digital-human data-mode="{mode}"><div class="digital-stage">{svg}</div><h3>后勤小助</h3><p>校园生活的事，随时问我</p><div class="human-status" data-human-status aria-live="polite">{status}</div>{wave}<button class="btn sm" data-speak data-speech="welcome" aria-label="播放数字人欢迎语">'+icon('fa-volume-high')+' 听我介绍</button><button class="btn sm" data-stop-speaking hidden>停止说话</button>'+('' if compact else '<p class="digital-note">数字人演示形象 · 点击可模拟说话</p>')+'</div>'

@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Iconly/Sharp/Bold/Arrow - Up 3">
+<path id="Fill 171" d="M23.5468 11.5467C20.2961 11.5467 17.3335 8.58533 17.3335 5.33333V4H14.6668V5.33333C14.6668 8.58533 11.7041 11.5467 8.45345 11.5467H7.12012V14.2133H8.45345C10.8175 14.2133 13.0375 13.176 14.6668 11.548V28H17.3335V11.548C18.9615 13.176 21.1815 14.2133 23.5468 14.2133H24.8801V11.5467H23.5468Z" fill-rule="evenodd" clip-rule="evenodd" fill="url(#paint0_linear_0_24)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_24" x1="16.0001" y1="4" x2="16.0001" y2="28" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0.6"/>
+</linearGradient>
+</defs>
+</svg>
