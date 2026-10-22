@@ -840,6 +840,13 @@
     "section": ""
   },
   {
+    "path": "student/pc/mini-program-handoff.html",
+    "title": "小程序跳转演示",
+    "role": "student",
+    "port": "pc",
+    "section": ""
+  },
+  {
     "path": "student/pc/mini-program.html",
     "title": "小程序打开指引",
     "role": "student",
@@ -1008,6 +1015,13 @@
     "section": ""
   },
   {
+    "path": "student/mobile/mini-program-handoff.html",
+    "title": "小程序跳转演示",
+    "role": "student",
+    "port": "mobile",
+    "section": ""
+  },
+  {
     "path": "student/mobile/mini-program.html",
     "title": "小程序打开指引",
     "role": "student",
@@ -1150,6 +1164,13 @@
   {
     "path": "staff/pc/service-guide.html",
     "title": "服务办理指引",
+    "role": "staff",
+    "port": "pc",
+    "section": ""
+  },
+  {
+    "path": "staff/pc/mini-program-handoff.html",
+    "title": "小程序跳转演示",
     "role": "staff",
     "port": "pc",
     "section": ""
@@ -1318,6 +1339,13 @@
   {
     "path": "staff/mobile/service-guide.html",
     "title": "服务办理指引",
+    "role": "staff",
+    "port": "mobile",
+    "section": ""
+  },
+  {
+    "path": "staff/mobile/mini-program-handoff.html",
+    "title": "小程序跳转演示",
     "role": "staff",
     "port": "mobile",
     "section": ""

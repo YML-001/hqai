@@ -3549,7 +3549,7 @@
       }
       .mini-program-grid {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) 280px;
+        grid-template-columns: minmax(0, 1fr) 360px;
         gap: 22px;
         align-items: start;
       }
@@ -3652,6 +3652,84 @@
           grid-template-columns: minmax(0, 1fr);
         }
       }
+      .mini-program-code {
+        display: block;
+        width: min(100%, 300px);
+        height: auto;
+        object-fit: contain;
+        background: #fff;
+        margin: 20px auto;
+        border-radius: 12px;
+      }
+      .service-config-guide .mini-program-code {
+        max-width: 220px;
+      }
+      .mini-qr-card .mini-program-steps {
+        text-align: left;
+        font-size: 14px;
+        max-width: 390px;
+        margin: 22px auto 0;
+        padding-left: 22px;
+      }
+      .mini-code-empty {
+        padding: 30px;
+        border: 1px dashed var(--line);
+        border-radius: 12px;
+      }
+      .mini-code-upload-preview {
+        width: 160px;
+        max-height: 180px;
+        object-fit: contain;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+        margin: 12px 0;
+      }
+      .mini-code-upload .actions {
+        margin: 12px 0;
+      }
+      .mini-handoff {
+        text-align: center;
+        max-width: 540px;
+        margin: 15px auto;
+        padding: 30px 0;
+      }
+      .mini-handoff h1 {
+        margin: 20px 0 12px;
+      }
+      .mini-handoff .actions {
+        justify-content: center;
+        margin-top: 25px;
+      }
+      .mini-handoff-symbol {
+        width: 80px;
+        height: 80px;
+        border-radius: 24px;
+        background: #fff4cc;
+        color: #946b18;
+        font-size: 34px;
+        display: grid;
+        place-items: center;
+        margin: 0 auto 22px;
+      }
+      .mobile .mini-program-grid .primary {
+        width: 100%;
+      }
+      .mobile .mini-handoff .btn {
+        width: 100%;
+        white-space: normal;
+      }
+      .mobile .mini-handoff {
+        padding: 15px 0;
+      }
+      .service-preview-phone .mini-program-grid {
+        display: block;
+      }
+      @media (max-width: 1100px) {
+        .mini-program-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
     </style>
     <script>
       window.CSU_SERVICE_DEFAULTS = {
@@ -3668,6 +3746,9 @@
           repair: {
             entryType: "web",
             miniProgramShare: "",
+            miniProgramUrl: "",
+            miniProgramCode: "",
+            miniProgramCodeName: "",
             id: "repair",
             name: "网上报修",
             icon: "fa-screwdriver-wrench",
@@ -3709,6 +3790,9 @@
           supervision: {
             entryType: "web",
             miniProgramShare: "",
+            miniProgramUrl: "",
+            miniProgramCode: "",
+            miniProgramCodeName: "",
             id: "supervision",
             name: "服务监督",
             icon: "fa-comments",
@@ -3747,6 +3831,9 @@
           pool: {
             entryType: "web",
             miniProgramShare: "",
+            miniProgramUrl: "",
+            miniProgramCode: "",
+            miniProgramCodeName: "",
             id: "pool",
             name: "游泳馆预定",
             icon: "fa-person-swimming",
@@ -3788,6 +3875,9 @@
           "utility-info": {
             entryType: "web",
             miniProgramShare: "",
+            miniProgramUrl: "",
+            miniProgramCode: "",
+            miniProgramCodeName: "",
             id: "utility-info",
             name: "水电费服务",
             icon: "fa-file-lines",
@@ -3829,6 +3919,9 @@
           shuttle: {
             entryType: "web",
             miniProgramShare: "",
+            miniProgramUrl: "",
+            miniProgramCode: "",
+            miniProgramCodeName: "",
             id: "shuttle",
             name: "班车查询",
             icon: "fa-bus",
@@ -3870,6 +3963,9 @@
           hotel: {
             entryType: "web",
             miniProgramShare: "",
+            miniProgramUrl: "",
+            miniProgramCode: "",
+            miniProgramCodeName: "",
             id: "hotel",
             name: "校园宾馆服务",
             icon: "fa-hotel",
@@ -3908,6 +4004,9 @@
           newspaper: {
             entryType: "web",
             miniProgramShare: "",
+            miniProgramUrl: "",
+            miniProgramCode: "",
+            miniProgramCodeName: "",
             id: "newspaper",
             name: "报刊订阅",
             icon: "fa-newspaper",
@@ -3949,6 +4048,9 @@
           lost: {
             entryType: "web",
             miniProgramShare: "",
+            miniProgramUrl: "",
+            miniProgramCode: "",
+            miniProgramCodeName: "",
             id: "lost",
             name: "失物招领",
             icon: "fa-magnifying-glass",
@@ -3989,6 +4091,9 @@
           "utility-pay": {
             entryType: "web",
             miniProgramShare: "",
+            miniProgramUrl: "",
+            miniProgramCode: "",
+            miniProgramCodeName: "",
             id: "utility-pay",
             name: "水电缴费",
             icon: "fa-bolt",
@@ -4030,6 +4135,9 @@
           announcement: {
             entryType: "web",
             miniProgramShare: "",
+            miniProgramUrl: "",
+            miniProgramCode: "",
+            miniProgramCodeName: "",
             id: "announcement",
             name: "校园公告",
             icon: "fa-bullhorn",
@@ -4069,10 +4177,13 @@
             entryType: "miniprogram",
             miniProgramShare:
               "#小程序://美团外卖丨外卖美食奶茶咖啡水果/ioEYbhk6ryw2kcn",
+            miniProgramUrl: "",
+            miniProgramCode: "../../assets/food-delivery-miniprogram.png",
+            miniProgramCodeName: "美团外卖小程序码.png",
             id: "food-delivery",
             name: "校内送餐",
             icon: "fa-utensils",
-            summary: "复制口令，在微信打开美团外卖小程序。",
+            summary: "电脑微信扫码，手机点击前往小程序。",
             detail:
               "通过美团外卖小程序查看餐饮、奶茶、咖啡和水果等服务。请在美团中确认校内收货地址是否可配送；配送范围、时段、费用、支付与售后均以美团实际页面为准。",
             category: "餐饮服务",
@@ -4086,19 +4197,19 @@
             sort: 11,
             enabled: true,
             showInHall: true,
-            buttonText: "查看小程序打开指引",
-            qrButtonText: "手机查看打开指引",
+            buttonText: "打开校内送餐",
+            qrButtonText: "微信扫码打开",
             fallbackText: "请复制小程序口令，在微信中打开。",
             notice:
               "餐饮服务由美团外卖提供。请先核对校内收货地址的配送范围，商品、配送、付款与售后均在美团完成。",
             steps: [
               {
-                title: "复制小程序口令",
-                text: "进入打开指引页，点击“复制小程序口令”。",
+                title: "选择打开方式",
+                text: "电脑端使用微信扫描小程序码；移动端点击“打开校内送餐”前往小程序。",
               },
               {
-                title: "在微信中打开",
-                text: "打开微信，将口令粘贴到聊天中（如文件传输助手）并发送，点击微信识别的小程序卡片。",
+                title: "进入美团外卖",
+                text: "正式移动端地址由管理员后续配置，当前可查看跳转效果或复制备用分享口令到微信打开。",
               },
               {
                 title: "核对配送信息",
@@ -4160,6 +4271,9 @@
             state.services[id] = {
               entryType: "web",
               miniProgramShare: "",
+              miniProgramUrl: "",
+              miniProgramCode: "",
+              miniProgramCodeName: "",
               ...(defaults.services[id] || {}),
               ...state.services[id],
             };
@@ -4170,7 +4284,9 @@
           try {
             localStorage.setItem(storageKey, JSON.stringify(state));
           } catch (_) {}
-          window.name = carryPrefix + JSON.stringify(state);
+          try {
+            window.name = carryPrefix + JSON.stringify(state);
+          } catch (_) {}
         }
         function el(tag, text, cls) {
           const n = document.createElement(tag);
@@ -4241,6 +4357,37 @@
             return "";
           }
         }
+        function miniProgramURL(value) {
+          try {
+            const u = new URL((value || "").trim());
+            if (u.protocol === "https:") return u.href;
+            if (
+              u.protocol === "weixin:" &&
+              u.hostname === "dl" &&
+              u.pathname === "/business/" &&
+              u.searchParams.get("t")
+            )
+              return u.href;
+          } catch (_) {}
+          return "";
+        }
+        function codeImageURL(value) {
+          if (!value) return "";
+          if (
+            /^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/.test(value)
+          )
+            return value;
+          try {
+            const u = new URL(value, location.href);
+            if (
+              u.protocol === "https:" ||
+              (u.origin === location.origin &&
+                ["http:", "file:"].includes(u.protocol))
+            )
+              return u.href;
+          } catch (_) {}
+          return "";
+        }
         function endpoint(s, port) {
           if (s.terminal === "无地址，仅文字说明") return "";
           if (port === "pc" && s.terminal === "仅手机") return "";
@@ -4287,10 +4434,17 @@
         }
         function actionFor(s, port) {
           if (s.entryType === "miniprogram")
-            return [
-              s.buttonText || "查看小程序打开指引",
-              "mini-program.html?service=" + encodeURIComponent(s.id),
-            ];
+            return port === "mobile"
+              ? [
+                  s.buttonText || "打开校内送餐",
+                  miniProgramURL(s.miniProgramUrl) ||
+                    "mini-program-handoff.html?service=" +
+                      encodeURIComponent(s.id),
+                ]
+              : [
+                  s.qrButtonText || "微信扫码打开",
+                  "mini-program.html?service=" + encodeURIComponent(s.id),
+                ];
           if (endpoint(s, port))
             return [
               s.buttonText,
@@ -4386,12 +4540,24 @@
             b.disabled = true;
             actions.append(b);
           } else actions.append(anchor(text, href, "btn primary"));
+          if (s.entryType === "miniprogram" && port === "pc") {
+            info.append(
+              miniProgramCodeImage(s),
+              el("p", "打开手机微信扫一扫，扫描上方小程序码。", "muted"),
+            );
+          }
           info.append(actions);
           if (preview && s.entryType === "miniprogram") {
             const detail = el("div", null, "mini-config-preview");
             detail.append(
+              el("strong", "移动端跳转地址"),
+              el(
+                "p",
+                miniProgramURL(s.miniProgramUrl) ||
+                  "待配置；当前展示跳转演示页",
+              ),
               el("strong", "微信小程序分享口令"),
-              el("p", s.miniProgramShare || "尚未填写口令"),
+              el("p", s.miniProgramShare || "未配置备用口令"),
             );
             info.append(detail);
           }
@@ -4454,6 +4620,24 @@
           host.append(filters, grid, empty);
           draw();
         }
+        function miniProgramCodeImage(s) {
+          const src = codeImageURL(s.miniProgramCode);
+          if (!src)
+            return el(
+              "p",
+              "小程序码待配置，请使用备用打开方式。",
+              "mini-code-empty",
+            );
+          const image = el("img");
+          image.src = src;
+          image.alt = s.name + "微信小程序码";
+          image.className = "mini-program-code";
+          image.addEventListener("error", () => {
+            image.hidden = true;
+            image.after(el("p", "小程序码暂时无法显示，请使用备用打开方式。"));
+          });
+          return image;
+        }
         function miniProgramPanel(
           s,
           { preview = false, port = context.port } = {},
@@ -4464,18 +4648,47 @@
             mark = el("div", null, "service-icon"),
             intro = el("div");
           mark.append(icon(s.icon));
-          intro.append(
-            el("h2", s.name),
-            el("p", s.channel + " · 手机微信打开"),
-          );
+          intro.append(el("h2", s.name), el("p", s.channel));
           hero.append(mark, intro);
           main.append(hero);
+          if (port === "mobile") {
+            main.append(
+              el("h2", "一键前往校内送餐"),
+              el("p", "点击下方按钮，在小程序中选择餐品、确认配送地址并下单。"),
+            );
+            if (preview) {
+              const b = el(
+                "button",
+                s.buttonText || "打开校内送餐",
+                "btn primary",
+              );
+              b.type = "button";
+              b.disabled = true;
+              main.append(b);
+            } else
+              main.append(
+                anchor(
+                  s.buttonText || "打开校内送餐",
+                  miniProgramURL(s.miniProgramUrl) ||
+                    "mini-program-handoff.html?service=" +
+                      encodeURIComponent(s.id),
+                  "btn primary",
+                ),
+              );
+            main.append(
+              el(
+                "p",
+                miniProgramURL(s.miniProgramUrl)
+                  ? "即将前往已配置的小程序地址，相关服务由美团提供。"
+                  : "当前为跳转效果演示，正式小程序地址将由管理员配置。",
+                "muted",
+              ),
+              el("hr", null, "divider"),
+            );
+          }
           main.append(
-            el("h2", "复制口令，在微信中继续"),
-            el(
-              "p",
-              "当前使用小程序分享口令打开。复制后，在微信聊天中粘贴发送，再点击识别的小程序卡片。",
-            ),
+            el("h2", port === "pc" ? "备用打开方式" : "也可以使用分享口令"),
+            el("p", "复制口令，在微信聊天中粘贴发送，再点击识别的小程序卡片。"),
           );
           const label = el("label", "小程序分享口令"),
             field = el("textarea", null, "mini-share-field");
@@ -4487,7 +4700,7 @@
           field.setAttribute("aria-label", "小程序分享口令");
           main.append(label, field);
           const actions = el("div", null, "actions"),
-            button = el("button", "复制小程序口令", "btn primary"),
+            button = el("button", "复制小程序口令", "btn"),
             status = el(
               "p",
               "复制后，请切换到微信继续操作。",
@@ -4519,98 +4732,70 @@
               }
             });
           actions.append(button);
-          if (port === "mobile" && !preview) {
-            actions.append(anchor("打开微信", "weixin://"));
-          }
           main.append(actions, status);
-          const stepTitle = el("h2", "在微信中打开"),
-            steps = el("ol", null, "mini-program-steps");
-          [
-            "点击上方按钮，复制完整的小程序口令。",
-            "打开微信，进入任意聊天（如文件传输助手）。",
-            "粘贴口令并发送，点击微信识别的小程序卡片。",
-            "选择校内收货地址，核对可配送范围后再下单。",
-          ].forEach((text) => steps.append(el("li", text)));
-          main.append(
-            el("hr", null, "divider"),
-            stepTitle,
-            steps,
-            el(
-              "p",
-              "如果口令未被识别，可在微信搜索“美团外卖”进入小程序。",
-              "muted",
-            ),
-          );
-          root.append(main);
           if (port === "pc") {
-            const aside = card("手机查看打开指引");
-            aside.classList.add("mini-qr-card");
-            if (preview)
-              aside.append(
-                el(
-                  "p",
-                  "正式页面提供本站手机指引二维码，扫码后仍需复制口令并在微信中打开。",
-                ),
-              );
-            else if (["http:", "https:"].includes(location.protocol)) {
-              const role = context.role === "staff" ? "staff" : "student";
-              const url = new URL(
-                "../../" +
-                  role +
-                  "/mobile/mini-program.html?service=" +
-                  encodeURIComponent(s.id),
-                location.href,
-              ).href;
-              const box = el("div", null, "service-qr");
-              try {
-                const qr = qrcode(0, "M");
-                qr.addData(url);
-                qr.make();
-                box.innerHTML = qr.createSvgTag({
-                  cellSize: 5,
-                  margin: 12,
-                  scalable: true,
-                });
-                box
-                  .querySelector("svg")
-                  ?.setAttribute("aria-label", "本站手机打开指引二维码");
-              } catch (_) {
-                box.append(
-                  el("p", "二维码暂时不可用，请在手机浏览器打开下方指引地址。"),
-                );
-              }
-              const address = el("input");
-              address.value = url;
-              address.readOnly = true;
-              address.setAttribute("aria-label", "手机打开指引地址");
-              aside.append(
-                box,
-                el(
-                  "p",
-                  "此二维码用于查看本站打开指引。打开后复制口令，再到微信中继续。",
-                ),
-                address,
-              );
-              if (["localhost", "127.0.0.1", "::1"].includes(location.hostname))
-                aside.append(
-                  el(
-                    "p",
-                    "当前为电脑本地预览，手机需使用已发布的公开预览地址访问。",
-                    "muted",
-                  ),
-                );
-            } else
-              aside.append(
-                el(
-                  "p",
-                  "请通过公开预览网址查看手机指引，或直接复制左侧口令到微信。",
-                ),
-              );
-            root.append(aside);
-          }
+            const qr = card("微信扫码，打开校内送餐");
+            qr.classList.add("mini-qr-card");
+            qr.append(
+              el("p", "使用手机微信“扫一扫”，扫描下方小程序码。"),
+              miniProgramCodeImage(s),
+              badge("美团外卖小程序", "green"),
+            );
+            const steps = el("ol", null, "mini-program-steps");
+            [
+              "打开手机微信，点击右上角“扫一扫”。",
+              "扫描小程序码，在小程序中选择餐品。",
+              "核对校内收货地址的可配送范围后再下单。",
+            ].forEach((text) => steps.append(el("li", text)));
+            qr.append(steps);
+            root.append(qr, main);
+          } else root.append(main);
           return root;
         }
+        function renderMiniHandoff() {
+          const host = document.querySelector("[data-miniprogram-handoff]");
+          if (!host) return;
+          const s = current("food-delivery");
+          if (!s || !s.enabled || !allowed(s)) {
+            blocked(host, s);
+            return;
+          }
+          host.replaceChildren(
+            heading("前往" + s.name, "从后勤助手出发，在小程序中继续"),
+          );
+          const c = card(),
+            wrap = el("div", null, "mini-handoff"),
+            symbol = el("div", null, "mini-handoff-symbol");
+          symbol.append(icon(s.icon));
+          wrap.append(
+            symbol,
+            badge("小程序跳转演示"),
+            el("h1", "即将打开" + s.name),
+            el("p", "正式地址配置后，移动端点击服务按钮即可前往对应小程序。"),
+          );
+          const url = miniProgramURL(s.miniProgramUrl),
+            actions = el("div", null, "actions");
+          if (url) {
+            actions.append(anchor("继续前往小程序", url, "btn primary"));
+            wrap.append(el("p", "已配置正式跳转地址。", "muted"));
+          } else
+            wrap.append(
+              el("p", "当前展示跳转效果，正式小程序地址待后续提供。", "muted"),
+            );
+          actions.append(
+            anchor("返回送餐服务", guideURL(s), "btn"),
+            anchor(
+              "查看备用打开方式",
+              "mini-program.html?service=" + encodeURIComponent(s.id),
+              "btn",
+            ),
+          );
+          wrap.append(actions);
+          c.append(wrap);
+          host.append(c, note(s.notice));
+        }
         function renderRoutes() {
+          renderMiniHandoff();
           const miniHost = document.querySelector("[data-service-miniprogram]");
           if (miniHost) {
             const s = current("food-delivery");
@@ -4625,7 +4810,9 @@
               miniHost.replaceChildren(
                 heading(
                   s.name,
-                  "从后勤助手出发，在微信中继续",
+                  context.port === "pc"
+                    ? "使用手机微信扫码，前往小程序"
+                    : "点击打开小程序，继续校内送餐",
                   anchor("返回服务指引", guideURL(s), "btn sm"),
                 ),
                 miniProgramPanel(s),
@@ -4906,6 +5093,76 @@
             host.append(row);
           });
         }
+        function setupMiniCodeUpload(form) {
+          const picker = form.querySelector("#mini-code-upload"),
+            value = form.querySelector("[name=miniProgramCode]"),
+            name = form.querySelector("[name=miniProgramCodeName]"),
+            preview = form.querySelector("#mini-code-preview"),
+            error = form.querySelector("#mini-code-error"),
+            filename = form.querySelector("#mini-code-filename");
+          const draw = () => {
+            const src = codeImageURL(value.value);
+            preview.hidden = !src;
+            if (src) preview.src = src;
+            else preview.removeAttribute("src");
+            filename.textContent = name.value || "尚未上传小程序码";
+            form.querySelector("#mini-code-remove").disabled = !value.value;
+          };
+          draw();
+          let revision = 0;
+          picker.addEventListener("change", async () => {
+            const file = picker.files?.[0];
+            if (!file) return;
+            const currentRevision = ++revision;
+            error.textContent = "";
+            if (
+              !["image/png", "image/jpeg", "image/webp"].includes(file.type) ||
+              file.size > 1024 * 1024
+            ) {
+              error.textContent =
+                "请上传不超过1MB的PNG、JPG或WEBP小程序码图片。";
+              picker.value = "";
+              return;
+            }
+            const submit = form.querySelector("[type=submit]");
+            submit.disabled = true;
+            try {
+              const data = await new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+              });
+              await new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = resolve;
+                img.onerror = reject;
+                img.src = data;
+              });
+              if (currentRevision !== revision) return;
+              value.value = data;
+              name.value = file.name;
+              draw();
+              filename.textContent =
+                file.name + " · 已选择，预览确认发布后生效";
+            } catch (_) {
+              error.textContent = "图片无法读取，请选择有效的小程序码原图。";
+            } finally {
+              submit.disabled = false;
+              picker.value = "";
+            }
+          });
+          form
+            .querySelector("#mini-code-remove")
+            .addEventListener("click", () => {
+              revision++;
+              value.value = "";
+              name.value = "";
+              picker.value = "";
+              error.textContent = "";
+              draw();
+            });
+        }
         function editForm() {
           const form = document.querySelector("#service-content-form");
           if (!form) return;
@@ -4952,14 +5209,18 @@
               .querySelectorAll("input")
               .forEach((n) => (n.disabled = mini));
             form.querySelector("[data-miniprogram-fields]").hidden = !mini;
-            shareField.disabled = !mini;
-            shareField.required = mini;
+            form
+              .querySelector("[data-miniprogram-fields]")
+              .querySelectorAll("input,textarea")
+              .forEach((n) => (n.disabled = !mini));
+            shareField.required = false;
             const terminal = form.querySelector("[name=terminal]");
             terminal.closest(".field").hidden = mini;
             terminal.disabled = mini;
           };
           typeField.addEventListener("change", toggleType);
           toggleType();
+          setupMiniCodeUpload(form);
           document
             .querySelector("#add-service-step")
             .addEventListener("click", () => {
@@ -5005,11 +5266,25 @@
               error = "请完整填写每个办理步骤的标题和说明。";
             else if (
               data.entryType === "miniprogram" &&
+              data.miniProgramShare &&
               !/^#小程序:\/\/[^\r\n]+\/[^\s/]+$/.test(
                 (data.miniProgramShare || "").trim(),
               )
             )
               error = "请填写完整的微信小程序分享口令，以“#小程序://”开头。";
+            else if (
+              data.entryType === "miniprogram" &&
+              data.miniProgramUrl &&
+              !miniProgramURL(data.miniProgramUrl)
+            )
+              error =
+                "请填写有效的HTTPS小程序链接或微信URL Scheme，分享口令请填在备用口令中。";
+            else if (
+              data.entryType === "miniprogram" &&
+              data.miniProgramCode &&
+              !codeImageURL(data.miniProgramCode)
+            )
+              error = "小程序码图片不可用，请重新上传。";
             else if (
               data.entryType !== "miniprogram" &&
               data.terminal === "电脑与手机分别配置" &&
@@ -5031,7 +5306,8 @@
             document.querySelector("#service-form-error").textContent = error;
             if (error) return;
             if (data.entryType === "miniprogram") {
-              data.miniProgramShare = data.miniProgramShare.trim();
+              data.miniProgramShare = (data.miniProgramShare || "").trim();
+              data.miniProgramUrl = (data.miniProgramUrl || "").trim();
               data.terminal = "仅手机";
             }
             state.draft = data;

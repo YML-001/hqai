@@ -19,12 +19,12 @@
       }
     } catch (_) {}
     state = { ...copy(defaults), ...saved, display: { ...defaults.display, ...(saved?.display || {}) }, services: { ...copy(defaults.services), ...(saved?.services || {}) } };
-    Object.keys(state.services).forEach(id=>{state.services[id]={entryType:'web',miniProgramShare:'',...(defaults.services[id]||{}),...state.services[id]};});
+    Object.keys(state.services).forEach(id=>{state.services[id]={entryType:'web',miniProgramShare:'',miniProgramUrl:'',miniProgramCode:'',miniProgramCodeName:'',...(defaults.services[id]||{}),...state.services[id]};});
   }
   function save() {
     state.updated = Date.now();
     try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch (_) {}
-    window.name = carryPrefix + JSON.stringify(state);
+    try {window.name = carryPrefix + JSON.stringify(state);}catch(_){}
   }
   function el(tag, text, cls) {
     const n = document.createElement(tag);
@@ -40,13 +40,20 @@
   function heading(title, subtitle, action) { const n=el('div',null,'page-heading');const h=el('div');h.append(el('div','中南大学 · 智慧后勤','eyebrow'),el('h1',title),el('p',subtitle));n.append(h);if(action)n.append(action);return n; }
   function details(items) { const n=el('dl',null,'summary-list');items.forEach(([label,text])=>{const r=el('div');r.append(el('dt',label),el('dd',text));n.append(r);});return n; }
   function validURL(value) { try { const u=new URL(value);return ['http:','https:'].includes(u.protocol)?u.href:''; } catch(_){return '';} }
+  function miniProgramURL(value) {
+    try {const u=new URL((value||'').trim());if(u.protocol==='https:')return u.href;if(u.protocol==='weixin:'&&u.hostname==='dl'&&u.pathname==='/business/'&&u.searchParams.get('t'))return u.href;}catch(_){}return '';
+  }
+  function codeImageURL(value) {
+    if(!value)return '';if(/^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/.test(value))return value;
+    try{const u=new URL(value,location.href);if(u.protocol==='https:'||(u.origin===location.origin&&['http:','file:'].includes(u.protocol)))return u.href;}catch(_){}return '';
+  }
   function endpoint(s, port) { if(s.terminal==='无地址，仅文字说明')return '';if(port==='pc'&&s.terminal==='仅手机')return '';if(port==='mobile'&&s.terminal==='仅电脑')return '';return validURL(s[port]||''); }
   function allowed(s, role=context.role) { if(role==='visitor'||role==='admin'||s.who==='全部用户（说明）'||s.who==='学生、教职工')return true;return role==='student'?s.who==='学生':role==='staff'?s.who==='教职工':false; }
   function label(s) { if(s.entryType==='miniprogram')return '手机微信';return ({'电脑与手机分别配置':'电脑、手机','仅电脑':'仅电脑','仅手机':'仅手机','无地址，仅文字说明':'办事说明'})[s.terminal]||s.terminal; }
   function guideURL(s) { if(context.role==='visitor')return 'login-required.html?intent=service&service='+encodeURIComponent(s.id);return defaults.services[s.id]?s.id+'.html':'service-guide.html?service='+encodeURIComponent(s.id); }
   function current(fallback='repair') { return state.services[query.get('service')||fallback]; }
   function actionFor(s, port) {
-    if(s.entryType==='miniprogram')return [s.buttonText||'查看小程序打开指引','mini-program.html?service='+encodeURIComponent(s.id)];
+    if(s.entryType==='miniprogram')return port==='mobile'?[s.buttonText||'打开校内送餐',miniProgramURL(s.miniProgramUrl)||'mini-program-handoff.html?service='+encodeURIComponent(s.id)]:[s.qrButtonText||'微信扫码打开','mini-program.html?service='+encodeURIComponent(s.id)];
     if(endpoint(s,port)) return [s.buttonText,'service-handoff.html?service='+encodeURIComponent(s.id)];
     if(port==='pc'&&endpoint(s,'mobile'))return [s.qrButtonText,'service-mobile.html?service='+encodeURIComponent(s.id)];
     return ['查看替代渠道','service-unavailable.html?service='+encodeURIComponent(s.id)];
@@ -68,7 +75,7 @@
     const info=card('办理信息');info.append(details([['适用对象',s.who],['办理渠道',s.channel],['终端支持',label(s)]]));
     const [text,href]=actionFor(s,port),actions=el('div',null,'actions');actions.style.marginTop='22px';
     if(preview){const b=el('button',text,'btn primary');b.type='button';b.disabled=true;actions.append(b);}else actions.append(anchor(text,href,'btn primary'));
-    info.append(actions);if(preview&&s.entryType==='miniprogram'){const detail=el('div',null,'mini-config-preview');detail.append(el('strong','微信小程序分享口令'),el('p',s.miniProgramShare||'尚未填写口令'));info.append(detail);}right.append(info,note(s.notice));split.append(left,right);root.append(split);return root;
+    if(s.entryType==='miniprogram'&&port==='pc'){info.append(miniProgramCodeImage(s),el('p','打开手机微信扫一扫，扫描上方小程序码。','muted'));}info.append(actions);if(preview&&s.entryType==='miniprogram'){const detail=el('div',null,'mini-config-preview');detail.append(el('strong','移动端跳转地址'),el('p',miniProgramURL(s.miniProgramUrl)||'待配置；当前展示跳转演示页'),el('strong','微信小程序分享口令'),el('p',s.miniProgramShare||'未配置备用口令')); info.append(detail);}right.append(info,note(s.notice));split.append(left,right);root.append(split);return root;
   }
   function renderCatalog() {
     const host=document.querySelector('[data-service-catalog]');if(!host)return;
@@ -81,14 +88,26 @@
       found++;const a=anchor('',guideURL(s),'service-card'),si=el('div',null,'service-icon');si.append(icon(s.icon));a.append(si,el('h3',s.name),el('p',s.summary),badge(s.tag));grid.append(a);
     });empty.hidden=found>0;};input.addEventListener('input',draw);host.append(filters,grid,empty);draw();
   }
+  function miniProgramCodeImage(s) {
+    const src=codeImageURL(s.miniProgramCode);
+    if(!src)return el('p','小程序码待配置，请使用备用打开方式。','mini-code-empty');
+    const image=el('img');image.src=src;image.alt=s.name+'微信小程序码';image.className='mini-program-code';
+    image.addEventListener('error',()=>{image.hidden=true;image.after(el('p','小程序码暂时无法显示，请使用备用打开方式。'));});return image;
+  }
   function miniProgramPanel(s, {preview=false, port=context.port}={}) {
     const root=el('div',null,'mini-program-grid');
     const main=card(),hero=el('div',null,'mini-program-hero'),mark=el('div',null,'service-icon'),intro=el('div');
-    mark.append(icon(s.icon));intro.append(el('h2',s.name),el('p',s.channel+' · 手机微信打开'));hero.append(mark,intro);main.append(hero);
-    main.append(el('h2','复制口令，在微信中继续'),el('p','当前使用小程序分享口令打开。复制后，在微信聊天中粘贴发送，再点击识别的小程序卡片。'));
+    mark.append(icon(s.icon));intro.append(el('h2',s.name),el('p',s.channel));hero.append(mark,intro);main.append(hero);
+    if(port==='mobile'){
+      main.append(el('h2','一键前往校内送餐'),el('p','点击下方按钮，在小程序中选择餐品、确认配送地址并下单。'));
+      if(preview){const b=el('button',s.buttonText||'打开校内送餐','btn primary');b.type='button';b.disabled=true;main.append(b);}
+      else main.append(anchor(s.buttonText||'打开校内送餐',miniProgramURL(s.miniProgramUrl)||'mini-program-handoff.html?service='+encodeURIComponent(s.id),'btn primary'));
+      main.append(el('p',miniProgramURL(s.miniProgramUrl)?'即将前往已配置的小程序地址，相关服务由美团提供。':'当前为跳转效果演示，正式小程序地址将由管理员配置。','muted'),el('hr',null,'divider'));
+    }
+    main.append(el('h2',port==='pc'?'备用打开方式':'也可以使用分享口令'),el('p','复制口令，在微信聊天中粘贴发送，再点击识别的小程序卡片。'));
     const label=el('label','小程序分享口令'),field=el('textarea',null,'mini-share-field');
     field.id='mini-program-share-'+port;label.htmlFor=field.id;field.value=s.miniProgramShare||'';field.readOnly=true;field.rows=3;field.setAttribute('aria-label','小程序分享口令');main.append(label,field);
-    const actions=el('div',null,'actions'),button=el('button','复制小程序口令','btn primary'),status=el('p','复制后，请切换到微信继续操作。','mini-copy-status');
+    const actions=el('div',null,'actions'),button=el('button','复制小程序口令','btn'),status=el('p','复制后，请切换到微信继续操作。','mini-copy-status');
     button.type='button';button.disabled=preview||!s.miniProgramShare;status.setAttribute('role','status');status.setAttribute('aria-live','polite');
     if(!preview)button.addEventListener('click',async()=>{
       try {
@@ -97,29 +116,30 @@
         button.textContent='已复制小程序口令';status.textContent='已复制。请打开微信，将口令粘贴到聊天中并发送。';
       }catch(_){field.focus();field.select();status.textContent='暂时无法自动复制，已选中口令，请长按或使用复制快捷键手动复制。';}
     });
-    actions.append(button);if(port==='mobile'&&!preview){actions.append(anchor('打开微信','weixin://'));}
-    main.append(actions,status);
-    const stepTitle=el('h2','在微信中打开'),steps=el('ol',null,'mini-program-steps');
-    ['点击上方按钮，复制完整的小程序口令。','打开微信，进入任意聊天（如文件传输助手）。','粘贴口令并发送，点击微信识别的小程序卡片。','选择校内收货地址，核对可配送范围后再下单。'].forEach(text=>steps.append(el('li',text)));
-    main.append(el('hr',null,'divider'),stepTitle,steps,el('p','如果口令未被识别，可在微信搜索“美团外卖”进入小程序。','muted'));root.append(main);
+    actions.append(button);main.append(actions,status);
     if(port==='pc'){
-      const aside=card('手机查看打开指引');aside.classList.add('mini-qr-card');
-      if(preview)aside.append(el('p','正式页面提供本站手机指引二维码，扫码后仍需复制口令并在微信中打开。'));
-      else if(['http:','https:'].includes(location.protocol)){
-        const role=context.role==='staff'?'staff':'student';const url=new URL('../../'+role+'/mobile/mini-program.html?service='+encodeURIComponent(s.id),location.href).href;
-        const box=el('div',null,'service-qr');
-        try{const qr=qrcode(0,'M');qr.addData(url);qr.make();box.innerHTML=qr.createSvgTag({cellSize:5,margin:12,scalable:true});box.querySelector('svg')?.setAttribute('aria-label','本站手机打开指引二维码');}catch(_){box.append(el('p','二维码暂时不可用，请在手机浏览器打开下方指引地址。'));}
-        const address=el('input');address.value=url;address.readOnly=true;address.setAttribute('aria-label','手机打开指引地址');
-        aside.append(box,el('p','此二维码用于查看本站打开指引。打开后复制口令，再到微信中继续。'),address);
-        if(['localhost','127.0.0.1','::1'].includes(location.hostname))aside.append(el('p','当前为电脑本地预览，手机需使用已发布的公开预览地址访问。','muted'));
-      }else aside.append(el('p','请通过公开预览网址查看手机指引，或直接复制左侧口令到微信。'));
-      root.append(aside);
-    }
+      const qr=card('微信扫码，打开校内送餐');qr.classList.add('mini-qr-card');
+      qr.append(el('p','使用手机微信“扫一扫”，扫描下方小程序码。'),miniProgramCodeImage(s),badge('美团外卖小程序','green'));
+      const steps=el('ol',null,'mini-program-steps');['打开手机微信，点击右上角“扫一扫”。','扫描小程序码，在小程序中选择餐品。','核对校内收货地址的可配送范围后再下单。'].forEach(text=>steps.append(el('li',text)));
+      qr.append(steps);root.append(qr,main);
+    }else root.append(main);
     return root;
   }
+  function renderMiniHandoff() {
+    const host=document.querySelector('[data-miniprogram-handoff]');if(!host)return;
+    const s=current('food-delivery');if(!s||!s.enabled||!allowed(s)){blocked(host,s);return;}
+    host.replaceChildren(heading('前往'+s.name,'从后勤助手出发，在小程序中继续'));
+    const c=card(),wrap=el('div',null,'mini-handoff'),symbol=el('div',null,'mini-handoff-symbol');symbol.append(icon(s.icon));wrap.append(symbol,badge('小程序跳转演示'),el('h1','即将打开'+s.name),el('p','正式地址配置后，移动端点击服务按钮即可前往对应小程序。'));
+    const url=miniProgramURL(s.miniProgramUrl),actions=el('div',null,'actions');
+    if(url){actions.append(anchor('继续前往小程序',url,'btn primary'));wrap.append(el('p','已配置正式跳转地址。','muted'));}
+    else wrap.append(el('p','当前展示跳转效果，正式小程序地址待后续提供。','muted'));
+    actions.append(anchor('返回送餐服务',guideURL(s),'btn'),anchor('查看备用打开方式','mini-program.html?service='+encodeURIComponent(s.id),'btn'));
+    wrap.append(actions);c.append(wrap);host.append(c,note(s.notice));
+  }
   function renderRoutes() {
+    renderMiniHandoff();
     const miniHost=document.querySelector('[data-service-miniprogram]');
-    if(miniHost){const s=current('food-delivery');if(!s||!s.enabled||!allowed(s)){blocked(miniHost,s);}else if(s.entryType!=='miniprogram'){miniHost.replaceChildren(heading('服务打开方式已更新',s.name),anchor('查看最新服务指引',guideURL(s),'btn primary'));}else{miniHost.replaceChildren(heading(s.name,'从后勤助手出发，在微信中继续',anchor('返回服务指引',guideURL(s),'btn sm')),miniProgramPanel(s),note(s.notice));}}
+    if(miniHost){const s=current('food-delivery');if(!s||!s.enabled||!allowed(s)){blocked(miniHost,s);}else if(s.entryType!=='miniprogram'){miniHost.replaceChildren(heading('服务打开方式已更新',s.name),anchor('查看最新服务指引',guideURL(s),'btn primary'));}else{miniHost.replaceChildren(heading(s.name,context.port==='pc'?'使用手机微信扫码，前往小程序':'点击打开小程序，继续校内送餐',anchor('返回服务指引',guideURL(s),'btn sm')),miniProgramPanel(s),note(s.notice));}}
     document.querySelectorAll('[data-service-guide]').forEach(host=>{const id=host.dataset.serviceGuide;const s=state.services[id==='query'?(query.get('service')||'repair'):id];host.replaceChildren(guide(s,context.port));});
     const handoff=document.querySelector('[data-service-handoff]');
     if(handoff){const s=current(handoff.dataset.serviceHandoff||'repair');if(!s||!s.enabled||!allowed(s)){blocked(handoff,s);return;}
@@ -173,6 +193,22 @@
       const bodyField=el('div',null,'field'),bodyLabel=el('label','步骤说明 *'),body=el('textarea');body.id='step-text-'+i;body.dataset.stepText='';bodyLabel.htmlFor=body.id;body.value=step.text;body.rows=3;body.required=true;body.maxLength=1000;bodyField.append(bodyLabel,body);row.append(order,titleField,bodyField);host.append(row);
     });
   }
+  function setupMiniCodeUpload(form) {
+    const picker=form.querySelector('#mini-code-upload'),value=form.querySelector('[name=miniProgramCode]'),name=form.querySelector('[name=miniProgramCodeName]'),preview=form.querySelector('#mini-code-preview'),error=form.querySelector('#mini-code-error'),filename=form.querySelector('#mini-code-filename');
+    const draw=()=>{const src=codeImageURL(value.value);preview.hidden=!src;if(src)preview.src=src;else preview.removeAttribute('src');filename.textContent=name.value||'尚未上传小程序码';form.querySelector('#mini-code-remove').disabled=!value.value;};draw();
+    let revision=0;
+    picker.addEventListener('change',async()=>{
+      const file=picker.files?.[0];if(!file)return;const currentRevision=++revision;error.textContent='';
+      if(!['image/png','image/jpeg','image/webp'].includes(file.type)||file.size>1024*1024){error.textContent='请上传不超过1MB的PNG、JPG或WEBP小程序码图片。';picker.value='';return;}
+      const submit=form.querySelector('[type=submit]');submit.disabled=true;
+      try {
+        const data=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=reject;reader.readAsDataURL(file);});
+        await new Promise((resolve,reject)=>{const img=new Image();img.onload=resolve;img.onerror=reject;img.src=data;});
+        if(currentRevision!==revision)return;value.value=data;name.value=file.name;draw();filename.textContent=file.name+' · 已选择，预览确认发布后生效';
+      }catch(_){error.textContent='图片无法读取，请选择有效的小程序码原图。';}finally{submit.disabled=false;picker.value='';}
+    });
+    form.querySelector('#mini-code-remove').addEventListener('click',()=>{revision++;value.value='';name.value='';picker.value='';error.textContent='';draw();});
+  }
   function editForm() {
     const form=document.querySelector('#service-content-form');if(!form)return;
     const newMode=query.has('new');const id=query.get('service')||'repair';let s;
@@ -181,19 +217,22 @@
     else s=copy(state.services[id]||defaults.services.repair);
     form.querySelectorAll('[name]').forEach(n=>{if(s[n.name]!==undefined)n.value=['enabled','showInHall'].includes(n.name)?(s[n.name]?'是':'否'):String(s[n.name]);});drawSteps(s.steps);
     const typeField=form.querySelector('[name=entryType]'),shareField=form.querySelector('[name=miniProgramShare]');
-    const toggleType=()=>{const mini=typeField.value==='miniprogram';form.querySelector('[data-web-service-fields]').hidden=mini;form.querySelector('[data-web-service-fields]').querySelectorAll('input').forEach(n=>n.disabled=mini);form.querySelector('[data-miniprogram-fields]').hidden=!mini;shareField.disabled=!mini;shareField.required=mini;const terminal=form.querySelector('[name=terminal]');terminal.closest('.field').hidden=mini;terminal.disabled=mini;};typeField.addEventListener('change',toggleType);toggleType();
+    const toggleType=()=>{const mini=typeField.value==='miniprogram';form.querySelector('[data-web-service-fields]').hidden=mini;form.querySelector('[data-web-service-fields]').querySelectorAll('input').forEach(n=>n.disabled=mini);form.querySelector('[data-miniprogram-fields]').hidden=!mini;form.querySelector('[data-miniprogram-fields]').querySelectorAll('input,textarea').forEach(n=>n.disabled=!mini);shareField.required=false;const terminal=form.querySelector('[name=terminal]');terminal.closest('.field').hidden=mini;terminal.disabled=mini;};typeField.addEventListener('change',toggleType);toggleType();
+    setupMiniCodeUpload(form);
     document.querySelector('#add-service-step').addEventListener('click',()=>{const data=collectSteps();if(data.length>=12){if(typeof toast==='function')toast('每项服务最多设置12个办理步骤');return;}data.push({title:'',text:''});drawSteps(data);});
     form.addEventListener('submit',e=>{e.preventDefault();const d=Object.fromEntries(new FormData(form));const data={...s,...d,enabled:d.enabled==='是',showInHall:d.showInHall==='是',sort:Number(d.sort),steps:collectSteps()};let error='';
       if(!data.name.trim()||!data.summary.trim()||!data.detail.trim())error='请完整填写服务名称、卡片简介和详细说明。';
       else if(!icons.includes(data.icon))error='请选择支持的服务图标。';
       else if(!Number.isInteger(data.sort)||data.sort<0||data.sort>999)error='排序请输入0至999的整数。';
       else if(!data.steps.length||data.steps.some(x=>!x.title||!x.text))error='请完整填写每个办理步骤的标题和说明。';
-      else if(data.entryType==='miniprogram'&&!/^#小程序:\/\/[^\r\n]+\/[^\s/]+$/.test((data.miniProgramShare||'').trim()))error='请填写完整的微信小程序分享口令，以“#小程序://”开头。';
+      else if(data.entryType==='miniprogram'&&data.miniProgramShare&&!/^#小程序:\/\/[^\r\n]+\/[^\s/]+$/.test((data.miniProgramShare||'').trim()))error='请填写完整的微信小程序分享口令，以“#小程序://”开头。';
+      else if(data.entryType==='miniprogram'&&data.miniProgramUrl&&!miniProgramURL(data.miniProgramUrl))error='请填写有效的HTTPS小程序链接或微信URL Scheme，分享口令请填在备用口令中。';
+      else if(data.entryType==='miniprogram'&&data.miniProgramCode&&!codeImageURL(data.miniProgramCode))error='小程序码图片不可用，请重新上传。';
       else if(data.entryType!=='miniprogram'&&data.terminal==='电脑与手机分别配置'&&(!validURL(data.pc)||!validURL(data.mobile)))error='两端均可办理时，请分别填写有效的电脑和手机地址。';
       else if(data.entryType!=='miniprogram'&&data.terminal==='仅电脑'&&!validURL(data.pc))error='请填写有效的电脑正式地址。';
       else if(data.entryType!=='miniprogram'&&data.terminal==='仅手机'&&!validURL(data.mobile))error='请填写有效的手机正式地址。';
       document.querySelector('#service-form-error').textContent=error;if(error)return;
-      if(data.entryType==='miniprogram'){data.miniProgramShare=data.miniProgramShare.trim();data.terminal='仅手机';}state.draft=data;save();location.href='service-preview.html?service='+encodeURIComponent(data.id);
+      if(data.entryType==='miniprogram'){data.miniProgramShare=(data.miniProgramShare||'').trim();data.miniProgramUrl=(data.miniProgramUrl||'').trim();data.terminal='仅手机';}state.draft=data;save();location.href='service-preview.html?service='+encodeURIComponent(data.id);
     });
   }
   function previews() {
